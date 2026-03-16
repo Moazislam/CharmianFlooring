@@ -38,6 +38,13 @@ body.rtl {
   direction: rtl;
   font-family: 'IBM Plex Sans Arabic', sans-serif;
 }
+body.rtl input,
+body.rtl textarea,
+body.rtl select,
+body.rtl button {
+  font-family: 'IBM Plex Sans Arabic', sans-serif;
+  text-align: right;
+}
 
 img { display: block; max-width: 100%; }
 
@@ -792,106 +799,6 @@ footer {
   .hero-stats    { gap: 24px; }
 }
 
-
-
-/* ── RESPONSIVE: TABLET ────────────────────────────────────────────────────── */
-@media (max-width: 900px) {
-  .products-grid { grid-template-columns: 1fr 1fr; }
-  .why-grid      { grid-template-columns: 1fr 1fr; }
-}
-
-/* ── RESPONSIVE: MOBILE ─────────────────────────────────────────────────────── */
-@media (max-width: 768px) {
-  /* NAV */
-  .nav-links     { display: none; }
-  .hamburger     { display: flex; }
-  nav            { padding: 0 20px; }
-
-  /* HERO */
-  .hero          { min-height: auto; padding: 72px 20px 56px; }
-  .hero-grid-bg,
-  .hero-vline    { display: none; }
-  .hero-content  { max-width: 100%; }
-  .hero-desc     { max-width: 100%; }
-  .hero-stats    {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    margin-top: 40px;
-    padding-top: 28px;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    text-align: center;
-  }
-  .stat          { padding: 0 12px; }
-  .stat + .stat  { border-left: 1px solid rgba(255,255,255,0.08); }
-  .stat-n        { font-size: 24px; }
-  .stat-l        { font-size: 9px; letter-spacing: 1.5px; }
-
-  /* ABOUT */
-  .about-grid    { grid-template-columns: 1fr; gap: 36px; }
-  .about-visual  { aspect-ratio: 16/9; min-height: 0; }
-  .about-feats   { gap: 10px; }
-
-  /* PRODUCTS */
-  .products-grid { grid-template-columns: 1fr; }
-  .p-img         { height: 180px; }
-  .p-body        { padding: 16px; }
-
-  /* WHY */
-  .why-grid      { grid-template-columns: 1fr 1fr; }
-  .w-card        { padding: 22px 18px; }
-  .w-num         { font-size: 26px; }
-
-  /* GALLERY */
-  .gallery-grid  {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-  }
-  .g-tall        { grid-row: auto; grid-column: span 2; min-height: 180px; }
-  .g-wide        { grid-column: span 2; min-height: 160px; }
-  .g-item        { min-height: 150px; }
-
-  /* CONTACT */
-  .contact-grid  { grid-template-columns: 1fr; gap: 36px; }
-  .contact-form  { padding: 22px; }
-  .f-row         { grid-template-columns: 1fr; }
-
-  /* FOOTER */
-  .footer-grid   { grid-template-columns: 1fr; gap: 32px; }
-  .footer-bottom { flex-direction: column; text-align: center; gap: 6px; }
-  .f-brand p     { max-width: 100%; }
-
-  /* CONTAINER */
-  .container     { padding-left: 20px; padding-right: 20px; }
-  .section-pad   { padding-left: 20px; padding-right: 20px; }
-}
-
-/* ── RESPONSIVE: SMALL PHONES ───────────────────────────────────────────────── */
-@media (max-width: 480px) {
-  h1             { font-size: 30px; }
-  h2             { font-size: 24px; }
-
-  .hero-btns     { flex-direction: column; }
-  .btn-gold,
-  .btn-ghost     { width: 100%; text-align: center; padding: 13px 20px; }
-
-  .why-grid      { grid-template-columns: 1fr; }
-  .about-feats   { grid-template-columns: 1fr; }
-
-  .gallery-grid  { grid-template-columns: 1fr; }
-  .g-tall,
-  .g-wide        { grid-column: auto; }
-
-  .wa-btn        { width: 46px; height: 46px; }
-  .wa-btn svg    { width: 22px; height: 22px; }
-
-  .hero-stats    { grid-template-columns: 1fr; border-top: 1px solid rgba(255,255,255,0.08); }
-  .stat          { padding: 10px 0; border-left: none !important; border-bottom: 1px solid rgba(255,255,255,0.06); text-align: left; display: flex; align-items: center; gap: 14px; }
-  .stat:last-child { border-bottom: none; }
-  .stat-n        { font-size: 26px; min-width: 60px; }
-  .stat-l        { font-size: 10px; }
-}
-
 </style>
 </head>
 <body id="body">
@@ -1218,7 +1125,7 @@ footer {
 </footer>
 
 <!-- WHATSAPP -->
-<a href="https://wa.me/201205542471" class="wa-btn" target="_blank" aria-label="WhatsApp">
+<a href="https://wa.me/201007388394" class="wa-btn" target="_blank" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
@@ -1229,24 +1136,43 @@ let lang = 'en';
 
 function applyLang(l) {
   const isAr = l === 'ar';
+
+  // Body direction + font
   document.body.classList.toggle('rtl', isAr);
+  document.body.style.fontFamily = isAr
+    ? "'IBM Plex Sans Arabic', sans-serif"
+    : "'Barlow', sans-serif";
+
+  // HTML lang + dir attributes
   document.documentElement.setAttribute('lang', l);
+  document.documentElement.setAttribute('dir', isAr ? 'rtl' : 'ltr');
+
+  // Nav button label
   document.getElementById('langBtn').textContent = isAr ? 'English' : 'عربي';
 
-  // Text nodes with data-en / data-ar
+  // All [data-en] / [data-ar] elements
   document.querySelectorAll('[data-en]').forEach(el => {
     const val = el.getAttribute('data-' + l);
     if (!val) return;
     if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
       el.placeholder = val;
+    } else if (el.tagName === 'OPTION') {
+      el.textContent = val;
     } else {
       el.innerHTML = val;
     }
   });
 
-  // Inputs with separate data-placeholder-en / data-placeholder-ar
+  // Inputs with separate placeholder attributes
   document.querySelectorAll('[data-placeholder-en]').forEach(el => {
     el.placeholder = el.getAttribute('data-placeholder-' + l) || el.placeholder;
+  });
+
+  // Re-apply Arabic font to the form elements so they render correctly
+  document.querySelectorAll('input, textarea, select, button').forEach(el => {
+    el.style.fontFamily = isAr
+      ? "'IBM Plex Sans Arabic', sans-serif"
+      : "'Barlow', sans-serif";
   });
 }
 
@@ -1265,18 +1191,24 @@ ham.addEventListener('click', () => {
 
 // Close on any mobile menu link click
 mobileMenu.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  a.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+  });
 });
 
-/* ── SMOOTH SCROLL (for anchor hrefs) ───────────────────────────────────── */
+/* ── SMOOTH SCROLL ───────────────────────────────────────────────────────── */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth' });
-      mobileMenu.classList.remove('open');
-    }
+    const href = a.getAttribute('href');
+    if (href === '#') return;
+    const target = document.getElementById(href.slice(1));
+    if (!target) return;
+    e.preventDefault();
+    mobileMenu.classList.remove('open');
+    setTimeout(() => {
+      const offset = target.getBoundingClientRect().top + window.scrollY - 62;
+      window.scrollTo({ top: offset, behavior: 'smooth' });
+    }, 10);
   });
 });
 
@@ -1307,4 +1239,17 @@ if (form) {
       if (data.success) {
         btn.textContent = lang === 'ar' ? 'تم الإرسال!' : 'Sent!';
         form.reset();
-        setTimeout(() => { btn.textContent = orig; btn.disabled = fa
+        setTimeout(() => { btn.textContent = orig; btn.disabled = false; }, 3000);
+      } else {
+        throw new Error('Failed');
+      }
+    } catch {
+      btn.textContent = lang === 'ar' ? 'حدث خطأ' : 'Error — try again';
+      btn.disabled = false;
+    }
+  });
+}
+
+</script>
+</body>
+</html>
