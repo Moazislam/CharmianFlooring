@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Charmain — Vinyl Flooring</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ── RESET & BASE ─────────────────────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy:        #272c4a;
+  --navy-light:  #32395c;
+  --gold:        #cda168;
+  --gold-light:  #dbb87e;
+  --cream:       #f9f4f0;
+  --limestone:   #e0d8cc;
+  --silver:      #cfd4d9;
+  --charcoal:    #4a4a4a;
+  --white:       #ffffff;
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: 'Barlow', sans-serif;
+  background: var(--cream);
+  color: var(--navy);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+body.rtl {
+  direction: rtl;
+  font-family: 'IBM Plex Sans Arabic', sans-serif;
+}
+
+img { display: block; max-width: 100%; }
+
+a { text-decoration: none; color: inherit; }
+
+/* ── UTILITY ──────────────────────────────────────────────────────────────── */
+.container   { max-width: 1160px; margin: 0 auto; padding: 0 5%; }
+.section-pad { padding: clamp(64px, 8vw, 100px) 5%; }
+.gold-bar    { width: 40px; height: 2px; background: var(--gold); margin: 16px 0 36px; }
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+h1, h2, h3, h4 { font-weight: 700; line-height: 1.15; }
+h1 { font-size: clamp(34px, 5vw, 54px); }
+h2 { font-size: clamp(26px, 4vw, 38px); }
+h3 { font-size: 17px; }
+h4 { font-size: 14px; }
+
+h1 em, h2 em { color: var(--gold); font-style: normal; }
+
+.body-text { color: var(--charcoal); font-size: 15px; line-height: 1.85; }
+
+/* ── BUTTONS ──────────────────────────────────────────────────────────────── */
+.btn-gold {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--navy);
+  padding: 14px 30px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s;
+}
+.btn-gold:hover { background: var(--gold-light); }
+
+.btn-ghost {
+  display: inline-block;
+  background: transparent;
+  color: rgba(255,255,255,0.85);
+  padding: 14px 30px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 2px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-ghost:hover { border-color: white; color: white; }
+
+/* ── NAVBAR ───────────────────────────────────────────────────────────────── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--navy);
+  border-bottom: 1px solid rgba(205,161,104,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  height: 62px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-mark {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 1px;
+  flex-shrink: 0;
+}
+
+.logo-text-wrap .brand {
+  display: block;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.logo-text-wrap .sub {
+  display: block;
+  color: var(--gold);
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 22px;
+}
+
+.nav-links a {
+  color: rgba(255,255,255,0.6);
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--gold); }
+
+.lang-btn {
+  background: transparent;
+  border: 1px solid rgba(205,161,104,0.45);
+  color: var(--gold);
+  padding: 5px 14px;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  font-family: inherit;
+  transition: background 0.2s, color 0.2s;
+}
+
+.lang-btn:hover { background: var(--gold); color: var(--navy); }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: white;
+  transition: all 0.3s;
+}
+
+/* ── MOBILE MENU ──────────────────────────────────────────────────────────── */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 62px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--navy);
+  z-index: 90;
+  flex-direction: column;
+  padding: 32px 5%;
+  gap: 0;
+}
+
+.mobile-menu.open { display: flex; }
+
+.mobile-menu a {
+  color: rgba(255,255,255,0.7);
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: color 0.2s;
+}
+
+.mobile-menu a:hover { color: var(--gold); }
+
+/* ── HERO ─────────────────────────────────────────────────────────────────── */
+.hero {
+  background: var(--navy);
+  min-height: calc(100vh - 62px);
+  display: flex;
+  align-items: center;
+  padding: clamp(60px, 8vw, 100px) 5%;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-grid-bg {
+  position: absolute;
+  right: 0; top: 0; bottom: 0;
+  width: 50%;
+  background:
+    repeating-linear-gradient(90deg, rgba(205,161,104,0.04) 0, rgba(205,161,104,0.04) 1px, transparent 1px, transparent 60px),
+    repeating-linear-gradient(0deg,  rgba(205,161,104,0.03) 0, rgba(205,161,104,0.03) 1px, transparent 1px, transparent 60px);
+}
+
+.hero-vline {
+  position: absolute;
+  right: 42%; top: 10%; bottom: 10%;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(205,161,104,0.35), transparent);
+}
+
+.hero-content {
+  max-width: 560px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 { color: white; margin-bottom: 18px; }
+
+.hero-desc {
+  color: rgba(255,255,255,0.55);
+  font-size: clamp(14px, 2vw, 16px);
+  line-height: 1.85;
+  margin-bottom: 36px;
+  max-width: 460px;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 52px;
+  padding-top: 36px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  flex-wrap: wrap;
+}
+
+.stat-n {
+  display: block;
+  color: var(--gold);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.stat-l {
+  display: block;
+  color: rgba(255,255,255,0.4);
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-top: 5px;
+}
+
+/* ── ABOUT ────────────────────────────────────────────────────────────────── */
+.about { background: white; }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 6vw, 72px);
+  align-items: center;
+}
+
+.about-visual {
+  background: var(--navy);
+  border-radius: 2px;
+  aspect-ratio: 4 / 3;
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.visual-grid-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(0deg,  rgba(205,161,104,0.05) 0, rgba(205,161,104,0.05) 1px, transparent 1px, transparent 44px),
+    repeating-linear-gradient(90deg, rgba(205,161,104,0.05) 0, rgba(205,161,104,0.05) 1px, transparent 1px, transparent 44px);
+}
+
+.visual-label {
+  color: rgba(255,255,255,0.2);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  line-height: 1.8;
+}
+
+.about-badge {
+  position: absolute;
+  bottom: 20px; right: 20px;
+  background: var(--gold);
+  color: var(--navy);
+  padding: 12px 18px;
+  border-radius: 2px;
+  z-index: 3;
+  text-align: center;
+}
+
+.rtl .about-badge { right: auto; left: 20px; }
+
+.badge-n { display: block; font-size: 26px; font-weight: 700; line-height: 1; }
+.badge-l { display: block; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 2px; }
+
+.about-text h2 { margin-bottom: 0; }
+
+.about-feats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.feat {
+  display: flex;
+  flex-direction: column;
+  padding: 14px 16px;
+  border: 1px solid var(--limestone);
+  border-radius: 2px;
+}
+
+.feat-title { font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 3px; }
+.feat-desc  { font-size: 12px; color: var(--charcoal); }
+
+/* ── PRODUCTS ─────────────────────────────────────────────────────────────── */
+.products { background: var(--cream); }
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.p-card {
+  background: white;
+  border-radius: 2px;
+  overflow: hidden;
+  border: 1px solid var(--limestone);
+  transition: transform 0.25s;
+}
+
+.p-card:hover { transform: translateY(-5px); }
+
+.p-img {
+  height: clamp(170px, 20vw, 220px);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.p-img--1 { background: #1e2340; }
+.p-img--2 { background: #2a2f4a; }
+.p-img--3 { background: #232840; }
+
+.p-img--1::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(45deg, rgba(205,161,104,0.07) 0, rgba(205,161,104,0.07) 1px, transparent 1px, transparent 18px);
+}
+
+.p-img--2::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    repeating-linear-gradient(0deg,  rgba(207,212,217,0.07) 0, rgba(207,212,217,0.07) 1px, transparent 1px, transparent 28px),
+    repeating-linear-gradient(90deg, rgba(207,212,217,0.07) 0, rgba(207,212,217,0.07) 1px, transparent 1px, transparent 28px);
+}
+
+.p-img--3::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(135deg, rgba(205,161,104,0.06) 0, rgba(205,161,104,0.06) 2px, transparent 2px, transparent 22px);
+}
+
+.p-img-label {
+  color: rgba(255,255,255,0.2);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.p-badge {
+  position: absolute;
+  top: 12px; left: 12px;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 4px 10px;
+  border-radius: 2px;
+  z-index: 3;
+  text-transform: uppercase;
+}
+
+.rtl .p-badge { left: auto; right: 12px; }
+
+.p-body { padding: 20px; }
+.p-body h3 { margin-bottom: 8px; }
+.p-body p  { font-size: 13px; color: var(--charcoal); line-height: 1.65; margin-bottom: 14px; }
+
+.p-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+
+.p-chips span {
+  background: var(--cream);
+  color: var(--charcoal);
+  font-size: 10px;
+  padding: 4px 10px;
+  border: 1px solid var(--limestone);
+  border-radius: 2px;
+  letter-spacing: 0.5px;
+}
+
+/* ── WHY ──────────────────────────────────────────────────────────────────── */
+.why { background: var(--navy); }
+.why h2, .why .eyebrow { color: white; }
+.why .eyebrow { color: var(--gold); }
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.w-card {
+  border: 1px solid rgba(205,161,104,0.18);
+  border-radius: 2px;
+  padding: 28px 22px;
+  transition: border-color 0.25s;
+}
+
+.w-card:hover { border-color: rgba(205,161,104,0.55); }
+
+.w-num {
+  display: block;
+  font-size: 32px;
+  font-weight: 700;
+  color: rgba(205,161,104,0.22);
+  line-height: 1;
+  margin-bottom: 14px;
+}
+
+.w-card h4 { color: var(--gold); margin-bottom: 10px; letter-spacing: 0.3px; }
+.w-card p  { color: rgba(255,255,255,0.45); font-size: 13px; line-height: 1.75; }
+
+/* ── GALLERY ──────────────────────────────────────────────────────────────── */
+.gallery { background: white; }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 220px 220px;
+  gap: 10px;
+}
+
+.g-item {
+  background: var(--navy);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.g-tall { grid-row: span 2; }
+.g-wide { grid-column: span 2; }
+
+.g-pat { position: absolute; inset: 0; }
+
+.g-pat--1 { background: repeating-linear-gradient(45deg,  rgba(205,161,104,0.05) 0, rgba(205,161,104,0.05) 1px, transparent 1px, transparent 20px); }
+.g-pat--2 { background: repeating-linear-gradient(0deg,   rgba(207,212,217,0.06) 0, rgba(207,212,217,0.06) 1px, transparent 1px, transparent 32px), repeating-linear-gradient(90deg, rgba(207,212,217,0.06) 0, rgba(207,212,217,0.06) 1px, transparent 1px, transparent 32px); }
+.g-pat--3 { background: repeating-linear-gradient(135deg, rgba(205,161,104,0.05) 0, rgba(205,161,104,0.05) 2px, transparent 2px, transparent 24px); }
+.g-pat--4 { background: repeating-linear-gradient(45deg,  rgba(224,216,204,0.06) 0, rgba(224,216,204,0.06) 1px, transparent 1px, transparent 16px); }
+.g-pat--5 { background: repeating-linear-gradient(0deg,   rgba(205,161,104,0.07) 0, rgba(205,161,104,0.07) 1px, transparent 1px, transparent 28px), repeating-linear-gradient(90deg, rgba(205,161,104,0.07) 0, rgba(205,161,104,0.07) 1px, transparent 1px, transparent 28px); }
+
+.g-label {
+  color: rgba(255,255,255,0.18);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* ── CONTACT ──────────────────────────────────────────────────────────────── */
+.contact { background: var(--cream); }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: clamp(32px, 6vw, 72px);
+  align-items: start;
+}
+
+.contact-info h2 { margin-bottom: 0; }
+
+.c-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.c-item svg {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  background: rgba(205,161,104,0.1);
+  border-radius: 50%;
+  padding: 10px;
+  fill: var(--gold);
+}
+
+.c-label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.c-val {
+  display: block;
+  font-size: 14px;
+  color: var(--charcoal);
+  margin-top: 3px;
+  line-height: 1.5;
+}
+
+.contact-form {
+  background: white;
+  padding: clamp(24px, 4vw, 36px);
+  border-radius: 2px;
+  border: 1px solid var(--limestone);
+}
+
+.f-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.f-group { margin-bottom: 16px; }
+
+.f-group label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.f-group input,
+.f-group textarea,
+.f-group select {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid var(--limestone);
+  border-radius: 2px;
+  font-size: 14px;
+  color: var(--navy);
+  background: var(--cream);
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.f-group input:focus,
+.f-group textarea:focus,
+.f-group select:focus { border-color: var(--gold); }
+
+.f-group textarea { resize: vertical; }
+
+.contact-form .btn-gold { width: 100%; text-align: center; }
+
+.f-note {
+  font-size: 11px;
+  color: var(--charcoal);
+  opacity: 0.5;
+  margin-top: 10px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* ── FOOTER ───────────────────────────────────────────────────────────────── */
+footer {
+  background: var(--navy);
+  padding: clamp(48px, 6vw, 72px) 5% 28px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: clamp(24px, 4vw, 48px);
+  margin-bottom: 48px;
+}
+
+.f-brand p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.8;
+  max-width: 280px;
+}
+
+.f-col h4 {
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.f-col a {
+  display: block;
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 9px;
+  transition: color 0.2s;
+}
+
+.f-col a:hover { color: var(--gold); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.footer-bottom p {
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+}
+
+/* ── WHATSAPP ─────────────────────────────────────────────────────────────── */
+.wa-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  transition: transform 0.2s;
+}
+
+.wa-btn:hover { transform: scale(1.08); }
+.wa-btn svg   { width: 26px; height: 26px; fill: white; }
+.rtl .wa-btn  { right: auto; left: 24px; }
+
+/* ── RTL OVERRIDES ────────────────────────────────────────────────────────── */
+.rtl .nav-links    { flex-direction: row-reverse; }
+.rtl .hero-content { text-align: right; }
+.rtl .hero-btns    { flex-direction: row-reverse; }
+.rtl .hero-stats   { flex-direction: row-reverse; }
+.rtl .footer-bottom { flex-direction: row-reverse; }
+
+/* ── RESPONSIVE ───────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .products-grid { grid-template-columns: 1fr 1fr; }
+  .why-grid      { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+
+  .hero-grid-bg,
+  .hero-vline { display: none; }
+
+  .hero { min-height: auto; padding: 64px 5% 60px; }
+
+  .about-grid,
+  .contact-grid { grid-template-columns: 1fr; }
+
+  .about-visual { aspect-ratio: 16 / 9; }
+
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+  .g-tall { grid-row: auto; grid-column: span 2; min-height: 180px; }
+  .g-wide { grid-column: span 2; }
+  .g-item { min-height: 160px; }
+
+  .footer-grid { grid-template-columns: 1fr; }
+
+  .f-row { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 520px) {
+  .products-grid { grid-template-columns: 1fr; }
+  .why-grid      { grid-template-columns: 1fr; }
+  .about-feats   { grid-template-columns: 1fr; }
+  .hero-btns     { flex-direction: column; }
+  .btn-gold,
+  .btn-ghost     { width: 100%; text-align: center; }
+  .gallery-grid  { grid-template-columns: 1fr; }
+  .g-tall,
+  .g-wide        { grid-column: auto; }
+  .hero-stats    { gap: 24px; }
+}
+
+
+
+/* ── RESPONSIVE: TABLET ────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .products-grid { grid-template-columns: 1fr 1fr; }
+  .why-grid      { grid-template-columns: 1fr 1fr; }
+}
+
+/* ── RESPONSIVE: MOBILE ─────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* NAV */
+  .nav-links     { display: none; }
+  .hamburger     { display: flex; }
+  nav            { padding: 0 20px; }
+
+  /* HERO */
+  .hero          { min-height: auto; padding: 72px 20px 56px; }
+  .hero-grid-bg,
+  .hero-vline    { display: none; }
+  .hero-content  { max-width: 100%; }
+  .hero-desc     { max-width: 100%; }
+  .hero-stats    {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin-top: 40px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+  }
+  .stat          { padding: 0 12px; }
+  .stat + .stat  { border-left: 1px solid rgba(255,255,255,0.08); }
+  .stat-n        { font-size: 24px; }
+  .stat-l        { font-size: 9px; letter-spacing: 1.5px; }
+
+  /* ABOUT */
+  .about-grid    { grid-template-columns: 1fr; gap: 36px; }
+  .about-visual  { aspect-ratio: 16/9; min-height: 0; }
+  .about-feats   { gap: 10px; }
+
+  /* PRODUCTS */
+  .products-grid { grid-template-columns: 1fr; }
+  .p-img         { height: 180px; }
+  .p-body        { padding: 16px; }
+
+  /* WHY */
+  .why-grid      { grid-template-columns: 1fr 1fr; }
+  .w-card        { padding: 22px 18px; }
+  .w-num         { font-size: 26px; }
+
+  /* GALLERY */
+  .gallery-grid  {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+  .g-tall        { grid-row: auto; grid-column: span 2; min-height: 180px; }
+  .g-wide        { grid-column: span 2; min-height: 160px; }
+  .g-item        { min-height: 150px; }
+
+  /* CONTACT */
+  .contact-grid  { grid-template-columns: 1fr; gap: 36px; }
+  .contact-form  { padding: 22px; }
+  .f-row         { grid-template-columns: 1fr; }
+
+  /* FOOTER */
+  .footer-grid   { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; text-align: center; gap: 6px; }
+  .f-brand p     { max-width: 100%; }
+
+  /* CONTAINER */
+  .container     { padding-left: 20px; padding-right: 20px; }
+  .section-pad   { padding-left: 20px; padding-right: 20px; }
+}
+
+/* ── RESPONSIVE: SMALL PHONES ───────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  h1             { font-size: 30px; }
+  h2             { font-size: 24px; }
+
+  .hero-btns     { flex-direction: column; }
+  .btn-gold,
+  .btn-ghost     { width: 100%; text-align: center; padding: 13px 20px; }
+
+  .why-grid      { grid-template-columns: 1fr; }
+  .about-feats   { grid-template-columns: 1fr; }
+
+  .gallery-grid  { grid-template-columns: 1fr; }
+  .g-tall,
+  .g-wide        { grid-column: auto; }
+
+  .wa-btn        { width: 46px; height: 46px; }
+  .wa-btn svg    { width: 22px; height: 22px; }
+
+  .hero-stats    { grid-template-columns: 1fr; border-top: 1px solid rgba(255,255,255,0.08); }
+  .stat          { padding: 10px 0; border-left: none !important; border-bottom: 1px solid rgba(255,255,255,0.06); text-align: left; display: flex; align-items: center; gap: 14px; }
+  .stat:last-child { border-bottom: none; }
+  .stat-n        { font-size: 26px; min-width: 60px; }
+  .stat-l        { font-size: 10px; }
+}
+
+</style>
+</head>
+<body id="body">
+
+<!-- NAV -->
+<nav id="navbar">
+  <a class="logo" href="#">
+    <div class="logo-mark">C</div>
+    <div class="logo-text-wrap">
+      <span class="brand">Charmain</span>
+      <span class="sub" data-en="Vinyl Flooring" data-ar="أرضيات فينيل">Vinyl Flooring</span>
+    </div>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#about"     data-en="About"       data-ar="من نحن">About</a></li>
+      <li><a href="#products"  data-en="Collections" data-ar="المجموعات">Collections</a></li>
+      <li><a href="#why"       data-en="Why Us"      data-ar="لماذا نحن">Why Us</a></li>
+      <li><a href="#gallery"   data-en="Gallery"     data-ar="المعرض">Gallery</a></li>
+      <li><a href="#contact"   data-en="Contact"     data-ar="اتصل بنا">Contact</a></li>
+    </ul>
+    <button class="lang-btn" id="langBtn">عربي</button>
+    <button class="hamburger" id="ham" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about"    data-en="About"       data-ar="من نحن">About</a>
+  <a href="#products" data-en="Collections" data-ar="المجموعات">Collections</a>
+  <a href="#why"      data-en="Why Us"      data-ar="لماذا نحن">Why Us</a>
+  <a href="#gallery"  data-en="Gallery"     data-ar="المعرض">Gallery</a>
+  <a href="#contact"  data-en="Contact"     data-ar="اتصل بنا">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-vline"></div>
+  <div class="hero-content">
+    <p class="eyebrow" data-en="Luxury Vinyl Flooring" data-ar="أرضيات فينيل فاخرة">Luxury Vinyl Flooring</p>
+    <h1 data-en="Where <em>Elegance</em><br>Meets the Floor" data-ar="حيث تلتقي <em>الأناقة</em><br>بالأرضية">Where <em>Elegance</em><br>Meets the Floor</h1>
+    <p class="hero-desc" data-en="Premium vinyl flooring solutions crafted for modern spaces. Waterproof, durable, and built to last." data-ar="حلول أرضيات فينيل راقية مصممة للمساحات الحديثة. مقاوم للماء ومتين وبُني ليدوم.">Premium vinyl flooring solutions crafted for modern spaces. Waterproof, durable, and built to last.</p>
+    <div class="hero-btns">
+      <a href="#products" class="btn-gold" data-en="Explore Collections" data-ar="استكشف المجموعات">Explore Collections</a>
+      <a href="#contact"  class="btn-ghost" data-en="Get a Quote" data-ar="اطلب عرض سعر">Get a Quote</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-n">500+</span>
+        <span class="stat-l" data-en="Projects" data-ar="مشروع">Projects</span>
+      </div>
+      <div class="stat">
+        <span class="stat-n">12+</span>
+        <span class="stat-l" data-en="Years" data-ar="سنة خبرة">Years</span>
+      </div>
+      <div class="stat">
+        <span class="stat-n">100%</span>
+        <span class="stat-l" data-en="Waterproof" data-ar="مقاوم للماء">Waterproof</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about section-pad" id="about">
+  <div class="container about-grid">
+    <div class="about-visual">
+      <div class="visual-grid-bg"></div>
+      <p class="visual-label" data-en="Brand Photo Placeholder" data-ar="صورة العلامة التجارية">Brand Photo Placeholder</p>
+      <div class="about-badge">
+        <span class="badge-n">12+</span>
+        <span class="badge-l" data-en="Years of Excellence" data-ar="سنوات من التميز">Years of Excellence</span>
+      </div>
+    </div>
+    <div class="about-text">
+      <p class="eyebrow" data-en="Our Story" data-ar="قصتنا">Our Story</p>
+      <h2 data-en="Functional Luxury,<br>Underfoot" data-ar="الفخامة الوظيفية،<br>تحت قدميك">Functional Luxury,<br>Underfoot</h2>
+      <div class="gold-bar"></div>
+      <p class="body-text" data-en="Charmain was founded on a single belief — that beautiful flooring should never come at the cost of performance. We deliver solutions that combine luxurious aesthetics with real-world durability, transforming any space with confidence." data-ar="تأسست شارمان على قناعة واحدة — أن الأرضيات الجميلة لا ينبغي أن تكون على حساب الأداء. نقدم حلولاً تجمع بين الجمالية الراقية والمتانة الحقيقية لتحويل أي مساحة بثقة.">Charmain was founded on a single belief — that beautiful flooring should never come at the cost of performance. We deliver solutions that combine luxurious aesthetics with real-world durability, transforming any space with confidence.</p>
+      <div class="about-feats">
+        <div class="feat">
+          <span class="feat-title" data-en="Waterproof"       data-ar="مقاوم للماء">Waterproof</span>
+          <span class="feat-desc"  data-en="100% waterproof core" data-ar="قلب فينيل مقاوم بالكامل">100% waterproof core</span>
+        </div>
+        <div class="feat">
+          <span class="feat-title" data-en="Scratch Resistant" data-ar="مقاوم للخدش">Scratch Resistant</span>
+          <span class="feat-desc"  data-en="Heavy duty wear layer" data-ar="طبقة تآكل شديدة التحمل">Heavy duty wear layer</span>
+        </div>
+        <div class="feat">
+          <span class="feat-title" data-en="Easy Install"  data-ar="سهل التركيب">Easy Install</span>
+          <span class="feat-desc"  data-en="Click-lock system" data-ar="نظام القفل بالنقر">Click-lock system</span>
+        </div>
+        <div class="feat">
+          <span class="feat-title" data-en="Premium Design"    data-ar="تصميم راقٍ">Premium Design</span>
+          <span class="feat-desc"  data-en="Curated collections" data-ar="مجموعات منتقاة بعناية">Curated collections</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products section-pad" id="products">
+  <div class="container">
+    <p class="eyebrow" data-en="Collections" data-ar="مجموعاتنا">Collections</p>
+    <h2 data-en="Our Range" data-ar="تشكيلتنا">Our Range</h2>
+    <div class="gold-bar"></div>
+    <div class="products-grid">
+
+      <div class="p-card">
+        <div class="p-img p-img--1">
+          <span class="p-badge" data-en="Bestseller" data-ar="الأكثر مبيعاً">Bestseller</span>
+          <span class="p-img-label" data-en="Product Photo" data-ar="صورة المنتج">Product Photo</span>
+        </div>
+        <div class="p-body">
+          <h3 data-en="Classic Oak Series" data-ar="سلسلة البلوط الكلاسيكي">Classic Oak Series</h3>
+          <p data-en="Timeless wood-look vinyl with warm undertones. Suited for living rooms and bedrooms." data-ar="فينيل بمظهر الخشب الخالد بنبرات دافئة. مناسب لغرف المعيشة وغرف النوم.">Timeless wood-look vinyl with warm undertones. Suited for living rooms and bedrooms.</p>
+          <div class="p-chips">
+            <span data-en="4mm"        data-ar="4 مم">4mm</span>
+            <span data-en="Waterproof" data-ar="مقاوم للماء">Waterproof</span>
+            <span data-en="Click Lock" data-ar="قفل بالنقر">Click Lock</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-card">
+        <div class="p-img p-img--2">
+          <span class="p-badge" data-en="New" data-ar="جديد">New</span>
+          <span class="p-img-label" data-en="Product Photo" data-ar="صورة المنتج">Product Photo</span>
+        </div>
+        <div class="p-body">
+          <h3 data-en="Marble Stone Collection" data-ar="مجموعة حجر الرخام">Marble Stone Collection</h3>
+          <p data-en="Elegant stone-look finish for kitchens and bathrooms. Anti-slip surface." data-ar="تشطيب أنيق بمظهر الحجر للمطابخ والحمامات. سطح مضاد للانزلاق.">Elegant stone-look finish for kitchens and bathrooms. Anti-slip surface.</p>
+          <div class="p-chips">
+            <span data-en="6mm"       data-ar="6 مم">6mm</span>
+            <span data-en="Anti-Slip" data-ar="مضاد للانزلاق">Anti-Slip</span>
+            <span data-en="Easy Clean" data-ar="سهل التنظيف">Easy Clean</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-card">
+        <div class="p-img p-img--3">
+          <span class="p-img-label" data-en="Product Photo" data-ar="صورة المنتج">Product Photo</span>
+        </div>
+        <div class="p-body">
+          <h3 data-en="Herringbone Elite" data-ar="النقشة النخبة">Herringbone Elite</h3>
+          <p data-en="Geometric patterned vinyl for premium interiors and statement spaces." data-ar="فينيل بنقشة هندسية للمساحات الراقية والتصاميم الداخلية المميزة.">Geometric patterned vinyl for premium interiors and statement spaces.</p>
+          <div class="p-chips">
+            <span data-en="5mm"         data-ar="5 مم">5mm</span>
+            <span data-en="UV Resistant" data-ar="مقاوم للأشعة">UV Resistant</span>
+            <span data-en="Heated Floor" data-ar="تدفئة أرضية">Heated Floor</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why section-pad" id="why">
+  <div class="container">
+    <p class="eyebrow" data-en="Why Charmain" data-ar="لماذا شارمان">Why Charmain</p>
+    <h2 data-en="Built Different" data-ar="مختلفون بالبناء">Built Different</h2>
+    <div class="gold-bar"></div>
+    <div class="why-grid">
+      <div class="w-card">
+        <span class="w-num">01</span>
+        <h4 data-en="100% Waterproof" data-ar="مقاوم للماء 100%">100% Waterproof</h4>
+        <p data-en="Fully waterproof from edge to edge — kitchens, bathrooms, and high-humidity spaces handled." data-ar="مقاوم للماء من حافة إلى حافة — مثالي للمطابخ والحمامات والمساحات الرطبة.">Fully waterproof from edge to edge — kitchens, bathrooms, and high-humidity spaces handled.</p>
+      </div>
+      <div class="w-card">
+        <span class="w-num">02</span>
+        <h4 data-en="Commercial Durability" data-ar="متانة تجارية">Commercial Durability</h4>
+        <p data-en="Heavy-duty wear layer engineered to resist scratches, dents, and years of heavy foot traffic." data-ar="طبقة تآكل شديدة التحمل مقاومة للخدوش والحفر وكثافة الاستخدام لسنوات.">Heavy-duty wear layer engineered to resist scratches, dents, and years of heavy foot traffic.</p>
+      </div>
+      <div class="w-card">
+        <span class="w-num">03</span>
+        <h4 data-en="Luxury Aesthetics" data-ar="جماليات فاخرة">Luxury Aesthetics</h4>
+        <p data-en="The visual richness of natural wood and stone — without the maintenance or the price." data-ar="غنى بصري يحاكي الخشب الطبيعي والحجر — دون تكاليف الصيانة أو السعر المرتفع.">The visual richness of natural wood and stone — without the maintenance or the price.</p>
+      </div>
+      <div class="w-card">
+        <span class="w-num">04</span>
+        <h4 data-en="Fast Installation" data-ar="تركيب سريع">Fast Installation</h4>
+        <p data-en="Click-lock system. Professional results in hours — no adhesive, no mess." data-ar="نظام القفل بالنقر. نتائج احترافية في ساعات — بلا لاصق ولا فوضى.">Click-lock system. Professional results in hours — no adhesive, no mess.</p>
+      </div>
+      <div class="w-card">
+        <span class="w-num">05</span>
+        <h4 data-en="Underfloor Heating" data-ar="تدفئة تحت الأرضية">Underfloor Heating</h4>
+        <p data-en="Compatible with underfloor heating systems. No warping. No separation." data-ar="متوافق مع أنظمة التدفئة تحت الأرضية. لا تشوه. لا انفصال.">Compatible with underfloor heating systems. No warping. No separation.</p>
+      </div>
+      <div class="w-card">
+        <span class="w-num">06</span>
+        <h4 data-en="Backed by Warranty" data-ar="ضمان شامل">Backed by Warranty</h4>
+        <p data-en="Every floor we sell comes with a comprehensive warranty. We stand behind every plank." data-ar="كل أرضية نبيعها مضمونة ضماناً شاملاً. نقف خلف كل لوح.">Every floor we sell comes with a comprehensive warranty. We stand behind every plank.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery section-pad" id="gallery">
+  <div class="container">
+    <p class="eyebrow" data-en="Our Work" data-ar="أعمالنا">Our Work</p>
+    <h2 data-en="Installed Projects" data-ar="مشاريع منجزة">Installed Projects</h2>
+    <div class="gold-bar"></div>
+    <div class="gallery-grid">
+      <div class="g-item g-tall"><div class="g-pat g-pat--1"></div><span class="g-label" data-en="Project Photo" data-ar="صورة مشروع">Project Photo</span></div>
+      <div class="g-item"><div class="g-pat g-pat--2"></div><span class="g-label" data-en="Project Photo" data-ar="صورة مشروع">Project Photo</span></div>
+      <div class="g-item"><div class="g-pat g-pat--3"></div><span class="g-label" data-en="Project Photo" data-ar="صورة مشروع">Project Photo</span></div>
+      <div class="g-item g-wide"><div class="g-pat g-pat--4"></div><span class="g-label" data-en="Project Photo" data-ar="صورة مشروع">Project Photo</span></div>
+      <div class="g-item"><div class="g-pat g-pat--5"></div><span class="g-label" data-en="Project Photo" data-ar="صورة مشروع">Project Photo</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact section-pad" id="contact">
+  <div class="container contact-grid">
+    <div class="contact-info">
+      <p class="eyebrow" data-en="Get in Touch" data-ar="تواصل معنا">Get in Touch</p>
+      <h2 data-en="Request a Quote" data-ar="اطلب عرض سعر">Request a Quote</h2>
+      <div class="gold-bar"></div>
+      <div class="c-item">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <div>
+          <span class="c-label" data-en="Showroom" data-ar="المعرض">Showroom</span>
+          <span class="c-val"   data-en="Cairo, Egypt — Address Placeholder" data-ar="القاهرة، مصر — العنوان">Cairo, Egypt — Address Placeholder</span>
+        </div>
+      </div>
+      <div class="c-item">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        <div>
+          <span class="c-label" data-en="Phone" data-ar="الهاتف">Phone</span>
+          <span class="c-val"   data-en="+20 xxx xxx xxxx" data-ar="+20 xxx xxx xxxx">+20 xxx xxx xxxx</span>
+        </div>
+      </div>
+      <div class="c-item">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        <div>
+          <span class="c-label" data-en="Email" data-ar="البريد الإلكتروني">Email</span>
+          <span class="c-val">hello@charmainflooring.com</span>
+        </div>
+      </div>
+      <div class="c-item">
+        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+        <div>
+          <span class="c-label" data-en="Hours" data-ar="ساعات العمل">Hours</span>
+          <span class="c-val"   data-en="Sat – Thu: 9am – 6pm" data-ar="السبت – الخميس: 9ص – 6م">Sat – Thu: 9am – 6pm</span>
+        </div>
+      </div>
+    </div>
+
+    <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY">
+      <input type="hidden" name="subject" value="New quote request — Charmain Flooring">
+      <div class="f-row">
+        <div class="f-group">
+          <label data-en="Full Name" data-ar="الاسم الكامل">Full Name</label>
+          <input type="text" name="name" required data-placeholder-en="Your name" data-placeholder-ar="اسمك" placeholder="Your name">
+        </div>
+        <div class="f-group">
+          <label data-en="Phone" data-ar="الهاتف">Phone</label>
+          <input type="tel" name="phone" data-placeholder-en="+20 xxx xxx xxxx" data-placeholder-ar="+20 xxx xxx xxxx" placeholder="+20 xxx xxx xxxx">
+        </div>
+      </div>
+      <div class="f-group">
+        <label data-en="Email" data-ar="البريد الإلكتروني">Email</label>
+        <input type="email" name="email" required data-placeholder-en="your@email.com" data-placeholder-ar="بريدك@example.com" placeholder="your@email.com">
+      </div>
+      <div class="f-group">
+        <label data-en="Collection" data-ar="المجموعة">Collection</label>
+        <select name="collection">
+          <option data-en="Classic Oak Series"       data-ar="سلسلة البلوط الكلاسيكي">Classic Oak Series</option>
+          <option data-en="Marble Stone Collection"  data-ar="مجموعة حجر الرخام">Marble Stone Collection</option>
+          <option data-en="Herringbone Elite"        data-ar="النقشة النخبة">Herringbone Elite</option>
+          <option data-en="Not sure yet"             data-ar="لست متأكداً بعد">Not sure yet</option>
+        </select>
+      </div>
+      <div class="f-group">
+        <label data-en="Message" data-ar="رسالتك">Message</label>
+        <textarea name="message" rows="4" data-placeholder-en="Tell us about your project..." data-placeholder-ar="أخبرنا عن مشروعك...">Tell us about your project...</textarea>
+      </div>
+      <button type="submit" class="btn-gold" data-en="Send Request" data-ar="إرسال الطلب">Send Request</button>
+      <p class="f-note" data-en="Powered by Web3Forms — replies go to email &amp; Google Sheets" data-ar="عبر Web3Forms — تصل الردود لبريدك وجداول Google">Powered by Web3Forms — replies go to email &amp; Google Sheets</p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container footer-grid">
+    <div class="f-brand">
+      <div class="logo" style="margin-bottom:14px;">
+        <div class="logo-mark">C</div>
+        <div class="logo-text-wrap">
+          <span class="brand">Charmain</span>
+          <span class="sub" data-en="Vinyl Flooring" data-ar="أرضيات فينيل">Vinyl Flooring</span>
+        </div>
+      </div>
+      <p data-en="Premium vinyl flooring solutions combining luxurious aesthetics with real-world durability." data-ar="حلول أرضيات فينيل فاخرة تجمع بين الجمالية الراقية والمتانة الحقيقية.">Premium vinyl flooring solutions combining luxurious aesthetics with real-world durability.</p>
+    </div>
+    <div class="f-col">
+      <h4 data-en="Navigation" data-ar="روابط">Navigation</h4>
+      <a href="#about"    data-en="About Us"     data-ar="من نحن">About Us</a>
+      <a href="#products" data-en="Collections"  data-ar="المجموعات">Collections</a>
+      <a href="#gallery"  data-en="Gallery"      data-ar="المعرض">Gallery</a>
+      <a href="#contact"  data-en="Contact"      data-ar="اتصل بنا">Contact</a>
+    </div>
+    <div class="f-col">
+      <h4 data-en="Collections" data-ar="المجموعات">Collections</h4>
+      <a href="#products" data-en="Classic Oak Series"      data-ar="سلسلة البلوط الكلاسيكي">Classic Oak Series</a>
+      <a href="#products" data-en="Marble Stone Collection" data-ar="مجموعة حجر الرخام">Marble Stone Collection</a>
+      <a href="#products" data-en="Herringbone Elite"       data-ar="النقشة النخبة">Herringbone Elite</a>
+    </div>
+  </div>
+  <div class="footer-bottom container">
+    <p data-en="© 2026 Charmain Vinyl Flooring. All rights reserved." data-ar="© 2026 شارمان للأرضيات الفينيل. جميع الحقوق محفوظة.">© 2026 Charmain Vinyl Flooring. All rights reserved.</p>
+    <p>charmainflooring.com</p>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/20xxxxxxxxx" class="wa-btn" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+
+<script>
+/* ── LANG TOGGLE ─────────────────────────────────────────────────────────── */
+let lang = 'en';
+
+function applyLang(l) {
+  const isAr = l === 'ar';
+  document.body.classList.toggle('rtl', isAr);
+  document.documentElement.setAttribute('lang', l);
+  document.getElementById('langBtn').textContent = isAr ? 'English' : 'عربي';
+
+  // Text nodes with data-en / data-ar
+  document.querySelectorAll('[data-en]').forEach(el => {
+    const val = el.getAttribute('data-' + l);
+    if (!val) return;
+    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+      el.placeholder = val;
+    } else {
+      el.innerHTML = val;
+    }
+  });
+
+  // Inputs with separate data-placeholder-en / data-placeholder-ar
+  document.querySelectorAll('[data-placeholder-en]').forEach(el => {
+    el.placeholder = el.getAttribute('data-placeholder-' + l) || el.placeholder;
+  });
+}
+
+document.getElementById('langBtn').addEventListener('click', () => {
+  lang = lang === 'en' ? 'ar' : 'en';
+  applyLang(lang);
+});
+
+/* ── MOBILE MENU ─────────────────────────────────────────────────────────── */
+const ham        = document.getElementById('ham');
+const mobileMenu = document.getElementById('mobileMenu');
+
+ham.addEventListener('click', () => {
+  mobileMenu.classList.toggle('open');
+});
+
+// Close on any mobile menu link click
+mobileMenu.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+});
+
+/* ── SMOOTH SCROLL (for anchor hrefs) ───────────────────────────────────── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+      mobileMenu.classList.remove('open');
+    }
+  });
+});
+
+/* ── NAVBAR SCROLL SHADOW ────────────────────────────────────────────────── */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.style.boxShadow = window.scrollY > 20
+    ? '0 2px 20px rgba(0,0,0,0.25)'
+    : 'none';
+}, { passive: true });
+
+/* ── CONTACT FORM ────────────────────────────────────────────────────────── */
+const form = document.getElementById('contactForm');
+if (form) {
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    const orig = btn.textContent;
+    btn.textContent = lang === 'ar' ? 'جارٍ الإرسال...' : 'Sending...';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form)
+      });
+      const data = await res.json();
+      if (data.success) {
+        btn.textContent = lang === 'ar' ? 'تم الإرسال!' : 'Sent!';
+        form.reset();
+        setTimeout(() => { btn.textContent = orig; btn.disabled = fa
