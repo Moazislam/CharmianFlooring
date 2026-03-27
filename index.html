@@ -219,8 +219,8 @@ nav {
   border-radius: 2px 2px 0 0;
 }
 
-.collection-panel { display: none; }
-.collection-panel.active { display: block; }
+.collection-panel { display: none !important; }
+.collection-panel.active { display: block !important; }
 
 .collection-hero {
   display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px,5vw,64px);
@@ -615,7 +615,7 @@ footer { background: var(--navy); padding: clamp(48px,6vw,72px) 5% 28px; }
   .collection-hero     { grid-template-columns: 1fr; gap: 28px; }
   .coll-grid           { grid-template-columns: 1fr 1fr; }
   .collection-specs    { grid-template-columns: 1fr 1fr; }
-  .collection-tabs     { overflow-x: auto; -webkit-overflow-scrolling: touch; flex-wrap: nowrap; padding-bottom: 2px; }
+  .collection-tabs     { overflow-x: auto; overflow-y: visible; -webkit-overflow-scrolling: touch; flex-wrap: nowrap; padding-bottom: 2px; }
   .tab-btn             { padding: 12px 16px; font-size: 10px; letter-spacing: 1.5px; white-space: nowrap; flex-shrink: 0; }
 
   /* SWATCHES */
@@ -815,7 +815,9 @@ footer { background: var(--navy); padding: clamp(48px,6vw,72px) 5% 28px; }
 }
 *, *::before, *::after { max-width: 100%; }
 img { max-width: 100%; height: auto; }
-.container { overflow: hidden; }
+/* Prevent horizontal scroll without clipping inner panels/dropdowns */
+body { overflow-x: hidden; }
+.container { overflow: visible; }
 
 
 /* ── SWATCHES ──────────────────────────────────────────────────────────── */
@@ -845,6 +847,41 @@ img { max-width: 100%; height: auto; }
 }
 .swatch-name {
   font-size: 9px; color: var(--charcoal); line-height: 1.3; text-align: center;
+}
+
+/* ── FORM DESIGN PICKER ────────────────────────────────────────────────── */
+.f-hint {
+  font-size: 12px; color: var(--charcoal); margin: -4px 0 12px; line-height: 1.5;
+}
+.form-swatch-row {
+  display: flex; gap: 8px; flex-wrap: wrap;
+}
+.form-swatch-item {
+  display: flex; flex-direction: column; align-items: center; gap: 5px;
+  width: 72px; text-align: center; cursor: pointer;
+  transition: opacity 0.2s;
+}
+.form-swatch-item:hover { opacity: 0.85; }
+.form-swatch-thumb {
+  width: 56px; height: 36px; border-radius: 4px;
+  border: 2px solid transparent;
+  transition: border-color 0.18s, box-shadow 0.18s, transform 0.18s;
+}
+.form-swatch-item:hover .form-swatch-thumb {
+  transform: scale(1.08);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.form-swatch-item.selected .form-swatch-thumb {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(205,161,104,0.3), 0 4px 12px rgba(0,0,0,0.2);
+  transform: scale(1.06);
+}
+.form-swatch-code {
+  font-size: 8px; font-weight: 700; letter-spacing: 1px;
+  color: var(--navy); text-transform: uppercase; line-height: 1;
+}
+.form-swatch-name {
+  font-size: 8px; color: var(--charcoal); line-height: 1.3;
 }
 
 
@@ -1491,6 +1528,12 @@ body.rtl .hero-desc { line-height: 2; }
       </div>
 
       <!-- Colour swatches from catalogue -->
+      <div class="collection-gallery" style="margin-top:16px;">
+        <h3 data-en="Available Designs" data-ar="التصاميم المتاحة">Available Designs</h3>
+        <div class="swatch-groups">
+
+          <div class="swatch-group">
+            <h4 class="swatch-group-title">Terrazzo</h4>
             <div class="swatch-row">
               <div class="swatch-item" data-bg="images/CVG-T01.jpg" data-code="CVG-T01" data-name-en="Beige Multicolor" data-name-ar="بيج متعدد الألوان" data-thick="0.5–2.0mm" data-desc-en="Warm beige terrazzo with multicolored stone inclusions — ideal for living rooms and hallways." data-desc-ar="تيرازو بيج دافئ مع شوائب حجرية متعددة الألوان — مثالي لغرف المعيشة والممرات."><div class="swatch-color" style="background:url('images/CVG-T01.jpg') center 70%/cover no-repeat"></div><span class="swatch-code">CVG-T01</span><span class="swatch-name" data-en="Beige Multicolor" data-ar="بيج متعدد الألوان">Beige Multicolor</span></div>
               <div class="swatch-item" data-bg="images/CVG-T02.jpg" data-code="CVG-T02" data-img="yes" data-name-en="Beige Dark Inclusions" data-name-ar="بيج داكن" data-thick="0.5–2.0mm" data-desc-en="Classic beige terrazzo with deep dark stone chips — a timeless choice for any interior." data-desc-ar="تيرازو بيج كلاسيكي مع رقائق حجرية داكنة — خيار خالد لأي ديكور داخلي."><div class="swatch-color" style="background:url('images/CVG-T02.jpg') center 70%/cover no-repeat"></div><span class="swatch-code">CVG-T02</span><span class="swatch-name" data-en="Beige Dark Inclusions" data-ar="بيج داكن">Beige Dark Inclusions</span></div>
@@ -1522,7 +1565,7 @@ body.rtl .hero-desc { line-height: 2; }
         </div>
       </div>
 
-    </div>
+    </div><!-- /panel-marble -->
 
     <!-- ── WOOD VINYL COLLECTION ─────────────────────────────────────────── -->
     <div class="collection-panel" id="panel-wood">
@@ -1813,6 +1856,10 @@ body.rtl .hero-desc { line-height: 2; }
     <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
       <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY">
       <input type="hidden" name="subject" value="New quote request — Charmain Flooring">
+      <input type="hidden" name="collection" id="collectionVal" value="">
+      <input type="hidden" name="design_code" id="designCodeInput" value="">
+
+      <!-- Name + Phone -->
       <div class="f-row">
         <div class="f-group">
           <label data-en="Full Name" data-ar="الاسم الكامل">Full Name</label>
@@ -1823,52 +1870,103 @@ body.rtl .hero-desc { line-height: 2; }
           <input type="tel" name="phone" data-placeholder-en="+20 xxx xxx xxxx" data-placeholder-ar="+20 xxx xxx xxxx" placeholder="+20 xxx xxx xxxx">
         </div>
       </div>
+
+      <!-- Email -->
       <div class="f-group">
         <label data-en="Email" data-ar="البريد الإلكتروني">Email</label>
         <input type="email" name="email" required data-placeholder-en="your@email.com" data-placeholder-ar="بريدك@example.com" placeholder="your@email.com">
       </div>
+
+      <!-- Collection selector -->
       <div class="f-group">
         <label data-en="Collection" data-ar="المجموعة">Collection</label>
-        <input type="hidden" name="collection" id="collectionVal" value="marble">
         <div class="custom-select-wrap" id="collectionWrap">
           <div class="select-trigger" id="selectTrigger">
-            <span class="select-trigger-text" id="triggerText" data-en="Marble Collection" data-ar="مجموعة الرخام">Marble Collection</span>
+            <span class="select-trigger-text" id="triggerText" data-en="Select a collection…" data-ar="اختر مجموعة…">Select a collection…</span>
             <span class="select-arrow"></span>
           </div>
           <div class="custom-dropdown" id="customDropdown">
-            <div class="custom-option selected" data-value="marble" data-en="Living Room Collection" data-ar="مجموعة غرفة المعيشة"><span class="opt-dot"></span><span class="opt-label" data-en="Marble Collection" data-ar="مجموعة الرخام">Marble Collection</span><svg class="opt-check" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
-            <div class="custom-option" data-value="wood" data-en="Wood Vinyl Collection" data-ar="مجموعة فينيل الخشب"><span class="opt-dot"></span><span class="opt-label" data-en="Wood Vinyl Collection" data-ar="مجموعة فينيل الخشب">Wood Vinyl Collection</span><svg class="opt-check" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
-            <div class="custom-option" data-value="elite" data-en="Elite Oak Collection" data-ar="مجموعة إيليت أوك"><span class="opt-dot"></span><span class="opt-label" data-en="Elite Oak Collection" data-ar="مجموعة إيليت أوك">Elite Oak Collection</span><svg class="opt-check" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
-            <div class="custom-option" data-value="not-sure" data-en="Not sure yet" data-ar="لست متأكداً بعد"><span class="opt-dot"></span><span class="opt-label" data-en="Not sure yet" data-ar="لست متأكداً بعد">Not sure yet</span><svg class="opt-check" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+            <div class="custom-option" data-value="marble"   data-en="Marble Collection"   data-ar="مجموعة الرخام"><span class="opt-dot"></span><span class="opt-label" data-en="Marble Collection"   data-ar="مجموعة الرخام">Marble Collection</span><svg class="opt-check" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+            <div class="custom-option" data-value="wood"     data-en="Wood Vinyl Collection" data-ar="مجموعة فينيل الخشب"><span class="opt-dot"></span><span class="opt-label" data-en="Wood Vinyl Collection" data-ar="مجموعة فينيل الخشب">Wood Vinyl Collection</span><svg class="opt-check" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+            <div class="custom-option" data-value="elite"    data-en="Elite Oak Collection"  data-ar="مجموعة إيليت أوك"><span class="opt-dot"></span><span class="opt-label" data-en="Elite Oak Collection"  data-ar="مجموعة إيليت أوك">Elite Oak Collection</span><svg class="opt-check" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+            <div class="custom-option" data-value="custom"   data-en="Custom Collection"     data-ar="مجموعة مخصصة"><span class="opt-dot"></span><span class="opt-label" data-en="Custom Collection"     data-ar="مجموعة مخصصة">Custom Collection</span><svg class="opt-check" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+            <div class="custom-option" data-value="not-sure" data-en="Not sure yet"          data-ar="لست متأكداً بعد"><span class="opt-dot"></span><span class="opt-label" data-en="Not sure yet"          data-ar="لست متأكداً بعد">Not sure yet</span><svg class="opt-check" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
           </div>
         </div>
       </div>
-      <div class="f-group" id="designFieldGroup" style="display:none;">
-        <label data-en="Selected Design" data-ar="التصميم المختار">Selected Design</label>
-        <div style="display:flex;gap:10px;align-items:center;">
-          <div id="contactSwatchPreview" style="
-            width:48px;height:48px;border-radius:3px;flex-shrink:0;
-            border:1px solid rgba(205,161,104,0.3);
-            box-shadow:0 0 0 3px var(--navy),0 0 0 4px rgba(205,161,104,0.3);
-          "></div>
-          <input type="text" name="design_code" id="designCodeInput" readonly
-            style="background:rgba(205,161,104,0.08);border-color:rgba(205,161,104,0.3);
-            color:var(--gold);font-weight:700;letter-spacing:2px;cursor:default;"
-            placeholder="No design selected">
-        </div>
-        <div style="margin-top:6px;display:flex;align-items:center;gap:8px;">
-          <span id="designNameDisplay" style="font-size:12px;color:var(--charcoal);flex:1;"></span>
-          <button type="button" onclick="clearDesignSelection()"
-            style="background:none;border:none;color:rgba(39,44,74,0.4);font-size:11px;
-            letter-spacing:1px;text-transform:uppercase;cursor:pointer;font-family:inherit;
-            padding:2px 0;"
-            data-en="Clear" data-ar="مسح">Clear</button>
+
+      <!-- ── DESIGN PICKER (shown after collection selected) ── -->
+      <div id="formDesignPicker" style="display:none;">
+        <div class="f-group">
+          <label data-en="Select a Design" data-ar="اختر تصميماً">Select a Design</label>
+          <p class="f-hint" data-en="Click a swatch to select your preferred design." data-ar="انقر على لوحة اللون لاختيار التصميم المفضل لديك.">Click a swatch to select your preferred design.</p>
+
+          <!-- Marble designs -->
+          <div id="formSwatches-marble" class="form-swatch-group" style="display:none;">
+            <div class="form-swatch-row">
+              <div class="form-swatch-item" data-code="CVG-T01" data-name-en="Beige Multicolor"    data-name-ar="بيج متعدد الألوان"  data-bg="images/CVG-T01.jpg"><div class="form-swatch-thumb" style="background:url('images/CVG-T01.jpg') center/cover"></div><span class="form-swatch-code">CVG-T01</span><span class="form-swatch-name" data-en="Beige Multicolor"    data-ar="بيج متعدد الألوان">Beige Multicolor</span></div>
+              <div class="form-swatch-item" data-code="CVG-T02" data-name-en="Beige Dark Inclusions" data-name-ar="بيج داكن"          data-bg="images/CVG-T02.jpg"><div class="form-swatch-thumb" style="background:url('images/CVG-T02.jpg') center/cover"></div><span class="form-swatch-code">CVG-T02</span><span class="form-swatch-name" data-en="Beige Dark Inclusions" data-ar="بيج داكن">Beige Dark Inclusions</span></div>
+              <div class="form-swatch-item" data-code="CVG-T03" data-name-en="Burgundy Speckled"   data-name-ar="بورغندي منقط"       data-bg="images/CVG-T03.jpg"><div class="form-swatch-thumb" style="background:url('images/CVG-T03.jpg') center/cover"></div><span class="form-swatch-code">CVG-T03</span><span class="form-swatch-name" data-en="Burgundy Speckled"   data-ar="بورغندي منقط">Burgundy Speckled</span></div>
+              <div class="form-swatch-item" data-code="CVG-T04" data-name-en="Light Grey Speckled" data-name-ar="رمادي فاتح منقط"    data-bg="images/CVG-T04.jpg"><div class="form-swatch-thumb" style="background:url('images/CVG-T04.jpg') center/cover"></div><span class="form-swatch-code">CVG-T04</span><span class="form-swatch-name" data-en="Light Grey Speckled" data-ar="رمادي فاتح منقط">Light Grey Speckled</span></div>
+              <div class="form-swatch-item" data-code="CVG-C07" data-name-en="White Calacatta"     data-name-ar="كالاكاتا أبيض"       data-bg="images/CVG-C07.jpg"><div class="form-swatch-thumb" style="background:url('images/CVG-C07.jpg') center/cover"></div><span class="form-swatch-code">CVG-C07</span><span class="form-swatch-name" data-en="White Calacatta"     data-ar="كالاكاتا أبيض">White Calacatta</span></div>
+              <div class="form-swatch-item" data-code="CVG-C08" data-name-en="Golden Calacatta"    data-name-ar="كالاكاتا ذهبي"       data-bg="images/CVG-C08.jpg"><div class="form-swatch-thumb" style="background:url('images/CVG-C08.jpg') center/cover"></div><span class="form-swatch-code">CVG-C08</span><span class="form-swatch-name" data-en="Golden Calacatta"    data-ar="كالاكاتا ذهبي">Golden Calacatta</span></div>
+              <div class="form-swatch-item" data-code="CVG-C09" data-name-en="Black Calacatta"     data-name-ar="كالاكاتا أسود"       data-bg="images/CVG-C09.jpg"><div class="form-swatch-thumb" style="background:url('images/CVG-C09.jpg') center/cover"></div><span class="form-swatch-code">CVG-C09</span><span class="form-swatch-name" data-en="Black Calacatta"     data-ar="كالاكاتا أسود">Black Calacatta</span></div>
+              <div class="form-swatch-item" data-code="CVG-C10" data-name-en="Grey Calacatta"      data-name-ar="كالاكاتا رمادي"      data-bg="images/CVG-C10.jpg"><div class="form-swatch-thumb" style="background:url('images/CVG-C10.jpg') center/cover"></div><span class="form-swatch-code">CVG-C10</span><span class="form-swatch-name" data-en="Grey Calacatta"      data-ar="كالاكاتا رمادي">Grey Calacatta</span></div>
+              <div class="form-swatch-item" data-code="CVG-G05" data-name-en="Graphite Dark Grey"  data-name-ar="جرافيت رمادي داكن"   data-bg="images/CVG-G05.jpg"><div class="form-swatch-thumb" style="background:url('images/CVG-G05.jpg') center/cover"></div><span class="form-swatch-code">CVG-G05</span><span class="form-swatch-name" data-en="Graphite Dark Grey"  data-ar="جرافيت رمادي داكن">Graphite Dark Grey</span></div>
+              <div class="form-swatch-item" data-code="CVG-N6"  data-name-en="Navona Golden Brown" data-name-ar="نافونا بني ذهبي"    data-bg="images/CVG-N6.jpg"><div class="form-swatch-thumb"  style="background:url('images/CVG-N6.jpg') center/cover"></div><span class="form-swatch-code">CVG-N6</span><span class="form-swatch-name"  data-en="Navona Golden Brown" data-ar="نافونا بني ذهبي">Navona Golden Brown</span></div>
+              <div class="form-swatch-item" data-code="CVG-A11" data-name-en="Argento Light Grey"  data-name-ar="أرجنتو رمادي فاتح"  data-bg="images/CVG-A11.jpg"><div class="form-swatch-thumb" style="background:url('images/CVG-A11.jpg') center/cover"></div><span class="form-swatch-code">CVG-A11</span><span class="form-swatch-name" data-en="Argento Light Grey"  data-ar="أرجنتو رمادي فاتح">Argento Light Grey</span></div>
+              <div class="form-swatch-item" data-code="CVG-S12" data-name-en="Silver Wave Speckled" data-name-ar="موجة فضية"         data-bg="images/CVG-S12.jpg"><div class="form-swatch-thumb" style="background:url('images/CVG-S12.jpg') center/cover"></div><span class="form-swatch-code">CVG-S12</span><span class="form-swatch-name" data-en="Silver Wave Speckled" data-ar="موجة فضية">Silver Wave Speckled</span></div>
+            </div>
+          </div>
+
+          <!-- Wood Vinyl designs -->
+          <div id="formSwatches-wood" class="form-swatch-group" style="display:none;">
+            <div class="form-swatch-row">
+              <div class="form-swatch-item" data-code="CVM-B01" data-name-en="Smoked Oak"              data-name-ar="بلوط مدخن"                    data-bg="images/CVM-B01.jpg"><div class="form-swatch-thumb" style="background:url('images/CVM-B01.jpg') center/cover"></div><span class="form-swatch-code">CVM-B01</span><span class="form-swatch-name" data-en="Smoked Oak"              data-ar="بلوط مدخن">Smoked Oak</span></div>
+              <div class="form-swatch-item" data-code="CVM-B02" data-name-en="Natural Light Oak"       data-name-ar="بلوط فاتح طبيعي"              data-bg="images/CVM-B02.jpg"><div class="form-swatch-thumb" style="background:url('images/CVM-B02.jpg') center/cover"></div><span class="form-swatch-code">CVM-B02</span><span class="form-swatch-name" data-en="Natural Light Oak"       data-ar="بلوط فاتح طبيعي">Natural Light Oak</span></div>
+              <div class="form-swatch-item" data-code="CVM-B03" data-name-en="Soft Brown Wood"         data-name-ar="خشب بني ناعم"                 data-bg="images/CVM-B03.jpg"><div class="form-swatch-thumb" style="background:url('images/CVM-B03.jpg') center/cover"></div><span class="form-swatch-code">CVM-B03</span><span class="form-swatch-name" data-en="Soft Brown Wood"         data-ar="خشب بني ناعم">Soft Brown Wood</span></div>
+              <div class="form-swatch-item" data-code="CVM-C04" data-name-en="Golden Wood"             data-name-ar="خشب ذهبي"                     data-bg="images/CVM-C04.jpg"><div class="form-swatch-thumb" style="background:url('images/CVM-C04.jpg') center/cover"></div><span class="form-swatch-code">CVM-C04</span><span class="form-swatch-name" data-en="Golden Wood"             data-ar="خشب ذهبي">Golden Wood</span></div>
+              <div class="form-swatch-item" data-code="CVM-C05" data-name-en="Warm Brown Wood"         data-name-ar="خشب بني دافئ"                 data-bg="images/CVM-C05.jpg"><div class="form-swatch-thumb" style="background:url('images/CVM-C05.jpg') center/cover"></div><span class="form-swatch-code">CVM-C05</span><span class="form-swatch-name" data-en="Warm Brown Wood"         data-ar="خشب بني دافئ">Warm Brown Wood</span></div>
+              <div class="form-swatch-item" data-code="CVM-P06" data-name-en="Herringbone Parquet"     data-name-ar="هارينغبون"                    data-bg="images/CVM-P06.jpg"><div class="form-swatch-thumb" style="background:url('images/CVM-P06.jpg') center/cover"></div><span class="form-swatch-code">CVM-P06</span><span class="form-swatch-name" data-en="Herringbone Parquet"     data-ar="هارينغبون">Herringbone Parquet</span></div>
+              <div class="form-swatch-item" data-code="CVM-G07" data-name-en="Light Grey"              data-name-ar="رمادي فاتح"                   data-bg="images/CVM-G07.jpg"><div class="form-swatch-thumb" style="background:url('images/CVM-G07.jpg') center/cover"></div><span class="form-swatch-code">CVM-G07</span><span class="form-swatch-name" data-en="Light Grey"              data-ar="رمادي فاتح">Light Grey</span></div>
+              <div class="form-swatch-item" data-code="CVM-G08" data-name-en="Dark Grey"               data-name-ar="رمادي داكن"                   data-bg="images/CVM-G08.jpg"><div class="form-swatch-thumb" style="background:url('images/CVM-G08.jpg') center/cover"></div><span class="form-swatch-code">CVM-G08</span><span class="form-swatch-name" data-en="Dark Grey"               data-ar="رمادي داكن">Dark Grey</span></div>
+              <div class="form-swatch-item" data-code="CVM-R09" data-name-en="Rustic Multi-Tone Plank" data-name-ar="بلاط متعدد الألوان الريفي"   data-bg="images/CVM-R09.jpg"><div class="form-swatch-thumb" style="background:url('images/CVM-R09.jpg') center/cover"></div><span class="form-swatch-code">CVM-R09</span><span class="form-swatch-name" data-en="Rustic Multi-Tone Plank" data-ar="بلاط متعدد الألوان الريفي">Rustic Multi-Tone</span></div>
+              <div class="form-swatch-item" data-code="CVM-W10" data-name-en="Herringbone Dark Wood"   data-name-ar="هارينغبون داكن"               data-bg="images/CVM-W10.jpg"><div class="form-swatch-thumb" style="background:url('images/CVM-W10.jpg') center/cover"></div><span class="form-swatch-code">CVM-W10</span><span class="form-swatch-name" data-en="Herringbone Dark Wood"   data-ar="هارينغبون داكن">Herringbone Dark</span></div>
+              <div class="form-swatch-item" data-code="CVM-W11" data-name-en="Dark Walnut Wood"        data-name-ar="جوز داكن"                     data-bg="images/CVM-W11.jpg"><div class="form-swatch-thumb" style="background:url('images/CVM-W11.jpg') center/cover"></div><span class="form-swatch-code">CVM-W11</span><span class="form-swatch-name" data-en="Dark Walnut Wood"        data-ar="جوز داكن">Dark Walnut Wood</span></div>
+            </div>
+          </div>
+
+          <!-- Elite Oak designs -->
+          <div id="formSwatches-elite" class="form-swatch-group" style="display:none;">
+            <div class="form-swatch-row">
+              <div class="form-swatch-item" data-code="CVM-E01" data-name-en="Deep-Grain Wood"   data-name-ar="خشب عميق الحبيبات" data-bg="linear-gradient(135deg,#3d2e1a,#6b4c2a)"><div class="form-swatch-thumb" style="background:linear-gradient(135deg,#3d2e1a,#6b4c2a)"></div><span class="form-swatch-code">CVM-E01</span><span class="form-swatch-name" data-en="Deep-Grain Wood"   data-ar="خشب عميق الحبيبات">Deep-Grain Wood</span></div>
+              <div class="form-swatch-item" data-code="CVM-E02" data-name-en="Honey-Toned Wood"  data-name-ar="خشب عسلي اللون"   data-bg="linear-gradient(135deg,#7a5a28,#c49a45)"><div class="form-swatch-thumb" style="background:linear-gradient(135deg,#7a5a28,#c49a45)"></div><span class="form-swatch-code">CVM-E02</span><span class="form-swatch-name" data-en="Honey-Toned Wood"  data-ar="خشب عسلي اللون">Honey-Toned Wood</span></div>
+              <div class="form-swatch-item" data-code="CVM-E03" data-name-en="Natural Warm Oak"  data-name-ar="بلوط دافئ طبيعي"  data-bg="linear-gradient(135deg,#8b6340,#b8885a)"><div class="form-swatch-thumb" style="background:linear-gradient(135deg,#8b6340,#b8885a)"></div><span class="form-swatch-code">CVM-E03</span><span class="form-swatch-name" data-en="Natural Warm Oak"  data-ar="بلوط دافئ طبيعي">Natural Warm Oak</span></div>
+              <div class="form-swatch-item" data-code="CVM-E04" data-name-en="Wavy Wood Pattern" data-name-ar="نمط خشب متموج"    data-bg="linear-gradient(135deg,#7a7a6a,#a8a898)"><div class="form-swatch-thumb" style="background:linear-gradient(135deg,#7a7a6a,#a8a898)"></div><span class="form-swatch-code">CVM-E04</span><span class="form-swatch-name" data-en="Wavy Wood Pattern" data-ar="نمط خشب متموج">Wavy Wood Pattern</span></div>
+              <div class="form-swatch-item" data-code="CVM-E05" data-name-en="Grey Light Oak"    data-name-ar="بلوط رمادي فاتح"  data-bg="linear-gradient(135deg,#c8c8b8,#e0e0d0)"><div class="form-swatch-thumb" style="background:linear-gradient(135deg,#c8c8b8,#e0e0d0)"></div><span class="form-swatch-code">CVM-E05</span><span class="form-swatch-name" data-en="Grey Light Oak"    data-ar="بلوط رمادي فاتح">Grey Light Oak</span></div>
+            </div>
+          </div>
+
+          <!-- Selected design display -->
+          <div id="formSelectedDesign" style="display:none;margin-top:14px;">
+            <div style="display:flex;gap:10px;align-items:center;padding:12px 14px;background:rgba(205,161,104,0.06);border:1px solid rgba(205,161,104,0.25);border-radius:3px;">
+              <div id="formSwatchPreview" style="width:44px;height:44px;border-radius:3px;flex-shrink:0;border:1px solid rgba(205,161,104,0.35);box-shadow:0 0 0 3px var(--navy),0 0 0 4px rgba(205,161,104,0.3);"></div>
+              <div style="flex:1;min-width:0;">
+                <div id="formDesignCode" style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--gold);text-transform:uppercase;"></div>
+                <div id="formDesignName" style="font-size:12px;color:var(--charcoal);margin-top:2px;"></div>
+              </div>
+              <button type="button" id="formClearDesign" style="background:none;border:none;color:rgba(39,44,74,0.4);font-size:11px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;font-family:inherit;padding:2px 0;flex-shrink:0;" data-en="Clear" data-ar="مسح">Clear</button>
+            </div>
+          </div>
         </div>
       </div>
+
+      <!-- Message -->
       <div class="f-group">
         <label data-en="Message" data-ar="رسالتك">Message</label>
-        <textarea name="message" rows="4" data-placeholder-en="Tell us about your project..." data-placeholder-ar="أخبرنا عن مشروعك..." placeholder="Tell us about your project..."></textarea>
+        <textarea name="message" rows="4" data-placeholder-en="Tell us about your project…" data-placeholder-ar="أخبرنا عن مشروعك…" placeholder="Tell us about your project…"></textarea>
       </div>
+
       <button type="submit" class="btn-gold" data-en="Send Request" data-ar="إرسال الطلب">Send Request</button>
       <p class="f-note" data-en="Powered by Web3Forms — replies go to email &amp; Google Sheets" data-ar="عبر Web3Forms — تصل الردود لبريدك وجداول Google">Powered by Web3Forms — replies go to email &amp; Google Sheets</p>
     </form>
@@ -1917,6 +2015,13 @@ body.rtl .hero-desc { line-height: 2; }
 </a>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ── INIT COLLECTION PANELS ──────────────────────────────────────────────── */
+(function() {
+  document.querySelectorAll('.collection-panel').forEach(function(p) {
+    p.style.display = p.classList.contains('active') ? 'block' : 'none';
+  });
+})();
+
 /* ── PAGE NAVIGATION ─────────────────────────────────────────────────────── */
 function showPage(id) {
   document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
@@ -1933,11 +2038,21 @@ function showPage(id) {
 
 /* ── COLLECTION TABS ─────────────────────────────────────────────────────── */
 function showTab(id) {
-  document.querySelectorAll('.collection-panel').forEach(function(p) { p.classList.remove('active'); });
+  document.querySelectorAll('.collection-panel').forEach(function(p) {
+    p.classList.remove('active');
+    p.style.display = 'none';
+  });
   document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
   var panel = document.getElementById('panel-' + id);
-  if (panel) panel.classList.add('active');
-  var isAr = document.body.classList.contains('rtl');
+  if (panel) {
+    panel.classList.add('active');
+    panel.style.display = 'block';
+    // Scroll to top of collections section on mobile
+    var section = document.querySelector('.collections-page');
+    if (section && window.innerWidth < 768) {
+      setTimeout(function() { section.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50);
+    }
+  }
   document.querySelectorAll('.tab-btn').forEach(function(b) {
     var onclick = b.getAttribute('onclick') || '';
     if (onclick.indexOf("'" + id + "'") !== -1) b.classList.add('active');
@@ -1973,6 +2088,12 @@ function applyLang(l) {
   document.querySelectorAll('input, textarea, select, button').forEach(function(el) {
     el.style.fontFamily = isAr ? "'Cairo', sans-serif" : "'Barlow', sans-serif";
   });
+  // Update form design name if a swatch is selected
+  var selSwatch = document.querySelector('.form-swatch-item.selected');
+  if (selSwatch) {
+    var dn = document.getElementById('formDesignName');
+    if (dn) dn.textContent = selSwatch.getAttribute('data-name-' + l) || selSwatch.getAttribute('data-name-en') || '';
+  }
   // Update tab buttons text
   document.querySelectorAll('.tab-btn').forEach(function(b) {
     var val = b.getAttribute('data-' + l);
@@ -2002,19 +2123,57 @@ window.addEventListener('scroll', function() {
   document.getElementById('navbar').style.boxShadow = window.scrollY > 20 ? '0 2px 20px rgba(0,0,0,0.25)' : 'none';
 }, { passive: true });
 
-/* ── CUSTOM SELECT ───────────────────────────────────────────────────────── */
+/* ── CUSTOM SELECT + DESIGN PICKER ──────────────────────────────────────── */
 (function() {
   var trigger     = document.getElementById('selectTrigger');
   var dropdown    = document.getElementById('customDropdown');
   var triggerText = document.getElementById('triggerText');
   var hiddenInput = document.getElementById('collectionVal');
   var opts        = document.querySelectorAll('.custom-option');
+
+  // Design picker elements
+  var picker          = document.getElementById('formDesignPicker');
+  var allSwatchGroups = document.querySelectorAll('.form-swatch-group');
+  var selectedDesign  = document.getElementById('formSelectedDesign');
+  var swatchPreview   = document.getElementById('formSwatchPreview');
+  var designCode      = document.getElementById('formDesignCode');
+  var designName      = document.getElementById('formDesignName');
+  var designInput     = document.getElementById('designCodeInput');
+  var clearBtn        = document.getElementById('formClearDesign');
+
+  // Collections that have a design picker
+  var pickableCollections = ['marble', 'wood', 'elite'];
+
+  function showDesignPicker(collVal) {
+    // Hide all swatch groups first
+    allSwatchGroups.forEach(function(g) { g.style.display = 'none'; });
+    clearFormDesign();
+
+    if (pickableCollections.indexOf(collVal) !== -1) {
+      picker.style.display = 'block';
+      var group = document.getElementById('formSwatches-' + collVal);
+      if (group) group.style.display = 'block';
+    } else {
+      picker.style.display = 'none';
+    }
+  }
+
+  function clearFormDesign() {
+    if (designInput) designInput.value = '';
+    if (selectedDesign) selectedDesign.style.display = 'none';
+    document.querySelectorAll('.form-swatch-item.selected').forEach(function(s) {
+      s.classList.remove('selected');
+    });
+  }
+
   if (!trigger) return;
+
   trigger.addEventListener('click', function(e) {
     e.stopPropagation();
     dropdown.classList.toggle('open');
     trigger.classList.toggle('active');
   });
+
   opts.forEach(function(opt) {
     opt.addEventListener('click', function(e) {
       e.stopPropagation();
@@ -2029,12 +2188,45 @@ window.addEventListener('scroll', function() {
       opt.classList.add('selected');
       dropdown.classList.remove('open');
       trigger.classList.remove('active');
+      showDesignPicker(val);
     });
   });
+
   document.addEventListener('click', function() {
     dropdown.classList.remove('open');
     if (trigger) trigger.classList.remove('active');
   });
+
+  // Form swatch item click — delegated
+  document.addEventListener('click', function(e) {
+    var item = e.target.closest('.form-swatch-item');
+    if (!item) return;
+    // Deselect siblings
+    var group = item.closest('.form-swatch-group');
+    if (group) group.querySelectorAll('.form-swatch-item').forEach(function(s) { s.classList.remove('selected'); });
+    item.classList.add('selected');
+
+    var code   = item.getAttribute('data-code') || '';
+    var bg     = item.getAttribute('data-bg') || '';
+    var isAr   = document.body.classList.contains('rtl');
+    var nameEn = item.getAttribute('data-name-en') || code;
+    var nameAr = item.getAttribute('data-name-ar') || nameEn;
+
+    if (designInput)  designInput.value = code;
+    if (designCode)   designCode.textContent = code;
+    if (designName)   designName.textContent = isAr ? nameAr : nameEn;
+    if (swatchPreview) {
+      swatchPreview.style.background = bg.startsWith('images')
+        ? 'url("' + bg + '") center/cover no-repeat'
+        : bg;
+    }
+    if (selectedDesign) selectedDesign.style.display = 'block';
+  });
+
+  // Clear design button
+  if (clearBtn) {
+    clearBtn.addEventListener('click', function() { clearFormDesign(); });
+  }
 })();
 
 /* ── CONTACT FORM ────────────────────────────────────────────────────────── */
@@ -2163,30 +2355,7 @@ document.addEventListener('click', function(e) {
   if (bg && code) openSwatch(bg, code, nameEn, nameAr, thick, descEn, descAr);
 });
 
-function applySwatchToContact() {
-  if (!_selectedSwatch) return;
-  var isAr = document.body.classList.contains('rtl');
-  var preview = document.getElementById('contactSwatchPreview');
-  var codeInput = document.getElementById('designCodeInput');
-  var nameDisplay = document.getElementById('designNameDisplay');
-  var fieldGroup = document.getElementById('designFieldGroup');
-
-  if (preview) {
-    var pbg = _selectedSwatch.bg;
-    preview.style.background = pbg.startsWith('data:') ? 'url("' + pbg + '") center 60%/cover no-repeat' : pbg;
-  }
-  if (codeInput)  codeInput.value = _selectedSwatch.code;
-  if (nameDisplay) nameDisplay.textContent = isAr ? _selectedSwatch.nameAr : _selectedSwatch.nameEn;
-  if (fieldGroup) fieldGroup.style.display = 'block';
-}
-
-function clearDesignSelection() {
-  _selectedSwatch = null;
-  var fieldGroup = document.getElementById('designFieldGroup');
-  var codeInput = document.getElementById('designCodeInput');
-  if (fieldGroup) fieldGroup.style.display = 'none';
-  if (codeInput) codeInput.value = '';
-}
+/* applySwatchToContact / clearDesignSelection removed — handled by form design picker */
 
 function closeLightbox(e) {
   document.getElementById('swatchLightbox').classList.remove('open');
@@ -2217,3 +2386,10 @@ document.addEventListener('keydown', function(e) {
       <span class="lightbox-spec" data-en="50m² Coverage" data-ar="تغطية 50م²">50m² Coverage</span>
       <span class="lightbox-spec" id="lbThick"></span>
     </div
+    </div>
+    <button class="lightbox-cta" onclick="closeLightbox()" data-en="Close" data-ar="إغلاق">Close</button>
+  </div>
+</div>
+
+</body>
+</html>
