@@ -28,6 +28,16 @@ body.rtl, .rtl * {
   font-family: 'Cairo', sans-serif !important;
   font-feature-settings: "liga" 1, "calt" 1;
 }
+/* Logo stays Barlow in both languages — it's Latin brand text */
+body.rtl .logo-text-wrap .brand,
+body.rtl .logo-text-wrap .sub {
+  font-family: 'Barlow', sans-serif !important;
+  text-transform: uppercase !important;
+  letter-spacing: 3px !important;
+}
+body.rtl .logo-text-wrap .sub {
+  letter-spacing: 3.5px !important;
+}
 
 @supports (-webkit-touch-callout: none) {
   body.rtl {
@@ -86,7 +96,7 @@ nav {
 .nav-links { display: flex; list-style: none; gap: 22px; }
 .nav-links a { color: rgba(255,255,255,0.6); font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; transition: color 0.2s; padding: 4px 0; min-height: 44px; display: flex; align-items: center; }
 .nav-links a:hover, .nav-links a.active { color: var(--gold); }
-.lang-btn { background: transparent; border: 1px solid rgba(205,161,104,0.45); color: var(--gold); padding: 5px 14px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; border-radius: 2px; font-family: inherit; transition: background 0.2s, color 0.2s; }
+.lang-btn { background: transparent; border: 1px solid rgba(205,161,104,0.45); color: var(--gold); padding: 10px 16px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; border-radius: 2px; font-family: inherit; transition: background 0.2s, color 0.2s; display: inline-flex; align-items: center; justify-content: center; line-height: 1.2; overflow: visible; }
 .lang-btn:hover { background: var(--gold); color: var(--navy); }
 .mob-lang-wrap { padding-top: 16px; }
 .mob-lang { width: 100%; padding: 12px; font-size: 13px; text-align: center; border: 1px solid rgba(205,161,104,0.4); }
@@ -1764,38 +1774,27 @@ body.rtl .eyebrow { line-height: 1.6 !important; }
   body.rtl .hero-content,
   body.rtl .about-text,
   body.rtl .collection-info,
-  body.rtl .ab-hero-text,
-  nav {
+  body.rtl .ab-hero-text {
     overflow: visible !important;
   }
 }
 
 
-/* ── LANG-BTN ARABIC FIX (ALL BROWSERS) ───────────────────────────────────
-   Switch to inline-flex + zero letter-spacing. Works cross-browser.
-   ─────────────────────────────────────────────────────────────────────── */
+/* ── LANG-BTN RTL FIX ──────────────────────────────────────────────────── */
 body.rtl .lang-btn {
+  letter-spacing: 0 !important;
+  font-size: 13px !important;
+  padding: 10px 16px !important;
+  line-height: 1.2 !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  letter-spacing: 0 !important;
-  line-height: 1.2 !important;
-  padding: 8px 16px !important;
-  font-size: 13px !important;
+  overflow: visible !important;
 }
-
-/* ── LANG-BTN SAFARI SPECIFIC ──────────────────────────────────────────── */
 @supports (-webkit-touch-callout: none) {
   body.rtl .lang-btn {
     padding-top: 12px !important;
     padding-bottom: 14px !important;
-    line-height: 1.2 !important;
-    overflow: visible !important;
-    vertical-align: middle;
   }
-
-  /* nav and its children must not clip the button */
-  nav {
-    overflow: visible !important;
-  }
+  nav { overflow: visible !important; }
 }
