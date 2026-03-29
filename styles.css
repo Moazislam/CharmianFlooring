@@ -1764,28 +1764,38 @@ body.rtl .eyebrow { line-height: 1.6 !important; }
   body.rtl .hero-content,
   body.rtl .about-text,
   body.rtl .collection-info,
-  body.rtl .ab-hero-text {
+  body.rtl .ab-hero-text,
+  nav {
     overflow: visible !important;
   }
 }
 
 
-/* ── LANG-BTN SAFARI ARABIC CLIP FIX ──────────────────────────────────────
-   The button's 5px vertical padding clips Cairo glyphs in Safari.
-   Force enough height + line-height so Arabic text sits fully inside.
-   Also kill letter-spacing which breaks Arabic ligatures in WebKit.
+/* ── LANG-BTN ARABIC FIX (ALL BROWSERS) ───────────────────────────────────
+   Switch to inline-flex + zero letter-spacing. Works cross-browser.
    ─────────────────────────────────────────────────────────────────────── */
 body.rtl .lang-btn {
-  padding: 8px 16px !important;
-  line-height: 1.6 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   letter-spacing: 0 !important;
+  line-height: 1.2 !important;
+  padding: 8px 16px !important;
   font-size: 13px !important;
 }
 
+/* ── LANG-BTN SAFARI SPECIFIC ──────────────────────────────────────────── */
 @supports (-webkit-touch-callout: none) {
   body.rtl .lang-btn {
-    padding: 10px 16px !important;
-    line-height: 1.7 !important;
+    padding-top: 12px !important;
+    padding-bottom: 14px !important;
+    line-height: 1.2 !important;
+    overflow: visible !important;
+    vertical-align: middle;
+  }
+
+  /* nav and its children must not clip the button */
+  nav {
     overflow: visible !important;
   }
 }
