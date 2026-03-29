@@ -860,6 +860,18 @@ nav {
 .spotlight-cta:hover { background: rgba(205,161,104,0.12); border-color: var(--gold); }
 .spotlight-cta svg { width: 14px; height: 14px; fill: var(--gold); }
 
+/* ── SPOTLIGHT RTL ─────────────────────────────────────────────────────── */
+body.rtl .gallery-spotlight-inner { direction: rtl; }
+body.rtl .spotlight-label-stack,
+body.rtl .spotlight-title,
+body.rtl .spotlight-desc,
+body.rtl .spotlight-preheader,
+body.rtl .spotlight-badge { text-align: right; }
+body.rtl .spotlight-desc  { max-width: 100%; }
+body.rtl .spotlight-badge,
+body.rtl .spotlight-preheader { letter-spacing: 0; }
+body.rtl .spotlight-cta   { letter-spacing: 0; flex-direction: row-reverse; }
+
 /* ── GALLERY CTA STRIP ─────────────────────────────────────────────────── */
 .gallery-cta-strip {
   background: var(--navy);
