@@ -1711,3 +1711,60 @@ body.rtl .hero-desc { line-height: 2; }
   body.rtl { -webkit-font-smoothing: antialiased; }
   body.rtl * { letter-spacing: 0 !important; }
 }
+
+/* ── SAFARI ARABIC GOLD TEXT CLIP FIX ─────────────────────────────────────
+   Safari/WebKit clips Arabic glyphs when line-height < ~1.5 because Arabic
+   script ascenders/descenders exceed the Latin em-square. Fix: force safe
+   line-heights on every element that shows gold/colored Arabic text.
+   ─────────────────────────────────────────────────────────────────────── */
+
+/* Hero stat numbers & badge numbers – were line-height:1, fatal for Arabic */
+body.rtl .stat-n  { line-height: 1.4 !important; padding-bottom: 2px; }
+body.rtl .badge-n { line-height: 1.4 !important; padding-bottom: 2px; }
+
+/* h1/h2/h3/h4 base was 1.15 – bumped to safe range for Arabic */
+body.rtl h1 { line-height: 1.45 !important; }
+body.rtl h2 { line-height: 1.45 !important; }
+body.rtl h3 { line-height: 1.55 !important; }
+body.rtl h4 { line-height: 1.55 !important; }
+
+/* About hero h1 had line-height:1.1 – dangerous for Arabic */
+body.rtl .ab-hero-text h1 { line-height: 1.45 !important; }
+
+/* Logo brand text was line-height:1.1 */
+body.rtl .logo-text-wrap .brand { line-height: 1.4 !important; }
+body.rtl .logo-text-wrap .sub   { line-height: 1.5 !important; }
+
+/* Collection/gallery headings that had line-height:1.1–1.2 */
+body.rtl .ge-info h2,
+body.rtl .ge-info h3 { line-height: 1.5 !important; }
+
+/* Swatch/lightbox gold text */
+body.rtl .lightbox-code { line-height: 1.5 !important; padding-bottom: 2px; }
+
+/* Eyebrow labels (small caps gold) */
+body.rtl .eyebrow { line-height: 1.6 !important; }
+
+/* Safari-specific safety: prevent inline gold <em> inside headings from clipping */
+@supports (-webkit-touch-callout: none) {
+  body.rtl h1 em,
+  body.rtl h2 em {
+    display: inline-block;
+    line-height: 1.5 !important;
+    padding-bottom: 0.05em;
+  }
+
+  /* Force Cairo to use full glyph bounding box, not tight metrics */
+  body.rtl {
+    -webkit-font-smoothing: antialiased;
+    font-synthesis: none;
+  }
+
+  /* Prevent overflow:hidden parents from eating Arabic descenders */
+  body.rtl .hero-content,
+  body.rtl .about-text,
+  body.rtl .collection-info,
+  body.rtl .ab-hero-text {
+    overflow: visible !important;
+  }
+}
