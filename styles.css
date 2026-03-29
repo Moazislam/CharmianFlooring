@@ -1125,6 +1125,10 @@ footer { background: var(--navy); padding: clamp(48px,6vw,72px) 5% 28px; }
   .logo-mark img       { width: 44px !important; height: 44px !important; }
   .logo-text-wrap .brand { font-size: 13px; letter-spacing: 2px; }
   .logo-text-wrap .sub { font-size: 9px; letter-spacing: 2px; }
+  body.rtl .logo-text-wrap .brand { font-size: 13px !important; letter-spacing: 2px !important; }
+  body.rtl .logo-text-wrap .sub   { font-size: 9px !important;  letter-spacing: 0 !important; }
+  body.rtl .logo-mark              { width: 36px !important; height: 36px !important; }
+  body.rtl .logo-mark img          { width: 36px !important; height: 36px !important; }
   .mobile-menu         { top: 64px; }
   .mobile-menu a       { font-size: 14px; padding: 16px 0; }
 
