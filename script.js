@@ -4,34 +4,32 @@ var _selectedSwatch = null;
 
 /* ── SWATCH IMAGE MAP ────────────────────────────────────────────────────── */
 var SWATCH_IMAGES = {
-  "CVG-T01": "images/MARBLE_CVG-T01_BEIGE-MULTICOLOR.jpg",
-  "CVG-T02": "images/MARBLE_CVG-T02_BEIGE-DARK-INCLUSIONS.jpg",
-  "CVG-T03": "images/MARBLE_CVG-T03_BURGUNDY-SPECKLED.jpg",
-  "CVG-T04": "images/MARBLE_CVG-T04_LIGHT-GREY-SPECKLED.jpg",
-  "CVG-C07": "images/MARBLE_CVG-C07_WHITE-CALACATTA.jpg",
-  "CVG-C08": "images/MARBLE_CVG-C08_GOLDEN-CALACATTA.jpg",
-  "CVG-C09": "images/MARBLE_CVG-C09_BLACK-CALACATTA.jpg",
-  "CVG-C10": "images/MARBLE_CVG-C10_GREY-CALACATTA.jpg",
-  "CVG-G05": "images/MARBLE_CVG-G05_GRAPHITE-DARK-GREY.jpg",
-  "CVG-N6":  "images/MARBLE_CVG-N6_NAVONA-GOLDEN-BROWN.jpg",
-  "CVG-A11": "images/MARBLE_CVG-A11_ARGENTO-LIGHT-GREY.jpg",
-  "CVG-S12": "images/MARBLE_CVG-S12_SILVER-WAVE-SPECKLED.jpg",
-  "CVM-B01": "images/WOOD_CVM-B01_SMOKED-OAK.jpg",
-  "CVM-B02": "images/WOOD_CVM-B02_NATURAL-LIGHT-OAK.jpg",
-  "CVM-B03": "images/WOOD_CVM-B03_SOFT-BROWN-WOOD.jpg",
-  "CVM-C04": "images/WOOD_CVM-C04_GOLDEN-WOOD.jpg",
-  "CVM-C05": "images/WOOD_CVM-C05_WARM-BROWN-WOOD.jpg",
-  "CVM-P06": "images/WOOD_CVM-P06_HERRINGBONE-PARQUET.jpg",
-  "CVM-G07": "images/WOOD_CVM-G07_LIGHT-GREY.jpg",
-  "CVM-G08": "images/WOOD_CVM-G08_DARK-GREY.jpg",
-  "CVM-R09": "images/WOOD_CVM-R09_RUSTIC-MULTI-TONE-PLANK.jpg",
-  "CVM-W10": "images/WOOD_CVM-W10_HERRINGBONE-DARK-WOOD.jpg",
-  "CVM-W11": "images/WOOD_CVM-W11_DARK-WALNUT-WOOD.jpg",
-  "CVM-E01": "images/ELITE_CVM-E01_DEEP-GRAIN-WOOD.jpg",
-  "CVM-E02": "images/ELITE_CVM-E02_HONEY-TONED-WOOD.jpg",
-  "CVM-E03": "images/ELITE_CVM-E03_NATURAL-WARM-OAK.jpg",
-  "CVM-E04": "images/ELITE_CVM-E04_WAVY-WOOD-PATTERN.jpg",
-  "CVM-E05": "images/ELITE_CVM-E05_GREY-LIGHT-OAK.jpg"
+  "CVG-T01": "images/Marble/CVG-T01.jpg",
+  "CVG-T02": "images/Marble/CVG-T02.jpg",
+  "CVG-T03": "images/Marble/CVG-T03.jpg",
+  "CVG-T04": "images/Marble/CVG-T04.jpg",
+  "CVG-T05": "images/Marble/CVG-T05.jpg",
+  "CVG-C07": "images/Marble/CVG-C07.jpeg",
+  "CVG-C08": "images/Marble/CVG-C08.jpeg",
+  "CVG-C09": "images/Marble/CVG-C09.jpeg",
+  "CVG-C10": "images/Marble/CVG-C10.jpeg",
+  "CVG-G05": "images/Marble/CVG-G05.jpg",
+  "CVM-B01": "images/Wood/CVM-B01.jpg",
+  "CVM-B02": "images/Wood/CVM-B02.jpg",
+  "CVM-B03": "images/Wood/CVM-B03.jpg",
+  "CVM-C04": "images/Wood/CVM-C04.jpg",
+  "CVM-C05": "images/Wood/CVM-C05.jpg",
+  "CVM-C06": "images/Wood/CVM-C06.jpg",
+  "CVM-C07": "images/Wood/CVM-C07.jpg",
+  "CVM-C010": "images/Wood/CVM-C010.jpg",
+  "CVM-P06": "images/Wood/CVM-P06.jpg",
+  "CVM-G07": "images/Wood/CVM-G07.jpg",
+  "CVM-R09": "images/Wood/CVM-R09.jpg",
+  "CVM-E01": "images/Elite/CVM-E01.jpg",
+  "CVM-E02": "images/Elite/CVM-E02.jpg",
+  "CVM-E03": "images/Elite/CVM-E03.jpg",
+  "CVM-E04": "images/Elite/CVM-E04.jpg",
+  "CVM-E05": "images/Elite/CVM-E05.jpg"
 };
 
 /* ══ GLOBALLY ACCESSIBLE FUNCTIONS (called from inline onclick) ══════════════
@@ -216,6 +214,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var hiddenInput = document.getElementById('collectionVal');
     var opts        = document.querySelectorAll('.custom-option');
     var picker          = document.getElementById('formDesignPicker');
+    var customFields    = document.getElementById('formCustomFields');
     var allSwatchGroups = document.querySelectorAll('.form-swatch-group');
     var selectedDesign  = document.getElementById('formSelectedDesign');
     var swatchPreview   = document.getElementById('formSwatchPreview');
@@ -232,8 +231,13 @@ document.addEventListener('DOMContentLoaded', function() {
         if (picker) picker.style.display = 'block';
         var group = document.getElementById('formSwatches-' + collVal);
         if (group) group.style.display = 'block';
+        if (customFields) customFields.style.display = 'none';
+      } else if (collVal === 'custom') {
+        if (picker) picker.style.display = 'none';
+        if (customFields) customFields.style.display = 'block';
       } else {
         if (picker) picker.style.display = 'none';
+        if (customFields) customFields.style.display = 'none';
       }
     }
 
