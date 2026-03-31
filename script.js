@@ -308,49 +308,72 @@ document.addEventListener('DOMContentLoaded', function() {
   })();
 
   /* Contact form — Web3Forms + Google Sheets (parallel) */
-  var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyBYWGQ8fuknmTA5QoHEoZAqhr34G0iWEMJpBUrWhTBsX6H_5DDJlm-t3XVA6nlgeXY7Q/exec';
+  var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzyy3Yutvw-a5CLT3PGnMyoS03cyFDEmPZ-u1OR9EVMLLrovXX2Tqd8g70_a6bOZntnsA/exec';
   var form = document.getElementById('contactForm');
   if (form) {
-    form.addEventListener('submit', async function(e) {
+    form.addEventListener('submit', function(e) {
       e.preventDefault();
       var btn  = form.querySelector('button[type="submit"]');
       var orig = btn.textContent;
       btn.textContent = lang === 'ar' ? 'جارٍ الإرسال...' : 'Sending...';
       btn.disabled = true;
-      try {
-        /* FormData already includes access_key from the hidden input in HTML */
-        var formData = new FormData(form);
 
-        var sheetsPayload = JSON.stringify({
-          name:        formData.get('name')        || '',
-          phone:       formData.get('phone')       || '',
-          email:       formData.get('email')       || '',
-          collection:  formData.get('collection')  || '',
-          design_code: formData.get('design_code') || '',
-          message:     formData.get('message')     || ''
-        });
+      /* FormData already includes access_key from the hidden input in HTML */
+      var formData = new FormData(form);
 
-        /* Fire both in parallel */
-        var [web3Res] = await Promise.all([
-          fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData }),
+      var sheetsPayload = {
+        name:        formData.get('name')        || '',
+        phone:       formData.get('phone')       || '',
+        email:       formData.get('email')       || '',
+        collection:  formData.get('collection')  || '',
+        design_code: formData.get('design_code') || '',
+        message:     formData.get('message')     || ''
+      };
+
+      /* Submit to Web3Forms */
+      fetch('https://api.web3forms.com/submit', { 
+        method: 'POST', 
+        body: formData 
+      })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        if (data.success) {
+          /* Also submit to Google Sheets (fire and forget with no-cors) */
           fetch(SHEETS_URL, {
             method: 'POST',
             mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
-            body: sheetsPayload
-          }).catch(function() {})
-        ]);
+            headers: { 'Content-Type': 'text/plain' },
+            body: JSON.stringify(sheetsPayload)
+          }).catch(function() { /* Ignore sheets errors */ });
 
-        var web3Data = await web3Res.json();
-        if (web3Res.ok && web3Data.success) {
           btn.textContent = lang === 'ar' ? 'تم الإرسال!' : 'Sent!';
           form.reset();
+          /* Reset custom select trigger text */
+          var triggerText = document.getElementById('triggerText');
+          if (triggerText) {
+            triggerText.textContent = lang === 'ar' ? 'اختر مجموعة…' : 'Select a collection…';
+          }
+          /* Hide design picker and custom fields */
+          var picker = document.getElementById('formDesignPicker');
+          var customFields = document.getElementById('formCustomFields');
+          var selectedDesign = document.getElementById('formSelectedDesign');
+          if (picker) picker.style.display = 'none';
+          if (customFields) customFields.style.display = 'none';
+          if (selectedDesign) selectedDesign.style.display = 'none';
+          document.querySelectorAll('.custom-option').forEach(function(o) { o.classList.remove('selected'); });
+          
           setTimeout(function() { btn.textContent = orig; btn.disabled = false; }, 3000);
-        } else { throw new Error(web3Data.message || 'Failed'); }
-      } catch(err) {
+        } else {
+          throw new Error(data.message || 'Form submission failed');
+        }
+      })
+      .catch(function(err) {
+        console.error('Form error:', err);
         btn.textContent = lang === 'ar' ? 'حدث خطأ' : 'Error — try again';
-        btn.disabled = false;
-      }
+        setTimeout(function() { btn.textContent = orig; btn.disabled = false; }, 3000);
+      });
     });
   }
 
