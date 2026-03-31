@@ -315,12 +315,11 @@ document.addEventListener('DOMContentLoaded', function() {
       e.preventDefault();
       var btn  = form.querySelector('button[type="submit"]');
       var orig = btn.textContent;
-      btn.textContent = lang === 'ar' ? '\u062c\u0627\u0631\u064d \u0627\u0644\u0625\u0631\u0633\u0627\u0644...' : 'Sending...';
+      btn.textContent = lang === 'ar' ? 'جارٍ الإرسال...' : 'Sending...';
       btn.disabled = true;
       try {
-        /* Build shared payload */
+        /* FormData already includes access_key from the hidden input in HTML */
         var formData = new FormData(form);
-        formData.append('access_key', 'ae30b6c1-3921-480d-8f8b-45df913abbb5');
 
         var sheetsPayload = JSON.stringify({
           name:        formData.get('name')        || '',
@@ -331,7 +330,7 @@ document.addEventListener('DOMContentLoaded', function() {
           message:     formData.get('message')     || ''
         });
 
-        /* Fire both in parallel — Google Sheets failure won't block Web3Forms */
+        /* Fire both in parallel */
         var [web3Res] = await Promise.all([
           fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData }),
           fetch(SHEETS_URL, {
@@ -344,12 +343,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
         var web3Data = await web3Res.json();
         if (web3Res.ok && web3Data.success) {
-          btn.textContent = lang === 'ar' ? '\u062a\u0645 \u0627\u0644\u0625\u0631\u0633\u0627\u0644!' : 'Sent!';
+          btn.textContent = lang === 'ar' ? 'تم الإرسال!' : 'Sent!';
           form.reset();
           setTimeout(function() { btn.textContent = orig; btn.disabled = false; }, 3000);
         } else { throw new Error(web3Data.message || 'Failed'); }
       } catch(err) {
-        btn.textContent = lang === 'ar' ? '\u062d\u062f\u062b \u062e\u0637\u0623' : 'Error \u2014 try again';
+        btn.textContent = lang === 'ar' ? 'حدث خطأ' : 'Error — try again';
         btn.disabled = false;
       }
     });
