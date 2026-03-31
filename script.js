@@ -307,25 +307,49 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   })();
 
-  /* Contact form */
+  /* Contact form — Web3Forms + Google Sheets (parallel) */
+  var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyBYWGQ8fuknmTA5QoHEoZAqhr34G0iWEMJpBUrWhTBsX6H_5DDJlm-t3XVA6nlgeXY7Q/exec';
   var form = document.getElementById('contactForm');
   if (form) {
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
       var btn  = form.querySelector('button[type="submit"]');
       var orig = btn.textContent;
-      btn.textContent = lang === 'ar' ? 'جارٍ الإرسال...' : 'Sending...';
+      btn.textContent = lang === 'ar' ? '\u062c\u0627\u0631\u064d \u0627\u0644\u0625\u0631\u0633\u0627\u0644...' : 'Sending...';
       btn.disabled = true;
       try {
-        var res  = await fetch(form.action, { method: 'POST', body: new FormData(form) });
-        var data = await res.json();
-        if (data.success) {
-          btn.textContent = lang === 'ar' ? 'تم الإرسال!' : 'Sent!';
+        /* Build shared payload */
+        var formData = new FormData(form);
+        formData.append('access_key', 'ae30b6c1-3921-480d-8f8b-45df913abbb5');
+
+        var sheetsPayload = JSON.stringify({
+          name:        formData.get('name')        || '',
+          phone:       formData.get('phone')       || '',
+          email:       formData.get('email')       || '',
+          collection:  formData.get('collection')  || '',
+          design_code: formData.get('design_code') || '',
+          message:     formData.get('message')     || ''
+        });
+
+        /* Fire both in parallel — Google Sheets failure won't block Web3Forms */
+        var [web3Res] = await Promise.all([
+          fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData }),
+          fetch(SHEETS_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: sheetsPayload
+          }).catch(function() {})
+        ]);
+
+        var web3Data = await web3Res.json();
+        if (web3Res.ok && web3Data.success) {
+          btn.textContent = lang === 'ar' ? '\u062a\u0645 \u0627\u0644\u0625\u0631\u0633\u0627\u0644!' : 'Sent!';
           form.reset();
           setTimeout(function() { btn.textContent = orig; btn.disabled = false; }, 3000);
-        } else { throw new Error('Failed'); }
+        } else { throw new Error(web3Data.message || 'Failed'); }
       } catch(err) {
-        btn.textContent = lang === 'ar' ? 'حدث خطأ' : 'Error — try again';
+        btn.textContent = lang === 'ar' ? '\u062d\u062f\u062b \u062e\u0637\u0623' : 'Error \u2014 try again';
         btn.disabled = false;
       }
     });
