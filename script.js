@@ -318,9 +318,8 @@ document.addEventListener('DOMContentLoaded', function() {
       btn.textContent = lang === 'ar' ? 'جارٍ الإرسال...' : 'Sending...';
       btn.disabled = true;
 
-      /* Create FormData and ensure access_key is included */
+      /* Create FormData - access_key is already in the HTML hidden input */
       var formData = new FormData(form);
-      formData.append("access_key", "ae30b6c1-3921-480d-8f8b-45df913abbb5");
 
       var sheetsPayload = {
         name:        formData.get('name')        || '',
