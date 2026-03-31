@@ -311,15 +311,16 @@ document.addEventListener('DOMContentLoaded', function() {
   var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzyy3Yutvw-a5CLT3PGnMyoS03cyFDEmPZ-u1OR9EVMLLrovXX2Tqd8g70_a6bOZntnsA/exec';
   var form = document.getElementById('contactForm');
   if (form) {
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', async function(e) {
       e.preventDefault();
       var btn  = form.querySelector('button[type="submit"]');
       var orig = btn.textContent;
       btn.textContent = lang === 'ar' ? 'جارٍ الإرسال...' : 'Sending...';
       btn.disabled = true;
 
-      /* FormData already includes access_key from the hidden input in HTML */
+      /* Create FormData and ensure access_key is included */
       var formData = new FormData(form);
+      formData.append("access_key", "ae30b6c1-3921-480d-8f8b-45df913abbb5");
 
       var sheetsPayload = {
         name:        formData.get('name')        || '',
@@ -330,15 +331,14 @@ document.addEventListener('DOMContentLoaded', function() {
         message:     formData.get('message')     || ''
       };
 
-      /* Submit to Web3Forms */
-      fetch('https://api.web3forms.com/submit', { 
-        method: 'POST', 
-        body: formData 
-      })
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(data) {
+      try {
+        /* Submit to Web3Forms */
+        var response = await fetch('https://api.web3forms.com/submit', { 
+          method: 'POST', 
+          body: formData 
+        });
+        var data = await response.json();
+        
         if (data.success) {
           /* Also submit to Google Sheets (fire and forget with no-cors) */
           fetch(SHEETS_URL, {
@@ -349,6 +349,7 @@ document.addEventListener('DOMContentLoaded', function() {
           }).catch(function() { /* Ignore sheets errors */ });
 
           btn.textContent = lang === 'ar' ? 'تم الإرسال!' : 'Sent!';
+          alert(lang === 'ar' ? 'تم إرسال رسالتك بنجاح!' : 'Success! Your message has been sent.');
           form.reset();
           /* Reset custom select trigger text */
           var triggerText = document.getElementById('triggerText');
@@ -366,14 +367,16 @@ document.addEventListener('DOMContentLoaded', function() {
           
           setTimeout(function() { btn.textContent = orig; btn.disabled = false; }, 3000);
         } else {
-          throw new Error(data.message || 'Form submission failed');
+          alert('Error: ' + (data.message || 'Form submission failed'));
+          btn.textContent = lang === 'ar' ? 'حدث خطأ' : 'Error — try again';
+          setTimeout(function() { btn.textContent = orig; btn.disabled = false; }, 3000);
         }
-      })
-      .catch(function(err) {
+      } catch (err) {
         console.error('Form error:', err);
+        alert(lang === 'ar' ? 'حدث خطأ. يرجى المحاولة مرة أخرى.' : 'Something went wrong. Please try again.');
         btn.textContent = lang === 'ar' ? 'حدث خطأ' : 'Error — try again';
         setTimeout(function() { btn.textContent = orig; btn.disabled = false; }, 3000);
-      });
+      }
     });
   }
 
