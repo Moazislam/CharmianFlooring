@@ -717,6 +717,8 @@
     <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
       <input type="hidden" name="access_key" value="ae30b6c1-3921-480d-8f8b-45df913abbb5">
       <input type="hidden" name="subject" value="New quote request — Charmain Flooring">
+      <input type="hidden" name="redirect" value="https://web3forms.com/success">
+      <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
       <input type="hidden" name="collection" id="collectionVal" value="">
       <input type="hidden" name="design_code" id="designCodeInput" value="">
 
@@ -846,7 +848,7 @@
       </div>
 
       <button type="submit" class="btn-gold" data-en="Send Request" data-ar="إرسال الطلب">Send Request</button>
-      <p class="f-note" data-en="Powered by Web3Forms — replies go to email &amp; Google Sheets" data-ar="عبر Web3Forms — تصل الردود لبريدك وجداول Google">Powered by Web3Forms — replies go to email &amp; Google Sheets</p>
+      <p class="f-note" id="formStatus" data-en="We'll respond within 24 hours" data-ar="سنرد خلال 24 ساعة">We'll respond within 24 hours</p>
     </form>
   </div>
 </section>
