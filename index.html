@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Charmain Flooring — Vinyl Flooring</title>
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+<link rel="shortcut icon" href="favicon_io/favicon.ico">
+<link rel="manifest" href="favicon_io/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&amp;family=Cairo:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=2">
+</head>
+<body id="body">
+
+<!-- NAV -->
+<nav id="navbar">
+  <a class="logo" href="#" onclick="showPage('home');return false;">
+    <div class="logo-mark"><img src="data:image/png;base64,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" alt="Charmain Flooring Logo" style="width:64px;height:64px;object-fit:contain;"></div>
+    <div class="logo-text-wrap">
+      <span class="brand">Charmain</span>
+      <span class="sub" data-en="Flooring" data-ar="للأرضيات">Flooring</span>
+    </div>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#" onclick="showPage('home');return false;"    data-en="Home"        data-ar="الرئيسية">Home</a></li>
+      <li><a href="#" onclick="showPage('about');return false;"   data-en="About Us"    data-ar="من نحن">About Us</a></li>
+      <li><a href="#" onclick="showPage('collections');return false;" data-en="Collections" data-ar="المجموعات">Collections</a></li>
+      <li><a href="#" onclick="showPage('gallery');return false;" data-en="Gallery"     data-ar="المعرض">Gallery</a></li>
+      <li><a href="#" onclick="showPage('contact');return false;" data-en="Contact"     data-ar="اتصل بنا">Contact</a></li>
+    </ul>
+    <button class="lang-btn" id="langBtn" type="button" aria-label="Switch language">عربي</button>
+    <button class="hamburger" id="ham" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#" onclick="showPage('home');closeMob();return false;"        data-en="Home"        data-ar="الرئيسية">Home</a>
+  <a href="#" onclick="showPage('about');closeMob();return false;"       data-en="About Us"    data-ar="من نحن">About Us</a>
+  <a href="#" onclick="showPage('collections');closeMob();return false;" data-en="Collections" data-ar="المجموعات">Collections</a>
+  <a href="#" onclick="showPage('gallery');closeMob();return false;"     data-en="Gallery"     data-ar="المعرض">Gallery</a>
+  <a href="#" onclick="showPage('contact');closeMob();return false;"     data-en="Contact"     data-ar="اتصل بنا">Contact</a>
+  <div class="mob-lang-wrap">
+    <button class="lang-btn mob-lang" id="langBtnMob" type="button" aria-label="Switch language">عربي</button>
+  </div>
+</div>
+
+<!-- ══ PAGE: HOME ══════════════════════════════════════════════════════════ -->
+<div id="page-home" class="page active">
+
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-vline"></div>
+  <div class="hero-content">
+    <p class="eyebrow" data-en="Luxury Vinyl Flooring" data-ar="أرضيات فينيل فاخرة">Luxury Vinyl Flooring</p>
+    <h1 data-en="Where <em>Elegance</em><br>Meets the Floor" data-ar="حيث تلتقي <em>الأناقة</em><br>بالأرضية">Where <em>Elegance</em><br>Meets the Floor</h1>
+    <p class="hero-desc" data-en="Premium vinyl flooring solutions crafted for modern spaces. Waterproof, durable, and built to last." data-ar="حلول أرضيات فينيل راقية مصممة للمساحات الحديثة. مقاوم للماء ومتين وبُني ليدوم.">Premium vinyl flooring solutions crafted for modern spaces. Waterproof, durable, and built to last.</p>
+    <div class="hero-btns">
+      <a href="#" onclick="showPage('collections');return false;" class="btn-gold" data-en="Explore Collections" data-ar="استكشف المجموعات">Explore Collections</a>
+      <a href="#" onclick="showPage('contact');return false;" class="btn-ghost" data-en="Get a Quote" data-ar="اطلب عرض سعر">Get a Quote</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-n">200+</span><span class="stat-l" data-en="Projects" data-ar="مشروع">Projects</span></div>
+      <div class="stat"><span class="stat-n">2+</span><span class="stat-l" data-en="Years" data-ar="سنة خبرة">Years</span></div>
+      <div class="stat"><span class="stat-n">100%</span><span class="stat-l" data-en="Waterproof" data-ar="مقاوم للماء">Waterproof</span></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-visual-frame">
+    <div class="hero-visual-inner">
+      <img src="images/about.jpg" alt="Luxury vinyl flooring living room">
+      <div class="hero-visual-badge">
+        <span>2+</span>
+        <span data-en="Years" data-ar="سنة خبرة">Years</span>
+      </div>
+    </div>
+    </div><!-- /frame -->
+  </div>
+</section>
+
+<!-- ── HOME: WHY US TEASER ──────────────────────────────────────────────── -->
+<section class="home-why-teaser">
+  <div class="home-why-inner">
+    <div class="home-why-top">
+      <div>
+        <p class="eyebrow" data-en="Why Charmain" data-ar="لماذا شارمين">Why Charmain</p>
+        <h2 data-en="Built <em>Different</em>" data-ar="مختلفون <em>بالبناء</em>">Built <em>Different</em></h2>
+      </div>
+      <a class="home-why-cta-link" href="#page-about" onclick="showPage('about');return false;" data-en="See All 5 Reasons" data-ar="اطّلع على كل الأسباب الـ5">
+        See All 5 Reasons
+        <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+      </a>
+    </div>
+    <div class="home-why-preview">
+      <div class="home-why-card">
+        <div class="home-why-card-icon"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg></div>
+        <h4 data-en="100% Waterproof" data-ar="مقاوم للماء 100%">100% Waterproof</h4>
+        <p data-en="Edge-to-edge waterproofing — kitchens, bathrooms, high-humidity spaces." data-ar="مقاوم للماء من حافة إلى حافة — مثالي للمطابخ والحمامات.">Edge-to-edge waterproofing — kitchens, bathrooms, high-humidity spaces.</p>
+      </div>
+      <div class="home-why-card">
+        <div class="home-why-card-icon"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
+        <h4 data-en="Commercial Durability" data-ar="متانة تجارية">Commercial Durability</h4>
+        <p data-en="Heavy-duty wear layer resists scratches, dents, and years of heavy traffic." data-ar="طبقة تآكل شديدة التحمل تقاوم الخدوش والاستخدام المكثف.">Heavy-duty wear layer resists scratches, dents, and years of heavy traffic.</p>
+      </div>
+      <div class="home-why-card">
+        <div class="home-why-card-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 9l10 13L22 9z"/></svg></div>
+        <h4 data-en="Luxury Aesthetics" data-ar="جماليات فاخرة">Luxury Aesthetics</h4>
+        <p data-en="The look of marble, wood and stone — without the maintenance cost." data-ar="مظهر الرخام والخشب والحجر — بدون تكاليف الصيانة.">The look of marble, wood and stone — without the maintenance cost.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:28px;">
+      <a href="#" onclick="showPage('about');return false;" class="btn-ghost" data-en="See Why Clients Choose Charmain" data-ar="اكتشف لماذا يختار عملاؤنا شارمين">See Why Clients Choose Charmain</a>
+    </div>
+  </div>
+</section>
+
+</div><!-- /page-home -->
+
+<!-- ══ PAGE: ABOUT ═════════════════════════════════════════════════════════ -->
+<div id="page-about" class="page">
+
+<!-- ── HERO SPLIT: left text + right image ─────────────────────────────── -->
+<section class="ab-hero section-pad">
+  <div class="container ab-hero-grid">
+    <div class="ab-hero-text">
+      <div class="ab-badge-pill">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--gold)"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+        <span data-en="2+ Years of Excellence" data-ar="أكثر من سنتين من التميز">2+ Years of Excellence</span>
+      </div>
+      <h1 data-en="Our Story:<br><em>Functional<br>Luxury</em><br>Underfoot" data-ar="قصتنا:<br><em>الفخامة<br>الوظيفية</em><br>تحت قدميك">Our Story:<br><em>Functional<br>Luxury</em><br>Underfoot</h1>
+      <p class="body-text" data-en="Redefining architectural foundations with precision-engineered vinyl that captures the soul of natural textures." data-ar="إعادة تعريف الأساسيات المعمارية بالفينيل المصمم بدقة، الذي يجسّد روح الأنسجة الطبيعية.">Redefining architectural foundations with precision-engineered vinyl that captures the soul of natural textures.</p>
+      <div class="ab-est">EST. MMXXIII</div>
+    </div>
+    <div class="ab-hero-visual">
+      <div class="about-visual">
+        <img src="images/hero.jpg" alt="Charmain Flooring showroom">
+        <div class="about-badge">
+          <span class="badge-n">2+</span>
+          <span class="badge-l" data-en="Years of Excellence" data-ar="سنوات من التميز">Years of Excellence</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TRANSFORMATION SECTION ──────────────────────────────────────────── -->
+<section class="ab-transform section-pad" style="padding-top:0;">
+  <div class="container ab-transform-grid">
+    <div class="ab-transform-visual">
+      <div class="about-visual">
+        <img src="images/kitchen.jpg" alt="Charmain kitchen installation">
+      </div>
+    </div>
+    <div class="ab-transform-text">
+      <p class="eyebrow" data-en="The Transformation" data-ar="التحول">The Transformation</p>
+      <h2 data-en="Crafting Sustainable<br>Foundations" data-ar="صياغة أساسيات<br>مستدامة">Crafting Sustainable<br>Foundations</h2>
+      <div class="gold-bar"></div>
+      <p class="body-text" data-en="At Charmain Flooring, we believe a floor is more than just a surface; it's the anchor of every interior masterpiece. Our journey began with a simple mission: to bridge the gap between high-end architectural aesthetics and everyday durability." data-ar="في شارمين فلورينج، نؤمن بأن الأرضية ليست مجرد سطح؛ بل هي أساس كل لوحة فنية داخلية. بدأت رحلتنا بمهمة بسيطة: سد الفجوة بين الجماليات المعمارية الراقية والمتانة اليومية.">At Charmain Flooring, we believe a floor is more than just a surface; it's the anchor of every interior masterpiece. Our journey began with a simple mission: to bridge the gap between high-end architectural aesthetics and everyday durability.</p>
+      <p class="body-text" style="margin-top:16px;" data-en="By specializing in sustainable vinyl flooring, we offer a collection that mirrors the warmth of hardwood and the strength of stone, without the ecological footprint. Every plank is a testament to our commitment to functional luxury." data-ar="من خلال تخصصنا في أرضيات الفينيل المستدامة، نقدم مجموعة تعكس دفء الخشب الصلب وقوة الحجر، دون الأثر البيئي. كل لوح شاهد على التزامنا بالفخامة الوظيفية.">By specializing in sustainable vinyl flooring, we offer a collection that mirrors the warmth of hardwood and the strength of stone, without the ecological footprint. Every plank is a testament to our commitment to functional luxury.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── MATERIAL INTEGRITY — 4 features ─────────────────────────────────── -->
+<section class="ab-integrity section-pad" style="padding-top:0;">
+  <div class="container">
+    <p class="ab-integrity-label" data-en="The Material Integrity" data-ar="جوهر المادة">The Material Integrity</p>
+    <p class="ab-integrity-sub body-text" data-en="Engineered to withstand the rigors of modern life while maintaining an uncompromising aesthetic appeal." data-ar="مصممة لتحمّل متطلبات الحياة العصرية مع الحفاظ على جاذبية جمالية لا تحيد.">Engineered to withstand the rigors of modern life while maintaining an uncompromising aesthetic appeal.</p>
+    <a class="ab-integrity-link" href="#page-collections" onclick="showPage('collections');return false;" data-en="Technical Specs →" data-ar="المواصفات التقنية →">Technical Specs →</a>
+    <div class="ab-feat-grid">
+      <div class="ab-feat-card">
+        <div class="ab-feat-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.59-13L12 10.59 8.41 7 7 8.41 10.59 12 7 15.59 8.41 17 12 13.41 15.59 17 17 15.59 13.41 12 17 8.41z"/></svg>
+        </div>
+        <h4 data-en="Waterproof" data-ar="مقاوم للماء">Waterproof</h4>
+        <p data-en="Perfect for kitchens and bathrooms, ensuring moisture-rich environments never compromise the foundation." data-ar="مثالي للمطابخ ، يضمن عدم إضرار الرطوبة بالأساس.">Perfect for kitchens and ensuring moisture-rich environments never compromise the foundation.</p>
+      </div>
+      <div class="ab-feat-card">
+        <div class="ab-feat-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+        </div>
+        <h4 data-en="Scratch Resistant" data-ar="مقاوم للخدش">Scratch Resistant</h4>
+        <p data-en="A high-density wear layer protects against pets, children, and the daily bustle of a vibrant household." data-ar="طبقة تآكل عالية الكثافة تحمي من الحيوانات الأليفة والأطفال وازدحام المنازل النشطة.">A high-density wear layer protects against pets, children, and the daily bustle of a vibrant household.</p>
+      </div>
+      <div class="ab-feat-card">
+        <div class="ab-feat-icon">
+          <svg viewBox="0 0 24 24"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>
+        </div>
+        <h4 data-en="Easy Install" data-ar="سهل التركيب">Easy Install</h4>
+        <p data-en=" designed for seamless DIY or professional installation in half the time." data-ar=" مصممة للتركيب بالنصف من الوقت."> designed for seamless DIY or professional installation in half the time.</p>
+      </div>
+      <div class="ab-feat-card">
+        <div class="ab-feat-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+        </div>
+        <h4 data-en="Premium Design" data-ar="تصميم راقٍ">Premium Design</h4>
+        <p data-en="Curated textures and hues selected by architects to complement contemporary and classic interiors." data-ar="أنسجة وألوان منتقاة من قبل المعماريين لتكمّل الديكورات العصرية والكلاسيكية.">Curated textures and hues selected by architects to complement contemporary and classic interiors.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY / BUILT DIFFERENT — dark section ─────────────────────────────── -->
+<div class="why-bridge">
+  <div class="why-bridge-rule"></div>
+  <div class="why-bridge-arrow">
+    <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+  </div>
+</div>
+<section class="why section-pad" style="padding-top: 40px;">
+  <div class="container">
+    <p class="eyebrow" data-en="Why Charmain Flooring" data-ar="لماذا شارمين فلورينج">Why Charmain Flooring</p>
+    <h2 data-en="Built Different" data-ar="مختلفون بالبناء">Built Different</h2>
+    <div class="gold-bar"></div>
+    <div class="why-grid">
+      <div class="w-card">
+        <div class="w-card-glow"></div>
+        <span class="w-num">01</span>
+        <h4 data-en="100% Waterproof" data-ar="مقاوم للماء 100%">100% Waterproof</h4>
+        <p data-en="Unlike traditional hardwood, our vinyl maintains its structural integrity and visual appeal even under direct water exposure." data-ar="على عكس الخشب التقليدي، يحافظ الفينيل لدينا على بنيته وجماله حتى تحت التعرض المباشر للماء.">Unlike traditional hardwood, our vinyl maintains its structural integrity and visual appeal even under direct water exposure.</p>
+      </div>
+      <div class="w-card">
+        <div class="w-card-glow"></div>
+        <span class="w-num">02</span>
+        <h4 data-en="Commercial Durability" data-ar="متانة تجارية">Commercial Durability</h4>
+        <p data-en="Designed for high-traffic environments, our flooring is rated for commercial spaces without sacrificing residential warmth." data-ar="مصمم للبيئات كثيفة الحركة، ومصنّف للمساحات التجارية دون التضحية بدفء المسكن.">Designed for high-traffic environments, our flooring is rated for commercial spaces without sacrificing residential warmth.</p>
+      </div>
+      <div class="w-card">
+        <div class="w-card-glow"></div>
+        <span class="w-num">03</span>
+        <h4 data-en="Eco-Conscious" data-ar="صديق للبيئة">Eco-Conscious</h4>
+        <p data-en="Formulated with sustainable materials and low-VOC emissions, promoting a healthier home and a greener planet." data-ar="مُركَّب من مواد مستدامة وانبعاثات VOC منخفضة، لتعزيز بيئة منزلية صحية وكوكب أخضر.">Formulated with sustainable materials and low-VOC emissions, promoting a healthier home and a greener planet.</p>
+      </div>
+      <div class="w-card">
+        <div class="w-card-glow"></div>
+        <span class="w-num">04</span>
+        <h4 data-en="Easy Installation" data-ar="تركيب سهل">Easy Installation</h4>
+        <p data-en="Glue-down system. 2m wide rolls, 25m length — professional results covering 50m² per roll." data-ar="نظام لاصق. لفات عرض 2م وطول 25م — نتائج احترافية تغطي 50م² لكل لفة.">Glue-down system. 2m wide rolls, 25m length — professional results covering 50m² per roll.</p>
+      </div>
+    
+      <div class="w-card">
+        <div class="w-card-glow"></div>
+        <span class="w-num">05</span>
+        <h4 data-en="Luxury Aesthetics" data-ar="جماليات فاخرة">Luxury Aesthetics</h4>
+        <p data-en="The visual richness of natural wood, marble, and stone — without the maintenance or the price." data-ar="غنى بصري يحاكي الخشب الطبيعي والرخام والحجر — دون تكاليف الصيانة أو السعر المرتفع.">The visual richness of natural wood, marble, and stone — without the maintenance or the price.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /page-about -->
+
+<!-- ══ PAGE: COLLECTIONS ════════════════════════════════════════════════════ -->
+<div id="page-collections" class="page">
+
+<section class="collections-page section-pad">
+  <div class="container">
+    <p class="eyebrow" data-en="Our Range" data-ar="تشكيلتنا">Our Range</p>
+    <h2 data-en="Collections" data-ar="المجموعات">Collections</h2>
+    <div class="gold-bar"></div>
+
+    <!-- TABS -->
+    <div class="collection-tabs">
+      <button class="tab-btn active" type="button" onclick="showTab('marble')" data-en="Marble Collection" data-ar="مجموعة الرخام">Marble Collection</button>
+      <button class="tab-btn" type="button" onclick="showTab('wood')" data-en="Wood Vinyl" data-ar="فينيل الخشب">Wood Vinyl</button>
+      <button class="tab-btn" type="button" onclick="showTab('elite')" data-en="Elite Oak" data-ar="إيليت أوك">Elite Oak</button>
+    </div>
+
+    <!-- ── MARBLE COLLECTION ─────────────────────────────────────────────── -->
+    <div class="collection-panel active" id="panel-marble">
+      <div class="collection-hero">
+        <div class="collection-img">
+          <img src="images/bath2.jpg" alt="Charmain Marble Collection">
+        </div>
+        <div class="collection-info">
+          <p class="eyebrow" data-en="Charmain Marble Collection" data-ar="مجموعة رخام شارمين">Charmain Marble Collection</p>
+          <h2 data-en="Timeless <em>Marble</em><br>Elegance" data-ar="أناقة <em>الرخام</em><br>الخالدة">Timeless <em>Marble</em><br>Elegance</h2>
+          <p class="body-text" data-en="Bring the timeless elegance of marble into your space with Charmain's marble design vinyl flooring. Combining the luxurious look of natural stone with the durability and comfort of vinyl, this flooring offers a stylish and practical solution for modern interiors. Available in a variety of colors and veining patterns, it perfectly complements both classic and contemporary decor." data-ar="اجلب أناقة الرخام الخالدة إلى مساحتك مع أرضيات الفينيل بتصميم الرخام من شارمين. فهي تجمع بين المظهر الفاخر للحجر الطبيعي مع متانة وراحة الفينيل، مما يوفر حلاً أنيقاً وعملياً للمساحات الداخلية العصرية. متوفرة بمجموعة متنوعة من الألوان والأنماط العرقية، مما يجعلها تكمل الديكورات الكلاسيكية والعصرية بشكل مثالي.">Bring the timeless elegance of marble into your space with Charmain's marble design vinyl flooring. Combining the luxurious look of natural stone with the durability and comfort of vinyl, this flooring offers a stylish and practical solution for modern interiors. Available in a variety of colors and veining patterns, it perfectly complements both classic and contemporary decor.</p>
+          <div class="collection-specs">
+            <div class="spec-card"><span class="spec-label" data-en="Width" data-ar="العرض">Width</span><span class="spec-val">2m</span></div>
+            <div class="spec-card"><span class="spec-label" data-en="Length" data-ar="الطول">Length</span><span class="spec-val">25m</span></div>
+            <div class="spec-card"><span class="spec-label" data-en="Coverage" data-ar="التغطية">Coverage</span><span class="spec-val">  50m²</span></div>
+            <div class="spec-card"><span class="spec-label" data-en="Thickness" data-ar="السماكة">Thickness</span><span class="spec-val">0.5 – 2.0mm</span></div>
+            <div class="spec-card"><span class="spec-label" data-en="Layers" data-ar="الطبقات">Layers</span><span class="spec-val">3</span></div>
+            <div class="spec-card"><span class="spec-label" data-en="Patterns" data-ar="الأنماط">Patterns</span><span class="spec-val">10</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Layer structure diagram + colour note -->
+      <div class="layer-diagram-wrap">
+        <svg class="layer-diagram-svg" width="180" height="140" viewBox="0 0 180 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Layer 1 – Decorative -->
+          <rect x="10" y="8" width="160" height="26" rx="2" fill="#e8dfd4"/>
+          <text x="90" y="25" text-anchor="middle" font-size="10" font-family="Barlow,sans-serif" font-weight="600" fill="#272c4a" data-en="Decorative" data-ar="طبقة زخرفية">Decorative</text>
+          <!-- Layer 2 – PVC -->
+          <rect x="10" y="38" width="160" height="34" rx="2" fill="#32395c"/>
+          <text x="90" y="59" text-anchor="middle" font-size="10" font-family="Barlow,sans-serif" font-weight="600" fill="rgba(255,255,255,0.85)" data-en="PVC" data-ar="PVC">PVC</text>
+          <!-- Layer 3 – Non-woven fabric -->
+          <rect x="10" y="76" width="160" height="26" rx="2" fill="#cda168" opacity="0.9"/>
+          <text x="90" y="93" text-anchor="middle" font-size="10" font-family="Barlow,sans-serif" font-weight="600" fill="#272c4a" data-en="Non-woven Fabric" data-ar="قماش غير منسوج">Non-woven Fabric</text>
+          <!-- Thickness brace -->
+          <line x1="4" y1="8" x2="4" y2="102" stroke="#cda168" stroke-width="1.5"/>
+          <line x1="1" y1="8" x2="7" y2="8" stroke="#cda168" stroke-width="1.5"/>
+          <line x1="1" y1="102" x2="7" y2="102" stroke="#cda168" stroke-width="1.5"/>
+          <text x="2" y="122" font-size="9" font-family="Barlow,sans-serif" fill="#cda168" font-weight="600" data-en="0.5–2.0mm" data-ar="0.5mm –2.0mm">0.5 –2.0mm</text>
+          <text x="2" y="135" font-size="8.5" font-family="Barlow,sans-serif" fill="#4a4a4a" data-en="Total Thickness" data-ar="السماكة الكلية">Total Thickness</text>
+        </svg>
+        <div class="layer-diagram-legend">
+          <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:4px;" data-en="3-Layer Construction" data-ar="بنية 3 طبقات">3-Layer Construction</div>
+          <div class="layer-item">
+            <div class="layer-dot" style="background:#e0d8cc;border:1px solid #ccc;"></div>
+            <div><div class="layer-label" data-en="Decorative" data-ar="طبقة زخرفية">Decorative</div><div class="layer-desc" data-en="High-resolution marble / stone texture" data-ar="قوام رخام/حجر عالي الدقة">High-resolution marble / stone texture</div></div>
+          </div>
+          <div class="layer-item">
+            <div class="layer-dot" style="background:#32395c;"></div>
+            <div><div class="layer-label" data-en="PVC" data-ar="PVC">PVC</div><div class="layer-desc" data-en="Waterproof, dimensionally stable" data-ar="مقاوم للماء ومستقر">Waterproof, dimensionally stable</div></div>
+          </div>
+          <div class="layer-item">
+            <div class="layer-dot" style="background:#cda168;"></div>
+            <div><div class="layer-label" data-en="Non-woven Fabric" data-ar="قماش غير منسوج">Non-woven Fabric</div><div class="layer-desc" data-en="Stable base support layer" data-ar="طبقة دعم قاعدة مستقرة">Stable base support layer</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="color-note">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+        <span data-en="Colors may vary slightly due to screen calibration and lighting conditions. We recommend requesting a physical sample before ordering." data-ar="قد تختلف الألوان قليلاً بسبب معايرة الشاشة وظروف الإضاءة. نوصي بطلب عينة مادية قبل الطلب.">Colors may vary slightly due to screen calibration and lighting conditions. We recommend requesting a physical sample before ordering.</span>
+      </div>
+
+      <!-- Colour swatches from catalogue -->
+      <div class="collection-gallery" style="margin-top:16px;">
+        <h3 data-en="Available Designs" data-ar="التصاميم المتاحة">Available Designs</h3>
+        <div class="swatch-groups">
+
+          <div class="swatch-group">
+            <h4 class="swatch-group-title">Terrazzo</h4>
+            <div class="swatch-row">
+              <div class="swatch-item" data-bg="images\Marble\CVG-T01.jpg" data-code="CVG-T05" data-img="yes" data-name-en="Blue Graphite" data-name-ar="ازرق جرافيت" data-thick="0.5–2.0mm" data-desc-en="Premium terrazzo design with unique stone pattern — versatile for any modern space." data-desc-ar="تصميم تيرازو فاخر بنمط حجري فريد — متعدد الاستخدامات لأي مساحة عصرية."><div class="swatch-color" style="background:url('images/Marble/CVG-T01.jpg') center 70%/cover no-repeat"></div><span class="swatch-code">CVG-T05</span><span class="swatch-name" data-en="Blue Graphite" data-ar="ازرق جرافيت">Blue Graphite</span></div>
+              <div class="swatch-item" data-bg="images\Marble\CVG-T02.jpg" data-code="CVG-T04" data-img="yes" data-name-en="Beige Dark Graphite" data-name-ar="بيج داكن جرافيت" data-thick="0.5–2.0mm" data-desc-en="Classic beige terrazzo with deep dark stone chips — a timeless choice for any interior." data-desc-ar="تيرازو بيج كلاسيكي مع رقائق حجرية داكنة — خيار خالد لأي ديكور داخلي."><div class="swatch-color" style="background:url('images/Marble/CVG-T02.jpg') center 70%/cover no-repeat"></div><span class="swatch-code">CVG-T04</span><span class="swatch-name" data-en="Beige Dark Graphite" data-ar="بيج داكن جرافيت">Beige Dark Graphite</span></div>
+              <div class="swatch-item" data-bg="images\Marble\CVG-T03.jpg" data-code="CVG-T03" data-img="yes" data-name-en="Red Graphite" data-name-ar="أحمر جرافيت" data-thick="0.5–2.0mm" data-desc-en="Bold red terrazzo with fine graphite texture — makes a dramatic statement in any space." data-desc-ar="تيرازو أحمر جريء بقوام جرافيت رفيع — يضفي طابعاً درامياً مميزاً على أي مساحة."><div class="swatch-color" style="background:url('images/Marble/CVG-T03.jpg') center 70%/cover no-repeat"></div><span class="swatch-code">CVG-T03</span><span class="swatch-name" data-en="Red Graphite" data-ar="أحمر جرافيت">Red Graphite</span></div>
+              <div class="swatch-item" data-bg="images\Marble\CVG-T04.jpg" data-code="CVG-T02" data-img="yes" data-name-en="Light Grey Graphite" data-name-ar="رمادي فاتح جرافيت" data-thick="0.5–2.0mm" data-desc-en="Soft light grey terrazzo with subtle graphite detailing — versatile and contemporary." data-desc-ar="تيرازو رمادي فاتح ناعم بتفاصيل جرافيتية دقيقة — متعدد الاستخدامات وعصري."><div class="swatch-color" style="background:url('images/Marble/CVG-T04.jpg') center 70%/cover no-repeat"></div><span class="swatch-code">CVG-T02</span><span class="swatch-name" data-en="Light Grey Graphite" data-ar="رمادي فاتح جرافيت">Light Grey Graphite</span></div>
+              <div class="swatch-item" data-bg="images\Marble\CVG-T05.jpg" data-code="CVG-T01" data-img="yes" data-name-en="Beige Multicolor Graphite" data-name-ar="بيج متعدد الألوان جرافيت" data-thick="0.5–2.0mm" data-desc-en="Warm beige terrazzo with multicolored stone inclusions — ideal for living rooms and hallways." data-desc-ar="تيرازو بيج دافئ مع شوائب حجرية متعددة الألوان — مثالي لغرف المعيشة والممرات."><div class="swatch-color" style="background:url('images/Marble/CVG-T05.jpg') center 70%/cover no-repeat"></div><span class="swatch-code">CVG-T01</span><span class="swatch-name" data-en="Beige Multicolor Graphite" data-ar="بيج متعدد الألوان جرافيت">Beige Multicolor Graphite</span></div>
+            </div>
+          </div>
+
+          <div class="swatch-group">
+            <h4 class="swatch-group-title">Calacatta</h4>
+            <div class="swatch-row">
+              <div class="swatch-item" data-bg="images\Marble\CVG-C10.jpeg" data-code="CVG-C10" data-img="yes" data-name-en="Light Grey Calacatta" data-name-ar="كالاكاتا رمادي فاتح" data-thick="0.5–2.0mm" data-desc-en="Sophisticated grey marble with natural veining — perfect for contemporary and minimalist spaces." data-desc-ar="رخام رمادي راقٍ بتعريق طبيعي — مثالي للمساحات العصرية والبسيطة."><div class="swatch-color" style="background:url('images/Marble/CVG-C10.jpeg') center 70%/cover no-repeat"></div><span class="swatch-code">CVG-C10</span><span class="swatch-name" data-en="Light Grey Calacatta" data-ar="كالاكاتا رمادي فاتح">Light Grey Calacatta</span></div>
+              <div class="swatch-item" data-bg="images\Marble\CVG-C09.jpeg" data-code="CVG-C09" data-img="yes" data-name-en="Dark Grey Calacatta" data-name-ar="كالاكاتا رمادي داكن" data-thick="0.5–2.0mm" data-desc-en="Dramatic black marble with bold white veining — a statement floor for modern interiors." data-desc-ar="رخام أسود جريء بتعريق أبيض بارز — أرضية لافتة للنظر لديكورات حديثة."><div class="swatch-color" style="background:url('images/Marble/CVG-C09.jpeg') center 70%/cover no-repeat"></div><span class="swatch-code">CVG-C09</span><span class="swatch-name" data-en="Dark Grey Calacatta" data-ar="كالاكاتا رمادي داكن">Dark Grey Calacatta</span></div>
+              <div class="swatch-item" data-bg="images\Marble\CVG-C08.jpeg" data-code="CVG-C08" data-img="yes" data-name-en="Golden Calacatta" data-name-ar="كالاكاتا ذهبي" data-thick="0.5–2.0mm" data-desc-en="Warm white marble with golden veining — adds luxury warmth to bathrooms and living areas." data-desc-ar="رخام أبيض دافئ بتعريق ذهبي — يضفي دفء الفخامة على الحمامات وغرف المعيشة."><div class="swatch-color" style="background:url('images/Marble/CVG-C08.jpeg') center 70%/cover no-repeat"></div><span class="swatch-code">CVG-C08</span><span class="swatch-name" data-en="Golden Calacatta" data-ar="كالاكاتا ذهبي">Golden Calacatta</span></div>
+              <div class="swatch-item" data-bg="images\Marble\CVG-C07.jpeg" data-code="CVG-C07" data-img="yes" data-name-en="White Calacatta" data-name-ar="كالاكاتا ابيض " data-thick="0.5–2.0mm" data-desc-en="Premium calacatta marble design — elegant veining pattern for luxury interiors." data-desc-ar="تصميم رخام كالاكاتا فاخر — نمط تعريق أنيق للديكورات الفاخرة."><div class="swatch-color" style="background:url('images/Marble/CVG-C07.jpeg') center 70%/cover no-repeat"></div><span class="swatch-code">CVG-C07</span><span class="swatch-name" data-en="White Calacatta" data-ar="كالاكاتا ابيض">White Calacatta </span></div>
+            </div>
+          </div>
+
+          <div class="swatch-group">
+            <h4 class="swatch-group-title">Graphite</h4>
+            <div class="swatch-row">
+              <div class="swatch-item" data-bg="images/Marble/CVG-G05.jpg" data-code="CVG-G05" data-img="yes" data-name-en="Graphite Dark Grey" data-name-ar="جرافيت رمادي داكن" data-thick="0.5–2.0mm" data-desc-en="Deep graphite grey with a fine cracked texture — bold and industrial for modern spaces." data-desc-ar="رمادي جرافيت داكن بقوام متشقق رفيع — جريء وصناعي للمساحات العصرية."><div class="swatch-color" style="background:url('images/Marble/CVG-G05.jpg') center 70%/cover no-repeat"></div><span class="swatch-code">CVG-G05</span><span class="swatch-name" data-en="Graphite Dark Grey" data-ar="جرافيت رمادي داكن">Graphite Dark Grey</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div><!-- /panel-marble -->
+
+    <!-- ── WOOD VINYL COLLECTION ─────────────────────────────────────────── -->
+    <div class="collection-panel" id="panel-wood">
+      <div class="collection-hero">
+        <div class="collection-img">
+          <img src="images/woodhero.jpeg" alt="Charmain Wood Vinyl Collection">
+        </div>
+        <div class="collection-info">
+          <p class="eyebrow" data-en="Charmain Wood Vinyl Collection" data-ar="مجموعة فينيل الخشب">Charmain Wood Vinyl Collection</p>
+          <h2 data-en="Natural <em>Wood</em><br>Character" data-ar="طابع <em>الخشب</em><br>الطبيعي">Natural <em>Wood</em><br>Character</h2>
+          <p class="body-text" data-en="Transform your interiors with Charmain's premium vinyl flooring, designed for durability, style, and ease of maintenance. Our collection offers a wide range of wood-inspired designs, herringbone patterns, and modern textures, making it the perfect choice for residential and commercial spaces. From rich oak tones to contemporary grey shades, Charmain vinyl flooring brings warmth, sophistication, and practicality to any space." data-ar="حوّل ديكور منزلك مع أرضيات الفينيل الفاخرة من CHARMAIN، المصممة لتجمع بين المتانة والأناقة وسهولة الصيانة. تقدم مجموعتنا تشكيلة واسعة من التصاميم المستوحاة من الخشب وأنماط هارينغبون والقوام الحديثة، مما يجعلها الخيار المثالي للمساحات السكنية والتجارية. من درجات البلوط الغنية إلى الظلال الرمادية العصرية، تضفي أرضيات CHARMAIN الدفء والرقي والعملية على أي مساحة.">Transform your interiors with Charmain's premium vinyl flooring, designed for durability, style, and ease of maintenance. Our collection offers a wide range of wood-inspired designs, herringbone patterns, and modern textures, making it the perfect choice for residential and commercial spaces. From rich oak tones to contemporary grey shades, Charmain vinyl flooring brings warmth, sophistication, and practicality to any space.</p>
+          <div class="collection-specs">
+            <div class="spec-card"><span class="spec-label" data-en="Width" data-ar="العرض">Width</span><span class="spec-val">2m</span></div>
+            <div class="spec-card"><span class="spec-label" data-en="Length" data-ar="الطول">Length</span><span class="spec-val">25m</span></div>
+            <div class="spec-card"><span class="spec-label" data-en="Coverage" data-ar="التغطية">Coverage</span><span class="spec-val">  50m²</span></div>
+            <div class="spec-card"><span class="spec-label" data-en="Thickness" data-ar="السماكة">Thickness</span><span class="spec-val">0.5 – 2.0mm</span></div>
+            <div class="spec-card"><span class="spec-label" data-en="Layers" data-ar="الطبقات">Layers</span><span class="spec-val">3</span></div>
+            <div class="spec-card"><span class="spec-label" data-en="Designs" data-ar="التصاميم">Designs</span><span class="spec-val">11</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Layer structure diagram + colour note -->
+      <div class="layer-diagram-wrap">
+        <svg class="layer-diagram-svg" width="180" height="140" viewBox="0 0 180 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="8" width="160" height="26" rx="2" fill="#e8dfd4"/>
+          <text x="90" y="25" text-anchor="middle" font-size="10" font-family="Barlow,sans-serif" font-weight="600" fill="#272c4a" data-en="Decorative" data-ar="طبقة زخرفية">Decorative</text>
+          <rect x="10" y="38" width="160" height="34" rx="2" fill="#32395c"/>
+          <text x="90" y="59" text-anchor="middle" font-size="10" font-family="Barlow,sans-serif" font-weight="600" fill="rgba(255,255,255,0.85)" data-en="PVC" data-ar="PVC">PVC</text>
+          <rect x="10" y="76" width="160" height="26" rx="2" fill="#cda168" opacity="0.9"/>
+          <text x="90" y="93" text-anchor="middle" font-size="10" font-family="Barlow,sans-serif" font-weight="600" fill="#272c4a" data-en="Non-woven Fabric" data-ar="قماش غير منسوج">Non-woven Fabric</text>
+          <line x1="4" y1="8" x2="4" y2="102" stroke="#cda168" stroke-width="1.5"/>
+          <line x1="1" y1="8" x2="7" y2="8" stroke="#cda168" stroke-width="1.5"/>
+          <line x1="1" y1="102" x2="7" y2="102" stroke="#cda168" stroke-width="1.5"/>
+          <text x="2" y="122" font-size="9" font-family="Barlow,sans-serif" fill="#cda168" font-weight="600" data-en="0.5–2.0mm" data-ar="2.0مم-0.5مم">0.5–2.0mm</text>
+          <text x="2" y="135" font-size="8.5" font-family="Barlow,sans-serif" fill="#4a4a4a" data-en="Total Thickness" data-ar="السماكة الكلية">Total Thickness</text>
+        </svg>
+        <div class="layer-diagram-legend">
+          <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:4px;" data-en="3-Layer Construction" data-ar="بنية 3 طبقات">3-Layer Construction</div>
+          <div class="layer-item">
+            <div class="layer-dot" style="background:#e0d8cc;border:1px solid #ccc;"></div>
+            <div><div class="layer-label" data-en="Decorative" data-ar="طبقة زخرفية">Decorative</div><div class="layer-desc" data-en="High-definition oak / walnut texture" data-ar="قوام بلوط/جوز عالي الدقة">High-definition oak / walnut texture</div></div>
+          </div>
+          <div class="layer-item">
+            <div class="layer-dot" style="background:#32395c;"></div>
+            <div><div class="layer-label" data-en="PVC" data-ar="PVC">PVC</div><div class="layer-desc" data-en="Waterproof, dimensionally stable" data-ar="مقاوم للماء ومستقر">Waterproof, dimensionally stable</div></div>
+          </div>
+          <div class="layer-item">
+            <div class="layer-dot" style="background:#cda168;"></div>
+            <div><div class="layer-label" data-en="Non-woven Fabric" data-ar="قماش غير منسوج">Non-woven Fabric</div><div class="layer-desc" data-en="Stable base support layer" data-ar="طبقة دعم قاعدة مستقرة">Stable base support layer</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="color-note">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+        <span data-en="Colors may vary slightly due to screen calibration and lighting conditions. We recommend requesting a physical sample before ordering." data-ar="قد تختلف الألوان قليلاً بسبب معايرة الشاشة وظروف الإضاءة. نوصي بطلب عينة مادية قبل الطلب.">Colors may vary slightly due to screen calibration and lighting conditions. We recommend requesting a physical sample before ordering.</span>
+      </div>
+
+      <div class="collection-gallery" style="margin-top:40px;">
+        <h3 data-en="Available Designs" data-ar="التصاميم المتاحة">Available Designs</h3>
+        <div class="swatch-groups">
+
+          <div class="swatch-group">
+            <h4 class="swatch-group-title">Brown Oak</h4>
+            <div class="swatch-row">
+              <div class="swatch-item" data-bg="images/Wood/CVM-B01.jpg" data-code="CVM-B01" data-img="yes" data-name-en="Smoked Oak" data-name-ar="بلوط مدخن" data-thick="0.5–2.0mm" data-desc-en="Rich smoked oak with deep brown tones and natural grain — warm natural wood character." data-desc-ar="بلوط مدخن غني بألوان بنية داكنة وحبوب طبيعية — طابع خشب طبيعي دافئ."><div class="swatch-color" style="background:url('images/Wood/CVM-B01.jpg') center/cover no-repeat"></div><span class="swatch-code">CVM-B01</span><span class="swatch-name" data-en="Smoked Oak" data-ar="بلوط مدخن">Smoked Oak</span></div>
+              <div class="swatch-item" data-bg="images/Wood/CVM-B02.jpg" data-code="CVM-B02" data-img="yes" data-name-en="Natural Light Oak" data-name-ar="بلوط فاتح طبيعي" data-thick="0.5–2.0mm" data-desc-en="Fresh light oak with a clean natural grain — bright and airy for Scandinavian-inspired interiors." data-desc-ar="بلوط فاتح منعش بحبوب طبيعية نظيفة — مشرق وهوائي للديكورات المستوحاة من الطراز الإسكندنافي."><div class="swatch-color" style="background:url('images/Wood/CVM-B02.jpg') center/cover no-repeat"></div><span class="swatch-code">CVM-B02</span><span class="swatch-name" data-en="Natural Light Oak" data-ar="بلوط فاتح طبيعي">Natural Light Oak</span></div>
+              <div class="swatch-item" data-bg="images/Wood/CVM-B03.jpg" data-code="CVM-B03" data-img="yes" data-name-en="Soft Brown Wood" data-name-ar="خشب بني ناعم" data-thick="0.5–2.0mm" data-desc-en="Soft, medium brown wood with subtle grain variation — a versatile classic for any room." data-desc-ar="خشب بني متوسط ناعم بتنوع طفيف في الحبوب — كلاسيكي متعدد الاستخدامات لأي غرفة."><div class="swatch-color" style="background:url('images/Wood/CVM-B03.jpg') center/cover no-repeat"></div><span class="swatch-code">CVM-B03</span><span class="swatch-name" data-en="Soft Brown Wood" data-ar="خشب بني ناعم">Soft Brown Wood</span></div>
+            </div>
+          </div>
+
+          <div class="swatch-group">
+            <h4 class="swatch-group-title">Classic Oak</h4>
+            <div class="swatch-row">
+              <div class="swatch-item" data-bg="images/Wood/CVM-C04.jpg" data-code="CVM-C04" data-img="yes" data-name-en="Golden Wood" data-name-ar="خشب ذهبي" data-thick="0.5–2.0mm" data-desc-en="Warm golden oak planks with rich natural knots and grain — classic elegance underfoot." data-desc-ar="ألواح بلوط ذهبية دافئة بعقد وحبوب طبيعية غنية — أناقة كلاسيكية تحت قدميك."><div class="swatch-color" style="background:url('images/Wood/CVM-C04.jpg') center/cover no-repeat"></div><span class="swatch-code">CVM-C04</span><span class="swatch-name" data-en="Golden Wood" data-ar="خشب ذهبي">Golden Wood</span></div>
+              <div class="swatch-item" data-bg="images/Wood/CVM-C05.jpg" data-code="CVM-C05" data-img="yes" data-name-en="Warm Brown Wood" data-name-ar="خشب بني دافئ" data-thick="0.5–2.0mm" data-desc-en="Deep warm brown oak with pronounced natural wood grain — welcoming and timeless." data-desc-ar="بلوط بني دافئ عميق بحبوب خشب طبيعية بارزة — مرحب وخالد."><div class="swatch-color" style="background:url('images/Wood/CVM-C05.jpg') center/cover no-repeat"></div><span class="swatch-code">CVM-C05</span><span class="swatch-name" data-en="Warm Brown Wood" data-ar="خشب بني دافئ">Warm Brown Wood</span></div>
+            </div>
+          </div>
+
+          <div class="swatch-group">
+            <h4 class="swatch-group-title">Patterned Herringbone</h4>
+            <div class="swatch-row">
+              <div class="swatch-item" data-bg="images/Wood/CVM-P06.jpg" data-code="CVM-P06" data-img="yes" data-name-en="Herringbone Parquet" data-name-ar="هارينغبون" data-thick="0.5–2.0mm" data-desc-en="Classic herringbone parquet pattern in dark gold-bronze oak — an architectural statement floor." data-desc-ar="نمط هارينغبون الكلاسيكي بلون البلوط الذهبي البرونزي الداكن — أرضية معمارية لافتة للنظر."><div class="swatch-color" style="background:url('images/Wood/CVM-P06.jpg') center/cover no-repeat"></div><span class="swatch-code">CVM-P06</span><span class="swatch-name" data-en="Herringbone Parquet" data-ar="هارينغبون">Herringbone Parquet</span></div>
+            </div>
+          </div>
+
+          <div class="swatch-group">
+            <h4 class="swatch-group-title">Modern Grey Oak</h4>
+            <div class="swatch-row">
+              <div class="swatch-item" data-bg="images/Wood/CVM-G07.jpg" data-code="CVM-G07" data-img="yes" data-name-en="Light Grey" data-name-ar="رمادي فاتح" data-thick="0.5–2.0mm" data-desc-en="Cool light grey oak with a smooth, contemporary finish — ideal for modern and minimalist rooms." data-desc-ar="بلوط رمادي فاتح بارد بتشطيب معاصر ناعم — مثالي للغرف العصرية والبسيطة."><div class="swatch-color" style="background:url('images/Wood/CVM-G07.jpg') center/cover no-repeat"></div><span class="swatch-code">CVM-G07</span><span class="swatch-name" data-en="Light Grey" data-ar="رمادي فاتح">Light Grey</span></div>
+            </div>
+          </div>
+
+          <div class="swatch-group">
+            <h4 class="swatch-group-title">Rustic Multi-Tone</h4>
+            <div class="swatch-row">
+              <div class="swatch-item" data-bg="images/Wood/CVM-R09.jpg" data-code="CVM-R09" data-img="yes" data-name-en="Rustic Multi-Tone Plank" data-name-ar="بلاط متعدد الألوان الريفي" data-thick="0.5–2.0mm" data-desc-en="Mixed rustic planks in varied brown, grey and amber tones — authentic character with a lived-in warmth." data-desc-ar="ألواح ريفية متنوعة بألوان بنية ورمادية وعنبرية — طابع أصيل بدفء المسكون."><div class="swatch-color" style="background:url('images/Wood/CVM-R09.jpg') center/cover no-repeat"></div><span class="swatch-code">CVM-R09</span><span class="swatch-name" data-en="Rustic Multi-Tone Plank" data-ar="بلاط متعدد الألوان الريفي">Rustic Multi-Tone Plank</span></div>
+            </div>
+          </div>
+
+          <div class="swatch-group">
+            <h4 class="swatch-group-title">Classic Oak Extended</h4>
+            <div class="swatch-row">
+              <div class="swatch-item" data-bg="images/Wood/CVM-C06.jpg" data-code="CVM-C06" data-img="yes" data-name-en="Classic Oak C06" data-name-ar="بلوط كلاسيكي C06" data-thick="0.5–2.0mm" data-desc-en="Classic oak with rich natural character — timeless elegance for any room." data-desc-ar="بلوط كلاسيكي بطابع طبيعي غني — أناقة خالدة لأي غرفة."><div class="swatch-color" style="background:url('images/Wood/CVM-C06.jpg') center/cover no-repeat"></div><span class="swatch-code">CVM-C06</span><span class="swatch-name" data-en="Classic Oak C06" data-ar="بلوط كلاسيكي C06">Classic Oak C06</span></div>
+              <div class="swatch-item" data-bg="images/Wood/CVM-C07.jpg" data-code="CVM-C07" data-img="yes" data-name-en="Classic Oak C07" data-name-ar="بلوط كلاسيكي C07" data-thick="0.5–2.0mm" data-desc-en="Classic oak with natural wood tones — warm and inviting for modern spaces." data-desc-ar="بلوط كلاسيكي بألوان خشبية طبيعية — دافئ ومرحب للمساحات العصرية."><div class="swatch-color" style="background:url('images/Wood/CVM-C07.jpg') center/cover no-repeat"></div><span class="swatch-code">CVM-C07</span><span class="swatch-name" data-en="Classic Oak C07" data-ar="بلوط كلاسيكي C07">Classic Oak C07</span></div>
+              <div class="swatch-item" data-bg="images/Wood/CVM-C010.jpg" data-code="CVM-C010" data-img="yes" data-name-en="Classic Oak C010" data-name-ar="بلوط كلاسيكي C010" data-thick="0.5–2.0mm" data-desc-en="Premium classic oak with distinguished grain patterns — elegant flooring choice." data-desc-ar="بلوط كلاسيكي فاخر بأنماط حبوب مميزة — خيار أرضيات أنيق."><div class="swatch-color" style="background:url('images/Wood/CVM-C010.jpg') center/cover no-repeat"></div><span class="swatch-code">CVM-C010</span><span class="swatch-name" data-en="Classic Oak C010" data-ar="بلوط كلاسيكي C010">Classic Oak C010</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── ELITE OAK COLLECTION ──────────────────────────────────────────── -->
+    <div class="collection-panel" id="panel-elite">
+      <div class="collection-hero">
+        <div class="collection-img">
+          <img src="images/elitehero.jpeg" alt="Charmain Elite Oak Collection" style="width:100%;height:100%;object-fit:cover;object-position:center;border-radius:4px;">
+        </div>
+        <div class="collection-info">
+          <p class="eyebrow" data-en="Charmain Elite Oak Vinyl Collection" data-ar="مجموعة إيليت أوك الفاخرة">Charmain Elite Oak Vinyl Collection</p>
+          <h2 data-en="Premium <em>Elite Oak</em><br>Vinyl" data-ar="فينيل <em>إيليت أوك</em><br>الفاخر">Premium <em>Elite Oak</em><br>Vinyl</h2>
+          <p class="body-text" data-en="Upgrade your space with Charmain's latest Elite Oak vinyl flooring — crafted for elegance, durability, and easy maintenance. Featuring natural wood textures, modern tones, and timeless designs. With waterproof, scratch-resistant properties and 4-layer premium construction, the Elite Oak collection offers superior protection and a 1mm–3mm premium thickness." data-ar="ارتقِ بمساحتك مع أحدث مجموعات أرضيات الفينيل إيليت أوك من شارمين — المصممة بالأناقة والمتانة وسهولة الصيانة. تتميز بأنسجة خشبية طبيعية وألوان عصرية وتصاميم خالدة. بفضل بنيتها الرباعية الفاخرة ومقاومتها للماء والخدوش، تقدم حماية فائقة وسماكة فاخرة من 1 إلى 3 ملم.">Upgrade your space with Charmain's latest Elite Oak vinyl flooring — crafted for elegance, durability, and easy maintenance. Featuring natural wood textures, modern tones, and timeless designs. With waterproof, scratch-resistant properties and 4-layer premium construction, the Elite Oak collection offers superior protection and a 1mm–3mm premium thickness.</p>
+          <div class="collection-specs">
+            <div class="spec-card"><span class="spec-label" data-en="Width" data-ar="العرض">Width</span><span class="spec-val">2m</span></div>
+            <div class="spec-card"><span class="spec-label" data-en="Length" data-ar="الطول">Length</span><span class="spec-val">25m</span></div>
+            <div class="spec-card"><span class="spec-label" data-en="Coverage" data-ar="التغطية">Coverage</span><span class="spec-val">  50m²</span></div>
+            <div class="spec-card"><span class="spec-label" data-en="Thickness" data-ar="السماكة">Thickness</span><span class="spec-val">1.0 – 3.0mm</span></div>
+            <div class="spec-card"><span class="spec-label" data-en="Layers" data-ar="الطبقات">Layers</span><span class="spec-val">4 ★</span></div>
+            <div class="spec-card"><span class="spec-label" data-en="Designs" data-ar="التصاميم">Designs</span><span class="spec-val">5</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Layer structure diagram + colour note -->
+      <div class="layer-diagram-wrap">
+        <svg class="layer-diagram-svg" width="180" height="162" viewBox="0 0 180 162" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="8" width="160" height="22" rx="2" fill="#cda168" opacity="0.9"/>
+          <text x="90" y="23" text-anchor="middle" font-size="9.5" font-family="Barlow,sans-serif" font-weight="600" fill="#272c4a" data-en="Wear Layer" data-ar="طبقة التآكل">Wear Layer</text>
+          <rect x="10" y="34" width="160" height="22" rx="2" fill="#cda168" opacity="0.45"/>
+          <text x="90" y="49" text-anchor="middle" font-size="9.5" font-family="Barlow,sans-serif" font-weight="600" fill="#272c4a" data-en="UV Protection Layer" data-ar="طبقة الحماية من الأشعة">UV Protection Layer</text>
+          <rect x="10" y="60" width="160" height="22" rx="2" fill="#c49a45" opacity="0.3"/>
+          <text x="90" y="75" text-anchor="middle" font-size="9.5" font-family="Barlow,sans-serif" font-weight="600" fill="#272c4a" data-en="Decorative Print" data-ar="طبعة زخرفية"> Decorative Print</text>
+          <rect x="10" y="86" width="160" height="34" rx="2" fill="#32395c"/>
+          <text x="90" y="107" text-anchor="middle" font-size="9.5" font-family="Barlow,sans-serif" font-weight="600" fill="rgba(255,255,255,0.85)" data-en="Premium PVC Core" data-ar="قلب PVC فاخر">Premium PVC Core</text>
+          <line x1="4" y1="8" x2="4" y2="120" stroke="#cda168" stroke-width="1.5"/>
+          <line x1="1" y1="8" x2="7" y2="8" stroke="#cda168" stroke-width="1.5"/>
+          <line x1="1" y1="120" x2="7" y2="120" stroke="#cda168" stroke-width="1.5"/>
+          <text x="2" y="140" font-size="9" font-family="Barlow,sans-serif" fill="#cda168" font-weight="600" data-en="1.0–3.0mm" data-ar="3.0مم-1.0مم">1.0–3.0mm</text>
+          <text x="2" y="153" font-size="8.5" font-family="Barlow,sans-serif" fill="#4a4a4a" data-en="Total Thickness" data-ar="السماكة الكلية">Total Thickness</text>
+        </svg>
+        <div class="layer-diagram-legend">
+          <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:4px;" data-en="4-Layer Premium Construction" data-ar="بنية 4 طبقات فاخرة">4-Layer Premium Construction</div>
+          <div class="layer-item">
+            <div class="layer-dot" style="background:#cda168;"></div>
+            <div><div class="layer-label" data-en="Wear Layer" data-ar="طبقة التآكل">Wear Layer</div><div class="layer-desc" data-en="Heavy-duty scratch resistant surface" data-ar="سطح فائق المقاومة للخدوش">Heavy-duty scratch resistant surface</div></div>
+          </div>
+          <div class="layer-item">
+            <div class="layer-dot" style="background:#cda168;opacity:0.45;"></div>
+            <div><div class="layer-label" data-en="UV Protection" data-ar="طبقة UV">UV Protection</div><div class="layer-desc" data-en="Guards against sun fade &amp; discolouration" data-ar="حماية من البهتان بسبب أشعة الشمس">Guards against sun fade &amp; discolouration</div></div>
+          </div>
+          <div class="layer-item">
+            <div class="layer-dot" style="background:#c49a45;opacity:0.5;border:1px solid #c49a45;"></div>
+            <div><div class="layer-label" data-en="Waterproof Decorative" data-ar="طبقة زخرفية مقاومة للماء">Waterproof Decorative</div><div class="layer-desc" data-en="HD oak texture, moisture-sealed" data-ar="قوام بلوط عالي الدقة ">HD oak texture, moisture-sealed</div></div>
+          </div>
+          <div class="layer-item">
+            <div class="layer-dot" style="background:#32395c;"></div>
+            <div><div class="layer-label" data-en="Premium PVC Core" data-ar="قلب PVC فاخر">Premium PVC Core</div><div class="layer-desc" data-en="Thicker, more rigid &amp; stable base" data-ar="قاعدة أكثر سماكة وصلابة واستقراراً">Thicker, more rigid &amp; stable base</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="color-note">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+        <span data-en="Colors may vary slightly due to screen calibration and lighting conditions. We recommend requesting a physical sample before ordering." data-ar="قد تختلف الألوان قليلاً بسبب معايرة الشاشة وظروف الإضاءة. نوصي بطلب عينة مادية قبل الطلب.">Colors may vary slightly due to screen calibration and lighting conditions. We recommend requesting a physical sample before ordering.</span>
+      </div>
+
+      <div class="collection-gallery" style="margin-top:16px;">
+        <h3 data-en="Available Designs" data-ar="التصاميم المتاحة">Available Designs</h3>
+        <div class="swatch-groups">
+          <div class="swatch-group">
+            <h4 class="swatch-group-title">Elite Oak Series</h4>
+            <div class="swatch-row">
+              <div class="swatch-item" data-bg="images/Elite/CVM-E01.jpg" data-code="CVM-E01" data-img="yes" data-name-en="Deep-Grain Wood" data-name-ar="خشب عميق الحبيبات" data-thick="1.0–3.0mm" data-desc-en="Premium deep-grain oak herringbone with dark amber tones — the flagship of the Elite Oak series." data-desc-ar="هارينغبون بلوط فاخر عميق الحبيبات بألوان عنبرية داكنة — الواجهة الرئيسية لمجموعة إيليت أوك."><div class="swatch-color" style="background:url('images/Elite/CVM-E01.jpg') center/cover no-repeat"></div><span class="swatch-code">CVM-E01</span><span class="swatch-name" data-en="Deep-Grain Wood" data-ar="خشب عميق الحبيبات">Deep-Grain Wood</span></div>
+              <div class="swatch-item" data-bg="images/Elite/CVM-E02.jpg" data-code="CVM-E02" data-img="yes" data-name-en="Honey-Toned Wood" data-name-ar="خشب عسلي اللون" data-thick="1.0–3.0mm" data-desc-en="Warm honey-toned oak planks with rich natural grain — inviting and perfect for living spaces." data-desc-ar="ألواح بلوط عسلية دافئة بحبوب طبيعية غنية — جذابة ومثالية لمساحات المعيشة."><div class="swatch-color" style="background:url('images/Elite/CVM-E02.jpg') center/cover no-repeat"></div><span class="swatch-code">CVM-E02</span><span class="swatch-name" data-en="Honey-Toned Wood" data-ar="خشب عسلي اللون">Honey-Toned Wood</span></div>
+              <div class="swatch-item" data-bg="images/Elite/CVM-E03.jpg" data-code="CVM-E03" data-img="yes" data-name-en="Natural Warm Oak" data-name-ar="بلوط دافئ طبيعي" data-thick="1.0–3.0mm" data-desc-en="Natural warm oak with authentic wood texture and soft grain variation — balanced and refined." data-desc-ar="بلوط دافئ طبيعي بقوام خشب أصيل وتنوع ناعم في الحبوب — متوازن ومصقول."><div class="swatch-color" style="background:url('images/Elite/CVM-E03.jpg') center/cover no-repeat"></div><span class="swatch-code">CVM-E03</span><span class="swatch-name" data-en="Natural Warm Oak" data-ar="بلوط دافئ طبيعي">Natural Warm Oak</span></div>
+              <div class="swatch-item" data-bg="images/Elite/CVM-E04.jpg" data-code="CVM-E04" data-img="yes" data-name-en="Wavy Wood Pattern" data-name-ar="نمط خشب متموج" data-thick="1.0–3.0mm" data-desc-en="Distinctive wavy wood grain pattern in neutral grey tones — sculptural and contemporary." data-desc-ar="نمط حبوب خشب متموج مميز بألوان رمادية محايدة — نحتي وعصري."><div class="swatch-color" style="background:url('images/Elite/CVM-E04.jpg') center/cover no-repeat"></div><span class="swatch-code">CVM-E04</span><span class="swatch-name" data-en="Wavy Wood Pattern" data-ar="نمط خشب متموج">Wavy Wood Pattern</span></div>
+              <div class="swatch-item" data-bg="images/Elite/CVM-E05.jpg" data-code="CVM-E05" data-img="yes" data-name-en="Grey Light Oak" data-name-ar="بلوط رمادي فاتح" data-thick="1.0–3.0mm" data-desc-en="Airy light grey oak with fine wood grain — clean, versatile, and effortlessly modern." data-desc-ar="بلوط رمادي فاتح وهوائي بحبوب خشب رفيعة — نظيف ومتعدد الاستخدامات وعصري بلا عناء."><div class="swatch-color" style="background:url('images/Elite/CVM-E05.jpg') center/cover no-repeat"></div><span class="swatch-code">CVM-E05</span><span class="swatch-name" data-en="Grey Light Oak" data-ar="بلوط رمادي فاتح">Grey Light Oak</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+</div><!-- /page-collections -->
+
+
+
+
+<!-- ══ PAGE: GALLERY ════════════════════════════════════════════════════════ -->
+<div id="page-gallery" class="page">
+
+<section class="gallery-page">
+
+  <!-- ── EDITORIAL HEADER ───────────────────────────────────────────────── -->
+  <div class="gallery-hero-header">
+    <div>
+      <span class="gallery-eyebrow" data-en="The Curated Atelier" data-ar="الأتيليه المنتقى">The Curated Atelier</span>
+      <h1 class="gallery-headline" data-en="THE<br>GALLERY" data-ar="المعرض">THE<br>GALLERY</h1>
+    </div>
+    <div class="gallery-quote-side">
+      <p class="gallery-quote-text" data-en="&ldquo;Every plank tells a story of spaces. We don't just lay floors — we bring the warmth of natural beauty to patterns that define home.&rdquo;" data-ar="&ldquo;كل لوح يحكي قصة مساحة. نحن لا نفرش الأرضيات فحسب — بل نجلب دفء الجمال الطبيعي إلى أنماط تُعرّف مفهوم البيت.&rdquo;">&ldquo;Every plank tells a story of spaces. We don't just lay floors — we bring the warmth of natural beauty to patterns that define home.&rdquo;</p>
+    </div>
+  </div>
+
+  <!-- ── FILTER TABS ──────────────────────────────────────────────────────── -->
+  <div class="gallery-filter-bar">
+    <button class="gf-btn active" type="button" onclick="galleryFilter('all',this)" data-en="All" data-ar="الكل">All</button>
+    <button class="gf-btn" type="button" onclick="galleryFilter('wood',this)" data-en="Wood Vinyl" data-ar="فينيل الخشب">Wood Vinyl</button>
+    <button class="gf-btn" type="button" onclick="galleryFilter('marble',this)" data-en="Marble" data-ar="رخام">Marble</button>
+    <button class="gf-btn" type="button" onclick="galleryFilter('elite',this)" data-en="Elite Oak" data-ar="إيليت أوك">Elite Oak</button>
+  </div>
+
+  <!-- ── EDITORIAL MOSAIC ────────────────────────────────────────────────── -->
+  <div class="gallery-editorial">
+
+    <!-- Row 1: tall left + 2 stacked right -->
+    <div class="g-row-asym">
+      <div class="ge-item ge-tall" data-cat="wood">
+        <img src="images/scene-living1.jpg" alt="Living room natural oak">
+        <div class="ge-caption">
+          <div class="ge-caption-left">
+            <span class="ge-caption-room" data-en="Living Room" data-ar="غرفة معيشة">Living Room</span>
+            <span class="ge-caption-title" data-en="Natural Oak" data-ar="بلوط طبيعي">Natural Oak</span>
+          </div>
+          <span class="ge-caption-right" data-en="Wood Vinyl" data-ar="فينيل الخشب">Wood Vinyl</span>
+        </div>
+      </div>
+      <div class="g-col-stack">
+        <div class="ge-item ge-half" data-cat="marble">
+          <img src="images/bath2.jpg" alt="Dark Grey Calacatta bathroom">
+          <div class="ge-caption">
+            <div class="ge-caption-left">
+              <span class="ge-caption-room" data-en="Bathroom" data-ar="حمام">Bathroom</span>
+              <span class="ge-caption-title" data-en="Dark Grey Calacatta" data-ar="كالاكاتا رمادي داكن">Dark Grey Calacatta</span>
+            </div>
+            <span class="ge-caption-right" data-en="Marble" data-ar="رخام">Marble</span>
+          </div>
+        </div>
+        <div class="ge-item ge-half" data-cat="marble">
+          <img src="images/kitchen.jpg" alt="White Calacatta kitchen">
+          <div class="ge-caption">
+            <div class="ge-caption-left">
+              <span class="ge-caption-room" data-en="Kitchen" data-ar="مطبخ">Kitchen</span>
+              <span class="ge-caption-title" data-en="White Calacatta" data-ar="كالاكاتا أبيض">White Calacatta</span>
+            </div>
+            <span class="ge-caption-right" data-en="Marble" data-ar="رخام">Marble</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 2: full-width cinematic feature -->
+    <div class="ge-item ge-wide" data-cat="elite">
+      <img src="images/scene-living2.jpg" alt="Open plan living herringbone">
+      <div class="ge-caption">
+        <div class="ge-caption-left">
+          <span class="ge-caption-room" data-en="Open Plan Living" data-ar="مساحة معيشة مفتوحة">Open Plan Living</span>
+          <span class="ge-caption-title" data-en="Honey-Toned Herringbone Redefined" data-ar="هارينغبون عسلي اللون">Honey-Toned Herringbone Redefined</span>
+        </div>
+        <span class="ge-caption-right" data-en="Elite Oak · Cairo Residence, 2024" data-ar="إيليت أوك · القاهرة 2024">Elite Oak · Cairo Residence, 2024</span>
+      </div>
+    </div>
+
+    <!-- Row 3: 3 equal columns -->
+    <div class="g-row-3col">
+      <div class="ge-item ge-third" data-cat="marble">
+        <img src="images/bath3.jpg" alt="Light Grey Calacatta bathroom">
+        <div class="ge-caption">
+          <div class="ge-caption-left">
+            <span class="ge-caption-room" data-en="Bathroom" data-ar="حمام">Bathroom</span>
+            <span class="ge-caption-title" data-en="Light Grey Calacatta" data-ar="كالاكاتا رمادي فاتح">Light Grey Calacatta</span>
+          </div>
+        </div>
+      </div>
+      <div class="ge-item ge-third" data-cat="wood">
+        <img src="images/hero.jpg" alt="Modern wood vinyl living">
+        <div class="ge-caption">
+          <div class="ge-caption-left">
+            <span class="ge-caption-room" data-en="Master Bedroom" data-ar="غرفة النوم الرئيسية">Master Bedroom</span>
+            <span class="ge-caption-title" data-en="Smoked Oak" data-ar="بلوط مدخن">Smoked Oak</span>
+          </div>
+        </div>
+      </div>
+      <div class="ge-item ge-third" data-cat="elite">
+        <img src="images/about.jpg" alt="Elite oak installation">
+        <div class="ge-caption">
+          <div class="ge-caption-left">
+            <span class="ge-caption-room" data-en="Showroom" data-ar="معرض">Showroom</span>
+            <span class="ge-caption-title" data-en="Elite Oak · Herringbone" data-ar="إيليت أوك · هارينغبون">Elite Oak · Herringbone</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /gallery-editorial -->
+
+</section>
+
+<!-- ── GALLERY CTA STRIP ───────────────────────────────────────────────────── -->
+<section class="gallery-cta-strip">
+  <h2 class="gallery-cta-headline" data-en="Your space, our legacy." data-ar="مساحتك، إرثنا.">Your space, our legacy.</h2>
+  <span class="gallery-cta-sub" data-en="&ldquo;A floor is a canvas, and beauty lives in every detail.&rdquo;" data-ar="&ldquo;الأرضية لوحة، والجمال يسكن في كل التفاصيل.&rdquo;">&ldquo;A floor is a canvas, and beauty lives in every detail.&rdquo;</span>
+  <div class="gallery-cta-btns">
+    <button class="gcta-btn gcta-btn-gold" type="button" onclick="showPage('contact')" data-en="Request a Consultation" data-ar="اطلب استشارة">Request a Consultation</button>
+    <button class="gcta-btn gcta-btn-outline" type="button" onclick="showPage('collections')" data-en="Browse Collections" data-ar="تصفح المجموعات">Browse Collections</button>
+  </div>
+</section>
+
+</div><!-- /page-gallery -->
+
+<!-- ══ PAGE: CONTACT ════════════════════════════════════════════════════════ -->
+<div id="page-contact" class="page">
+
+<section class="contact section-pad">
+  <div class="container contact-grid">
+    <div class="contact-info">
+      <p class="eyebrow" data-en="Get in Touch" data-ar="تواصل معنا">Get in Touch</p>
+      <h2 data-en="Request a Quote" data-ar="اطلب عرض سعر">Request a Quote</h2>
+      <div class="gold-bar"></div>
+      <div class="c-item">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <div><span class="c-label" data-en="Showroom" data-ar="المعرض">Showroom</span><span class="c-val" data-en="20, Dr. Sabongy  St., Saba Pasha, Alexandria, Egypt" data-ar="20 ش. د. سابونجي، سابا باشا، الإسكندرية، مصر">20, Dr. Sabongy  St., Saba Pasha, Alexandria, Egypt</span></div>
+      </div>
+      <div class="c-item">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        <div><span class="c-label" data-en="Phone" data-ar="الهاتف">Phone</span><span class="c-val">+20 xxx xxx xxxx</span></div>
+      </div>
+      <div class="c-item">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        <div><span class="c-label" data-en="Email" data-ar="البريد الإلكتروني">Email</span><span class="c-val"><a href="mailto:info@charmainflooring.com">info@charmainflooring.com</a></span></div>
+      </div>
+      <div class="c-item">
+        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+        <div><span class="c-label" data-en="Hours" data-ar="ساعات العمل">Hours</span><span class="c-val" data-en="Sat – Thu: 8am – 5pm" data-ar="السبت – الخميس: 8ص – 5م">Sat – Thu: 8am – 5pm</span></div>
+      </div>
+    </div>
+    <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="ae30b6c1-3921-480d-8f8b-45df913abbb5">
+      <input type="hidden" name="subject" value="New Quote Request — Charmain Flooring">
+      <input type="hidden" name="from_name" value="Charmain Flooring Website">
+      <!-- Email formatting template -->
+      <input type="hidden" name="template" value="box">
+      <input type="hidden" name="design_code" id="designCodeInput" value="">
+      <!-- Honeypot spam protection - must be empty -->
+      <input type="text" name="botcheck" style="display:none !important; position:absolute; left:-9999px;">
+      <!-- Additional honeypot field -->
+      <input type="text" name="website" style="display:none !important; position:absolute; left:-9999px;" tabindex="-1" autocomplete="off">
+
+      <!-- Name + Phone -->
+      <div class="f-row">
+        <div class="f-group">
+          <label data-en="Full Name *" data-ar="الاسم الكامل *">Full Name *</label>
+          <input type="text" name="name" required data-placeholder-en="Your name" data-placeholder-ar="اسمك" placeholder="Your name">
+        </div>
+        <div class="f-group">
+          <label data-en="Phone *" data-ar="الهاتف *">Phone *</label>
+          <div class="phone-field-wrap">
+            <select name="country_code" class="country-code-select" id="countryCodeSelect">
+              <option value="+20">🇪🇬 +20</option>
+              <option value="+86">🇨🇳 +86</option>
+              <option value="+966">🇸🇦 +966</option>
+              <option value="+971">🇦🇪 +971</option>
+              <option value="+974">🇶🇦 +974</option>
+              <option value="+965">🇰🇼 +965</option>
+              <option value="+973">🇧🇭 +973</option>
+              <option value="+968">🇴🇲 +968</option>
+              <option value="+962">🇯🇴 +962</option>
+              <option value="+961">🇱🇧 +961</option>
+              <option value="+249">🇸🇩 +249</option>
+              <option value="+218">🇱🇾 +218</option>
+              <option value="+216">🇹🇳 +216</option>
+              <option value="+212">🇲🇦 +212</option>
+              <option value="+44">🇬🇧 +44</option>
+              <option value="+1">🇺🇸 +1</option>
+              <option value="+33">🇫🇷 +33</option>
+              <option value="+49">🇩🇪 +49</option>
+              <option value="+39">🇮🇹 +39</option>
+            </select>
+            <input type="tel" name="phone" required data-placeholder-en="xxx xxx xxxx" data-placeholder-ar="xxx xxx xxxx" placeholder="xxx xxx xxxx">
+          </div>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="f-group">
+        <label data-en="Email *" data-ar="البريد الإلكتروني *">Email *</label>
+        <input type="email" name="email" required data-placeholder-en="your@email.com" data-placeholder-ar="بريدك@example.com" placeholder="your@email.com">
+      </div>
+
+      <!-- Collection selector (multi-select checkboxes) -->
+      <div class="f-group">
+        <label data-en="Collections * (select one or more)" data-ar="المجموعات * (اختر واحدة أو أكثر)">Collections * (select one or more)</label>
+        <div class="collection-checkboxes" id="collectionCheckboxes">
+          <label class="collection-checkbox-item">
+            <input type="checkbox" name="collections" value="marble">
+            <span class="checkbox-custom"></span>
+            <span data-en="Marble Collection" data-ar="مجموعة الرخام">Marble Collection</span>
+          </label>
+          <label class="collection-checkbox-item">
+            <input type="checkbox" name="collections" value="wood">
+            <span class="checkbox-custom"></span>
+            <span data-en="Wood Vinyl Collection" data-ar="مجموعة فينيل الخشب">Wood Vinyl Collection</span>
+          </label>
+          <label class="collection-checkbox-item">
+            <input type="checkbox" name="collections" value="elite">
+            <span class="checkbox-custom"></span>
+            <span data-en="Elite Oak Collection" data-ar="مجموعة إيليت أوك">Elite Oak Collection</span>
+          </label>
+          <label class="collection-checkbox-item">
+            <input type="checkbox" name="collections" value="custom">
+            <span class="checkbox-custom"></span>
+            <span data-en="Custom Collection" data-ar="مجموعة مخصصة">Custom Collection</span>
+          </label>
+          <label class="collection-checkbox-item">
+            <input type="checkbox" name="collections" value="not-sure">
+            <span class="checkbox-custom"></span>
+            <span data-en="Not sure yet" data-ar="لست متأكداً بعد">Not sure yet</span>
+          </label>
+        </div>
+        <p class="f-error" id="collectionError" style="display:none;color:#c0392b;font-size:12px;margin-top:6px;" data-en="Please select at least one collection" data-ar="يرجى اختيار مجموعة واحدة على الأقل">Please select at least one collection</p>
+      </div>
+
+      <!-- ── DESIGN PICKER (shown based on collection selection) ── -->
+      <div id="formDesignPicker" style="display:none;">
+        <div class="f-group">
+          <label data-en="Select Designs (click to select multiple)" data-ar="اختر التصاميم (انقر لاختيار أكثر من واحد)">Select Designs (click to select multiple)</label>
+          <p class="f-hint" data-en="Click swatches to select your preferred designs. Click again to deselect." data-ar="انقر على اللوحات لاختيار التصاميم المفضلة. انقر مرة أخرى لإلغاء التحديد.">Click swatches to select your preferred designs. Click again to deselect.</p>
+
+          <!-- Marble designs -->
+          <div id="formSwatches-marble" class="form-swatch-group" style="display:none;">
+            <div class="form-swatch-row">
+              <div class="form-swatch-item" data-code="CVG-T05" data-name-en="Blue Graphite" data-name-ar="ازرق جرافيت" data-bg="images/Marble/CVG-T01.jpg"><div class="form-swatch-thumb" style="background:url('images/Marble/CVG-T01.jpg') center/cover"></div><span class="form-swatch-code">CVG-T05</span><span class="form-swatch-name" data-en="Blue Graphite" data-ar="ازرق جرافيت">Blue Graphite</span></div>
+              <div class="form-swatch-item" data-code="CVG-T04" data-name-en="Beige Dark Graphite" data-name-ar="بيج داكن جرافيت" data-bg="images/Marble/CVG-T02.jpg"><div class="form-swatch-thumb" style="background:url('images/Marble/CVG-T02.jpg') center/cover"></div><span class="form-swatch-code">CVG-T04</span><span class="form-swatch-name" data-en="Beige Dark Graphite" data-ar="بيج داكن جرافيت">Beige Dark Graphite</span></div>
+              <div class="form-swatch-item" data-code="CVG-T03" data-name-en="Red Graphite" data-name-ar="أحمر جرافيت" data-bg="images/Marble/CVG-T03.jpg"><div class="form-swatch-thumb" style="background:url('images/Marble/CVG-T03.jpg') center/cover"></div><span class="form-swatch-code">CVG-T03</span><span class="form-swatch-name" data-en="Red Graphite" data-ar="أحمر جرافيت">Red Graphite</span></div>
+              <div class="form-swatch-item" data-code="CVG-T02" data-name-en="Light Grey Graphite" data-name-ar="رمادي فاتح جرافيت" data-bg="images/Marble/CVG-T04.jpg"><div class="form-swatch-thumb" style="background:url('images/Marble/CVG-T04.jpg') center/cover"></div><span class="form-swatch-code">CVG-T02</span><span class="form-swatch-name" data-en="Light Grey Graphite" data-ar="رمادي فاتح جرافيت">Light Grey Graphite</span></div>
+              <div class="form-swatch-item" data-code="CVG-T01" data-name-en="Beige Multicolor Graphite" data-name-ar="بيج متعدد الألوان جرافيت" data-bg="images/Marble/CVG-T05.jpg"><div class="form-swatch-thumb" style="background:url('images/Marble/CVG-T05.jpg') center/cover"></div><span class="form-swatch-code">CVG-T01</span><span class="form-swatch-name" data-en="Beige Multicolor Graphite" data-ar="بيج متعدد الألوان جرافيت">Beige Multicolor Graphite</span></div>
+              <div class="form-swatch-item" data-code="CVG-C07" data-name-en="White Calacatta" data-name-ar="كالاكاتا ابيض" data-bg="images/Marble/CVG-C07.jpeg"><div class="form-swatch-thumb" style="background:url('images/Marble/CVG-C07.jpeg') center/cover"></div><span class="form-swatch-code">CVG-C07</span><span class="form-swatch-name" data-en="White Calacatta" data-ar="كالاكاتا ابيض">White Calacatta</span></div>
+              <div class="form-swatch-item" data-code="CVG-C08" data-name-en="Golden Calacatta" data-name-ar="كالاكاتا ذهبي" data-bg="images/Marble/CVG-C08.jpeg"><div class="form-swatch-thumb" style="background:url('images/Marble/CVG-C08.jpeg') center/cover"></div><span class="form-swatch-code">CVG-C08</span><span class="form-swatch-name" data-en="Golden Calacatta" data-ar="كالاكاتا ذهبي">Golden Calacatta</span></div>
+              <div class="form-swatch-item" data-code="CVG-C09" data-name-en="Dark Grey Calacatta" data-name-ar="كالاكاتا رمادي داكن" data-bg="images/Marble/CVG-C09.jpeg"><div class="form-swatch-thumb" style="background:url('images/Marble/CVG-C09.jpeg') center/cover"></div><span class="form-swatch-code">CVG-C09</span><span class="form-swatch-name" data-en="Dark Grey Calacatta" data-ar="كالاكاتا رمادي داكن">Dark Grey Calacatta</span></div>
+              <div class="form-swatch-item" data-code="CVG-C10" data-name-en="Light Grey Calacatta" data-name-ar="كالاكاتا رمادي فاتح" data-bg="images/Marble/CVG-C10.jpeg"><div class="form-swatch-thumb" style="background:url('images/Marble/CVG-C10.jpeg') center/cover"></div><span class="form-swatch-code">CVG-C10</span><span class="form-swatch-name" data-en="Light Grey Calacatta" data-ar="كالاكاتا رمادي فاتح">Light Grey Calacatta</span></div>
+              <div class="form-swatch-item" data-code="CVG-G05" data-name-en="Graphite Dark Grey" data-name-ar="جرافيت رمادي داكن" data-bg="images/Marble/CVG-G05.jpg"><div class="form-swatch-thumb" style="background:url('images/Marble/CVG-G05.jpg') center/cover"></div><span class="form-swatch-code">CVG-G05</span><span class="form-swatch-name" data-en="Graphite Dark Grey" data-ar="جرافيت رمادي داكن">Graphite Dark Grey</span></div>
+            </div>
+          </div>
+
+          <!-- Wood Vinyl designs -->
+          <div id="formSwatches-wood" class="form-swatch-group" style="display:none;">
+            <div class="form-swatch-row">
+              <div class="form-swatch-item" data-code="CVM-B01" data-name-en="Smoked Oak"              data-name-ar="بلوط مدخن"                    data-bg="images/Wood/CVM-B01.jpg"><div class="form-swatch-thumb" style="background:url('images/Wood/CVM-B01.jpg') center/cover"></div><span class="form-swatch-code">CVM-B01</span><span class="form-swatch-name" data-en="Smoked Oak"              data-ar="بلوط مدخن">Smoked Oak</span></div>
+              <div class="form-swatch-item" data-code="CVM-B02" data-name-en="Natural Light Oak"       data-name-ar="بلوط فاتح طبيعي"              data-bg="images/Wood/CVM-B02.jpg"><div class="form-swatch-thumb" style="background:url('images/Wood/CVM-B02.jpg') center/cover"></div><span class="form-swatch-code">CVM-B02</span><span class="form-swatch-name" data-en="Natural Light Oak"       data-ar="بلوط فاتح طبيعي">Natural Light Oak</span></div>
+              <div class="form-swatch-item" data-code="CVM-B03" data-name-en="Soft Brown Wood"         data-name-ar="خشب بني ناعم"                 data-bg="images/Wood/CVM-B03.jpg"><div class="form-swatch-thumb" style="background:url('images/Wood/CVM-B03.jpg') center/cover"></div><span class="form-swatch-code">CVM-B03</span><span class="form-swatch-name" data-en="Soft Brown Wood"         data-ar="خشب بني ناعم">Soft Brown Wood</span></div>
+              <div class="form-swatch-item" data-code="CVM-C04" data-name-en="Golden Wood"             data-name-ar="خشب ذهبي"                     data-bg="images/Wood/CVM-C04.jpg"><div class="form-swatch-thumb" style="background:url('images/Wood/CVM-C04.jpg') center/cover"></div><span class="form-swatch-code">CVM-C04</span><span class="form-swatch-name" data-en="Golden Wood"             data-ar="خشب ذهبي">Golden Wood</span></div>
+              <div class="form-swatch-item" data-code="CVM-C05" data-name-en="Warm Brown Wood"         data-name-ar="خشب بني دافئ"                 data-bg="images/Wood/CVM-C05.jpg"><div class="form-swatch-thumb" style="background:url('images/Wood/CVM-C05.jpg') center/cover"></div><span class="form-swatch-code">CVM-C05</span><span class="form-swatch-name" data-en="Warm Brown Wood"         data-ar="خشب بني دافئ">Warm Brown Wood</span></div>
+              <div class="form-swatch-item" data-code="CVM-C06" data-name-en="Classic Oak C06"         data-name-ar="بلوط كلاسيكي C06"             data-bg="images/Wood/CVM-C06.jpg"><div class="form-swatch-thumb" style="background:url('images/Wood/CVM-C06.jpg') center/cover"></div><span class="form-swatch-code">CVM-C06</span><span class="form-swatch-name" data-en="Classic Oak C06"         data-ar="بلوط كلاسيكي C06">Classic Oak C06</span></div>
+              <div class="form-swatch-item" data-code="CVM-C07" data-name-en="Classic Oak C07"         data-name-ar="بلوط كلاسيكي C07"             data-bg="images/Wood/CVM-C07.jpg"><div class="form-swatch-thumb" style="background:url('images/Wood/CVM-C07.jpg') center/cover"></div><span class="form-swatch-code">CVM-C07</span><span class="form-swatch-name" data-en="Classic Oak C07"         data-ar="بلوط كلاسيكي C07">Classic Oak C07</span></div>
+              <div class="form-swatch-item" data-code="CVM-C010" data-name-en="Classic Oak C010"       data-name-ar="بلوط كلاسيكي C010"            data-bg="images/Wood/CVM-C010.jpg"><div class="form-swatch-thumb" style="background:url('images/Wood/CVM-C010.jpg') center/cover"></div><span class="form-swatch-code">CVM-C010</span><span class="form-swatch-name" data-en="Classic Oak C010"       data-ar="بلوط كلاسيكي C010">Classic Oak C010</span></div>
+              <div class="form-swatch-item" data-code="CVM-P06" data-name-en="Herringbone Parquet"     data-name-ar="هارينغبون"                    data-bg="images/Wood/CVM-P06.jpg"><div class="form-swatch-thumb" style="background:url('images/Wood/CVM-P06.jpg') center/cover"></div><span class="form-swatch-code">CVM-P06</span><span class="form-swatch-name" data-en="Herringbone Parquet"     data-ar="هارينغبون">Herringbone Parquet</span></div>
+              <div class="form-swatch-item" data-code="CVM-G07" data-name-en="Light Grey"              data-name-ar="رمادي فاتح"                   data-bg="images/Wood/CVM-G07.jpg"><div class="form-swatch-thumb" style="background:url('images/Wood/CVM-G07.jpg') center/cover"></div><span class="form-swatch-code">CVM-G07</span><span class="form-swatch-name" data-en="Light Grey"              data-ar="رمادي فاتح">Light Grey</span></div>
+              <div class="form-swatch-item" data-code="CVM-R09" data-name-en="Rustic Multi-Tone Plank" data-name-ar="بلاط متعدد الألوان الريفي"   data-bg="images/Wood/CVM-R09.jpg"><div class="form-swatch-thumb" style="background:url('images/Wood/CVM-R09.jpg') center/cover"></div><span class="form-swatch-code">CVM-R09</span><span class="form-swatch-name" data-en="Rustic Multi-Tone Plank" data-ar="بلاط متعدد الألوان الريفي">Rustic Multi-Tone</span></div>
+            </div>
+          </div>
+
+          <!-- Elite Oak designs -->
+          <div id="formSwatches-elite" class="form-swatch-group" style="display:none;">
+            <div class="form-swatch-row">
+              <div class="form-swatch-item" data-code="CVM-E01" data-name-en="Deep-Grain Wood"   data-name-ar="خشب عميق الحبيبات" data-bg="images/Elite/CVM-E01.jpg"><div class="form-swatch-thumb" style="background:url('images/Elite/CVM-E01.jpg') center/cover no-repeat"></div><span class="form-swatch-code">CVM-E01</span><span class="form-swatch-name" data-en="Deep-Grain Wood"   data-ar="خشب عميق الحبيبات">Deep-Grain Wood</span></div>
+              <div class="form-swatch-item" data-code="CVM-E02" data-name-en="Honey-Toned Wood"  data-name-ar="خشب عسلي اللون"   data-bg="images/Elite/CVM-E02.jpg"><div class="form-swatch-thumb" style="background:url('images/Elite/CVM-E02.jpg') center/cover no-repeat"></div><span class="form-swatch-code">CVM-E02</span><span class="form-swatch-name" data-en="Honey-Toned Wood"  data-ar="خشب عسلي اللون">Honey-Toned Wood</span></div>
+              <div class="form-swatch-item" data-code="CVM-E03" data-name-en="Natural Warm Oak"  data-name-ar="بلوط دافئ طبيعي"  data-bg="images/Elite/CVM-E03.jpg"><div class="form-swatch-thumb" style="background:url('images/Elite/CVM-E03.jpg') center/cover no-repeat"></div><span class="form-swatch-code">CVM-E03</span><span class="form-swatch-name" data-en="Natural Warm Oak"  data-ar="بلوط دافئ طبيعي">Natural Warm Oak</span></div>
+              <div class="form-swatch-item" data-code="CVM-E04" data-name-en="Wavy Wood Pattern" data-name-ar="نمط خشب متموج"    data-bg="images/Elite/CVM-E04.jpg"><div class="form-swatch-thumb" style="background:url('images/Elite/CVM-E04.jpg') center/cover no-repeat"></div><span class="form-swatch-code">CVM-E04</span><span class="form-swatch-name" data-en="Wavy Wood Pattern" data-ar="نمط خشب متموج">Wavy Wood Pattern</span></div>
+              <div class="form-swatch-item" data-code="CVM-E05" data-name-en="Grey Light Oak"    data-name-ar="بلوط رمادي فاتح"  data-bg="images/Elite/CVM-E05.jpg"><div class="form-swatch-thumb" style="background:url('images/Elite/CVM-E05.jpg') center/cover no-repeat"></div><span class="form-swatch-code">CVM-E05</span><span class="form-swatch-name" data-en="Grey Light Oak"    data-ar="بلوط رمادي فاتح">Grey Light Oak</span></div>
+            </div>
+          </div>
+
+          <!-- Selected designs display (multiple) -->
+          <div id="formSelectedDesigns" style="display:none;margin-top:14px;">
+            <div style="padding:12px 14px;background:rgba(205,161,104,0.06);border:1px solid rgba(205,161,104,0.25);border-radius:3px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+                <span style="font-size:11px;font-weight:600;letter-spacing:1px;color:var(--gold);text-transform:uppercase;" data-en="Selected Designs" data-ar="التصاميم المختارة">Selected Designs</span>
+                <button type="button" id="formClearAllDesigns" style="background:none;border:none;color:rgba(39,44,74,0.4);font-size:11px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;font-family:inherit;padding:2px 0;" data-en="Clear All" data-ar="مسح الكل">Clear All</button>
+              </div>
+              <div id="selectedDesignsList" style="display:flex;flex-wrap:wrap;gap:8px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── CUSTOM FIELDS (shown when custom collection selected) ── -->
+      <div id="formCustomFields" style="display:none;">
+        <div class="f-group">
+          <label data-en="Thickness" data-ar="السماكة">Thickness</label>
+          <select name="thickness">
+            <option value="" data-en="Select thickness…" data-ar="اختر السماكة…">Select thickness…</option>
+            <option value="0.5mm" data-en="0.5mm" data-ar="0.5مم">0.5mm</option>
+            <option value="1.0mm" data-en="1.0mm" data-ar="1.0مم">1.0mm</option>
+            <option value="1.5mm" data-en="1.5mm" data-ar="1.5مم">1.5mm</option>
+            <option value="2.0mm" data-en="2.0mm" data-ar="2.0مم">2.0mm</option>
+          </select>
+        </div>
+
+        <div class="f-group">
+          <label data-en="Pattern" data-ar="النمط">Pattern</label>
+          <input type="text" name="pattern" data-placeholder-en="Enter pattern code or description…" data-placeholder-ar="أدخل رمز النمط أو الوصف…" placeholder="Enter pattern code or description…" />
+        </div>
+      </div>
+
+      <!-- Message -->
+      <div class="f-group">
+        <label data-en="Message" data-ar="رسالتك">Message</label>
+        <textarea name="message" rows="4" data-placeholder-en="Tell us about your project…" data-placeholder-ar="أخبرنا عن مشروعك…" placeholder="Tell us about your project…"></textarea>
+      </div>
+
+      <button type="submit" class="btn-gold" data-en="Send Request" data-ar="إرسال الطلب">Send Request</button>
+      <p class="f-note" id="formStatus" data-en="We'll respond within 24 hours" data-ar="سنرد خلال 24 ساعة">We'll respond within 24 hours</p>
+    </form>
+  </div>
+</section>
+
+</div><!-- /page-contact -->
+
+<!-- ══ FOOTER ═══════════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="container footer-grid">
+    <div class="f-brand">
+      <div class="logo" style="margin-bottom:14px;">
+        <div class="logo-mark" style="width:52px;height:52px;"><img src="data:image/png;base64,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" alt="Charmain Flooring" style="width:52px;height:52px;object-fit:contain;"></div>
+        <div class="logo-text-wrap">
+          <span class="brand">Charmain</span>
+          <span class="sub" data-en="Flooring" data-ar="للأرضيات">Flooring</span>
+        </div>
+      </div>
+      <p data-en="Premium vinyl flooring solutions combining luxurious aesthetics with real-world durability." data-ar="حلول أرضيات فينيل فاخرة تجمع بين الجمالية الراقية والمتانة الحقيقية.">Premium vinyl flooring solutions combining luxurious aesthetics with real-world durability.</p>
+    </div>
+    <div class="f-col">
+      <h4 data-en="Navigation" data-ar="روابط">Navigation</h4>
+      <a href="#page-home" onclick="showPage('home');return false;"        data-en="Home"        data-ar="الرئيسية">Home</a>
+      <a href="#page-about" onclick="showPage('about');return false;"       data-en="About Us"    data-ar="من نحن">About Us</a>
+      <a href="#page-collections" onclick="showPage('collections');return false;" data-en="Collections" data-ar="المجموعات">Collections</a>
+      <a href="#page-gallery" onclick="showPage('gallery');return false;"     data-en="Gallery"     data-ar="المعرض">Gallery</a>
+      <a href="#page-contact" onclick="showPage('contact');return false;"     data-en="Contact"     data-ar="اتصل بنا">Contact</a>
+    </div>
+    <div class="f-col">
+      <h4 data-en="Collections" data-ar="المجموعات">Collections</h4>
+      <a href="#page-collections" onclick="showPage('collections');showTab('marble');return false;" data-en="Marble Collection" data-ar="مجموعة الرخام">Marble Collection</a>
+      <a href="#page-collections" onclick="showPage('collections');showTab('wood');return false;" data-en="Wood Vinyl" data-ar="فينيل الخشب">Wood Vinyl</a>
+      <a href="#page-collections" onclick="showPage('collections');showTab('elite');return false;" data-en="Elite Oak" data-ar="إيليت أوك">Elite Oak</a>
+    </div>
+  </div>
+  <div class="footer-bottom container">
+    <p data-en="© 2026 Charmain Flooring. All rights reserved." data-ar="© 2026 شارمين فلورينج. جميع الحقوق محفوظة.">© 2026 Charmain Flooring. All rights reserved.</p>
+    <p>charmainflooring.com</p>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/201007388394" class="wa-btn" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+
+<!-- LIGHTBOX -->
+<div class="lightbox-overlay" id="swatchLightbox" onclick="closeLightbox(event)" role="dialog" aria-modal="true" aria-labelledby="lbName">
+  <div class="lightbox-card" onclick="event.stopPropagation()">
+    <button class="lightbox-close" type="button" aria-label="Close swatch details" onclick="closeLightbox()">&times;</button>
+    <div class="lightbox-swatch" id="lbSwatch"></div>
+    <span class="lightbox-code" id="lbCode"></span>
+    <span class="lightbox-name" id="lbName"></span>
+    <p id="lbDesc" style="font-size:13px;color:#888;line-height:1.6;margin:8px 0 4px;font-family:inherit;"></p>
+    <div class="lightbox-specs">
+      <span class="lightbox-spec" data-en="2m Width" data-ar="عرض 2م">2m Width</span>
+      <span class="lightbox-spec" data-en="25m Length" data-ar="طول 25م">25m Length</span>
+      <span class="lightbox-spec" data-en="50m² Coverage" data-ar="تغطية 50م²">50m² Coverage</span>
+      <span class="lightbox-spec" id="lbThick"></span>
+    </div>
+    <button class="lightbox-cta" type="button" onclick="closeLightbox();showPage('contact');" data-en="Request Sample" data-ar="اطلب عينة">Request Sample</button>
+  </div>
+</div>
+
+<script src="script.js?v=2"></script>
+</body>
+</html>
