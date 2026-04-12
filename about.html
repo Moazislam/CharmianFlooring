@@ -136,47 +136,78 @@
 
 
 <!-- ── OUR WORK IN ACTION — VIDEO GALLERY ─────────────────────────────── -->
+<!-- ── VIDEO CAROUSEL ─────────────────────────────────────────────────── -->
 <section class="ab-videos section-pad">
   <div class="container">
     <p class="eyebrow" data-en="Our Work in Action" data-ar="أعمالنا في الواقع">Our Work in Action</p>
     <h2 data-en="See the <em>Transformation</em>" data-ar="شاهد <em>التحول</em>">See the <em>Transformation</em></h2>
     <div class="gold-bar"></div>
-    <p class="body-text" style="max-width:600px;margin:0 auto 40px;" data-en="From bare floors to breathtaking spaces — watch how Charmain vinyl flooring transforms real homes and commercial spaces." data-ar="من الأرضيات الخالية إلى المساحات الرائعة — شاهد كيف يحوّل فينيل شارمين المنازل والمساحات التجارية الحقيقية.">From bare floors to breathtaking spaces — watch how Charmain vinyl flooring transforms real homes and commercial spaces.</p>
-    <div class="ab-video-grid">
-      <div class="ab-video-item ab-video-item--featured">
-        <video controls preload="metadata" poster="">
-          <source src="videos/1.mp4" type="video/mp4">
+    <p class="body-text" style="max-width:600px;margin:0 auto 48px;" data-en="From bare floors to breathtaking spaces — watch how Charmain vinyl flooring transforms real homes and commercial spaces." data-ar="من الأرضيات الخالية إلى المساحات الرائعة — شاهد كيف يحوّل فينيل شارمين المنازل والمساحات التجارية الحقيقية.">From bare floors to breathtaking spaces — watch how Charmain vinyl flooring transforms real homes and commercial spaces.</p>
+
+    <!-- Main player -->
+    <div class="vc-stage">
+      <button class="vc-arrow vc-arrow--prev" id="vcPrev" aria-label="Previous video">
+        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+      </button>
+      <div class="vc-player-wrap">
+        <video class="vc-player" id="vcMain" controls preload="metadata">
+          <source id="vcMainSrc" src="videos/1.mp4" type="video/mp4">
         </video>
+        <!-- counter badge -->
+        <div class="vc-counter"><span id="vcCurrent">1</span> / <span id="vcTotal">7</span></div>
       </div>
-      <div class="ab-video-item">
-        <video controls preload="metadata">
-          <source src="videos/2.mp4" type="video/mp4">
-        </video>
+      <button class="vc-arrow vc-arrow--next" id="vcNext" aria-label="Next video">
+        <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+      </button>
+    </div>
+
+    <!-- Dot pagination -->
+    <div class="vc-dots" id="vcDots" role="tablist" aria-label="Video navigation">
+      <button class="vc-dot active" data-idx="0" aria-label="Video 1" aria-selected="true"></button>
+      <button class="vc-dot" data-idx="1" aria-label="Video 2" aria-selected="false"></button>
+      <button class="vc-dot" data-idx="2" aria-label="Video 3" aria-selected="false"></button>
+      <button class="vc-dot" data-idx="3" aria-label="Video 4" aria-selected="false"></button>
+      <button class="vc-dot" data-idx="4" aria-label="Video 5" aria-selected="false"></button>
+      <button class="vc-dot" data-idx="5" aria-label="Video 6" aria-selected="false"></button>
+      <button class="vc-dot" data-idx="6" aria-label="Video 7" aria-selected="false"></button>
+    </div>
+
+    <!-- Thumbnail strip -->
+    <div class="vc-thumbs" id="vcThumbs" role="tablist" aria-label="Video thumbnails">
+      <div class="vc-thumb active" data-idx="0" role="tab" aria-selected="true" tabindex="0">
+        <video class="vc-thumb-video" src="videos/1.mp4" preload="metadata" muted tabindex="-1"></video>
+        <div class="vc-thumb-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="vc-thumb-num">01</span>
       </div>
-      <div class="ab-video-item">
-        <video controls preload="metadata">
-          <source src="videos/3.mp4" type="video/mp4">
-        </video>
+      <div class="vc-thumb" data-idx="1" role="tab" aria-selected="false" tabindex="0">
+        <video class="vc-thumb-video" src="videos/2.mp4" preload="metadata" muted tabindex="-1"></video>
+        <div class="vc-thumb-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="vc-thumb-num">02</span>
       </div>
-      <div class="ab-video-item">
-        <video controls preload="metadata">
-          <source src="videos/4.mp4" type="video/mp4">
-        </video>
+      <div class="vc-thumb" data-idx="2" role="tab" aria-selected="false" tabindex="0">
+        <video class="vc-thumb-video" src="videos/3.mp4" preload="metadata" muted tabindex="-1"></video>
+        <div class="vc-thumb-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="vc-thumb-num">03</span>
       </div>
-      <div class="ab-video-item">
-        <video controls preload="metadata">
-          <source src="videos/5.mp4" type="video/mp4">
-        </video>
+      <div class="vc-thumb" data-idx="3" role="tab" aria-selected="false" tabindex="0">
+        <video class="vc-thumb-video" src="videos/4.mp4" preload="metadata" muted tabindex="-1"></video>
+        <div class="vc-thumb-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="vc-thumb-num">04</span>
       </div>
-      <div class="ab-video-item">
-        <video controls preload="metadata">
-          <source src="videos/6.mp4" type="video/mp4">
-        </video>
+      <div class="vc-thumb" data-idx="4" role="tab" aria-selected="false" tabindex="0">
+        <video class="vc-thumb-video" src="videos/5.mp4" preload="metadata" muted tabindex="-1"></video>
+        <div class="vc-thumb-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="vc-thumb-num">05</span>
       </div>
-      <div class="ab-video-item">
-        <video controls preload="metadata">
-          <source src="videos/7.mp4" type="video/mp4">
-        </video>
+      <div class="vc-thumb" data-idx="5" role="tab" aria-selected="false" tabindex="0">
+        <video class="vc-thumb-video" src="videos/6.mp4" preload="metadata" muted tabindex="-1"></video>
+        <div class="vc-thumb-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="vc-thumb-num">06</span>
+      </div>
+      <div class="vc-thumb" data-idx="6" role="tab" aria-selected="false" tabindex="0">
+        <video class="vc-thumb-video" src="videos/7.mp4" preload="metadata" muted tabindex="-1"></video>
+        <div class="vc-thumb-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="vc-thumb-num">07</span>
       </div>
     </div>
   </div>
@@ -288,5 +319,85 @@
 </div>
 
 <script src="script.js?v=3"></script>
+<script>
+/* ── VIDEO CAROUSEL ─────────────────────────────────────────────────────── */
+(function() {
+  var srcs = [
+    'videos/1.mp4','videos/2.mp4','videos/3.mp4','videos/4.mp4',
+    'videos/5.mp4','videos/6.mp4','videos/7.mp4'
+  ];
+  var current = 0;
+  var total   = srcs.length;
+  var main    = document.getElementById('vcMain');
+  var mainSrc = document.getElementById('vcMainSrc');
+  var dots    = document.querySelectorAll('.vc-dot');
+  var thumbs  = document.querySelectorAll('.vc-thumb');
+  var prev    = document.getElementById('vcPrev');
+  var next    = document.getElementById('vcNext');
+  var curEl   = document.getElementById('vcCurrent');
+
+  function goTo(idx) {
+    if (idx < 0) idx = total - 1;
+    if (idx >= total) idx = 0;
+
+    // Pause current video
+    main.pause();
+
+    current = idx;
+
+    // Update main player source
+    mainSrc.setAttribute('src', srcs[current]);
+    main.load();
+
+    // Update counter
+    curEl.textContent = current + 1;
+
+    // Update dots
+    dots.forEach(function(d, i) {
+      d.classList.toggle('active', i === current);
+      d.setAttribute('aria-selected', i === current ? 'true' : 'false');
+    });
+
+    // Update thumbnails
+    thumbs.forEach(function(t, i) {
+      t.classList.toggle('active', i === current);
+      t.setAttribute('aria-selected', i === current ? 'true' : 'false');
+    });
+
+    // Scroll active thumb into view in the strip
+    var activeThumb = document.querySelector('.vc-thumb.active');
+    if (activeThumb) {
+      activeThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+  }
+
+  // Arrow buttons
+  prev.addEventListener('click', function() { goTo(current - 1); });
+  next.addEventListener('click', function() { goTo(current + 1); });
+
+  // Dot clicks
+  dots.forEach(function(d) {
+    d.addEventListener('click', function() { goTo(parseInt(d.getAttribute('data-idx'))); });
+  });
+
+  // Thumbnail clicks
+  thumbs.forEach(function(t) {
+    t.addEventListener('click', function() { goTo(parseInt(t.getAttribute('data-idx'))); });
+    t.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goTo(parseInt(t.getAttribute('data-idx'))); }
+    });
+  });
+
+  // Keyboard arrow navigation
+  document.addEventListener('keydown', function(e) {
+    if (!main) return;
+    if (e.key === 'ArrowLeft')  { goTo(current - 1); }
+    if (e.key === 'ArrowRight') { goTo(current + 1); }
+  });
+
+  // Auto-advance when a video ends
+  main.addEventListener('ended', function() { goTo(current + 1); });
+})();
+</script>
 </body>
 </html>
