@@ -37,16 +37,17 @@ var SWATCH_IMAGES = {
    These MUST be in the global scope — do NOT wrap them in DOMContentLoaded   */
 
 function showPage(id) {
-  document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
-  var page = document.getElementById('page-' + id);
-  if (page) { page.classList.add('active'); }
-  closeMob();
-  window.scrollTo(0, 0);
-  document.querySelectorAll('.nav-links a').forEach(function(a) {
-    a.classList.remove('active');
-    var fn = a.getAttribute('onclick') || '';
-    if (fn.indexOf("'" + id + "'") !== -1) a.classList.add('active');
-  });
+  // Multi-page site: navigate to the correct HTML file
+  var pageMap = {
+    'home':        'index.html',
+    'about':       'about.html',
+    'collections': 'collections.html',
+    'gallery':     'gallery.html',
+    'contact':     'contact.html'
+  };
+  if (pageMap[id]) {
+    window.location.href = pageMap[id];
+  }
 }
 
 function showTab(id) {

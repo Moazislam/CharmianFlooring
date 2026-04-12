@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Charmain Flooring — Luxury Vinyl Flooring</title>
+<title>Gallery — Charmain Flooring</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -28,10 +28,10 @@
   </a>
   <div class="nav-right">
     <ul class="nav-links">
-      <li><a href="index.html" class="active" data-en="Home" data-ar="الرئيسية">Home</a></li>
+      <li><a href="index.html" class="" data-en="Home" data-ar="الرئيسية">Home</a></li>
       <li><a href="about.html" class="" data-en="About Us" data-ar="من نحن">About Us</a></li>
       <li><a href="collections.html" class="" data-en="Collections" data-ar="المجموعات">Collections</a></li>
-      <li><a href="gallery.html" class="" data-en="Gallery" data-ar="المعرض">Gallery</a></li>
+      <li><a href="gallery.html" class="active" data-en="Gallery" data-ar="المعرض">Gallery</a></li>
       <li><a href="contact.html" class="" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
     </ul>
     <button class="lang-btn" id="langBtn" type="button" aria-label="Switch language">عربي</button>
@@ -50,72 +50,123 @@
   </div>
 </div>
 
-<!-- ══ PAGE: HOME ══════════════════════════════════════════════════════════ -->
-<div id="page-home" class="page active">
+<!-- ══ PAGE: GALLERY ════════════════════════════════════════════════════════ -->
+<div id="page-gallery" class="page">
 
-<section class="hero">
-  <div class="hero-grid-bg"></div>
-  <div class="hero-vline"></div>
-  <div class="hero-content">
-    <p class="eyebrow" data-en="Luxury Vinyl Flooring" data-ar="أرضيات فينيل فاخرة">Luxury Vinyl Flooring</p>
-    <h1 data-en="Where <em>Elegance</em><br>Meets the Floor" data-ar="حيث تلتقي <em>الأناقة</em><br>بالأرضية">Where <em>Elegance</em><br>Meets the Floor</h1>
-    <p class="hero-desc" data-en="Premium vinyl flooring solutions crafted for modern spaces. Waterproof, durable, and built to last." data-ar="حلول أرضيات فينيل راقية مصممة للمساحات الحديثة. مقاوم للماء ومتين وبُني ليدوم.">Premium vinyl flooring solutions crafted for modern spaces. Waterproof, durable, and built to last.</p>
-    <div class="hero-btns">
-      <a href="collections.html" class="btn-gold" data-en="Explore Collections" data-ar="استكشف المجموعات">Explore Collections</a>
-      <a href="contact.html" class="btn-ghost" data-en="Get a Quote" data-ar="اطلب عرض سعر">Get a Quote</a>
+<section class="gallery-page">
+
+  <!-- ── EDITORIAL HEADER ───────────────────────────────────────────────── -->
+  <div class="gallery-hero-header">
+    <div>
+      <span class="gallery-eyebrow" data-en="The Curated Atelier" data-ar="الأتيليه المنتقى">The Curated Atelier</span>
+      <h1 class="gallery-headline" data-en="THE<br>GALLERY" data-ar="المعرض">THE<br>GALLERY</h1>
     </div>
-    <div class="hero-stats">
-      <div class="stat"><span class="stat-n">200+</span><span class="stat-l" data-en="Projects" data-ar="مشروع">Projects</span></div>
-      <div class="stat"><span class="stat-n">2+</span><span class="stat-l" data-en="Years" data-ar="سنة خبرة">Years</span></div>
-      <div class="stat"><span class="stat-n">100%</span><span class="stat-l" data-en="Waterproof" data-ar="مقاوم للماء">Waterproof</span></div>
+    <div class="gallery-quote-side">
+      <p class="gallery-quote-text" data-en="&ldquo;Every plank tells a story of spaces. We don't just lay floors — we bring the warmth of natural beauty to patterns that define home.&rdquo;" data-ar="&ldquo;كل لوح يحكي قصة مساحة. نحن لا نفرش الأرضيات فحسب — بل نجلب دفء الجمال الطبيعي إلى أنماط تُعرّف مفهوم البيت.&rdquo;">&ldquo;Every plank tells a story of spaces. We don't just lay floors — we bring the warmth of natural beauty to patterns that define home.&rdquo;</p>
     </div>
   </div>
-  <div class="hero-visual">
-    <div class="hero-visual-frame">
-    <div class="hero-visual-inner">
-      <img src="images/about.jpg" alt="Luxury vinyl flooring living room">
-      <div class="hero-visual-badge">
-        <span>2+</span>
-        <span data-en="Years" data-ar="سنة خبرة">Years</span>
+
+  <!-- ── FILTER TABS ──────────────────────────────────────────────────────── -->
+  <div class="gallery-filter-bar">
+    <button class="gf-btn active" type="button" onclick="galleryFilter('all',this)" data-en="All" data-ar="الكل">All</button>
+    <button class="gf-btn" type="button" onclick="galleryFilter('wood',this)" data-en="Wood Vinyl" data-ar="فينيل الخشب">Wood Vinyl</button>
+    <button class="gf-btn" type="button" onclick="galleryFilter('marble',this)" data-en="Marble" data-ar="رخام">Marble</button>
+    <button class="gf-btn" type="button" onclick="galleryFilter('elite',this)" data-en="Elite Oak" data-ar="إيليت أوك">Elite Oak</button>
+  </div>
+
+  <!-- ── EDITORIAL MOSAIC ────────────────────────────────────────────────── -->
+  <div class="gallery-editorial">
+
+    <!-- Row 1: tall left + 2 stacked right -->
+    <div class="g-row-asym">
+      <div class="ge-item ge-tall" data-cat="wood">
+        <img src="images/scene-living1.jpg" alt="Living room natural oak">
+        <div class="ge-caption">
+          <div class="ge-caption-left">
+            <span class="ge-caption-room" data-en="Living Room" data-ar="غرفة معيشة">Living Room</span>
+            <span class="ge-caption-title" data-en="Natural Oak" data-ar="بلوط طبيعي">Natural Oak</span>
+          </div>
+          <span class="ge-caption-right" data-en="Wood Vinyl" data-ar="فينيل الخشب">Wood Vinyl</span>
+        </div>
+      </div>
+      <div class="g-col-stack">
+        <div class="ge-item ge-half" data-cat="marble">
+          <img src="images/bath2.jpg" alt="Dark Grey Calacatta bathroom">
+          <div class="ge-caption">
+            <div class="ge-caption-left">
+              <span class="ge-caption-room" data-en="Bathroom" data-ar="حمام">Bathroom</span>
+              <span class="ge-caption-title" data-en="Dark Grey Calacatta" data-ar="كالاكاتا رمادي داكن">Dark Grey Calacatta</span>
+            </div>
+            <span class="ge-caption-right" data-en="Marble" data-ar="رخام">Marble</span>
+          </div>
+        </div>
+        <div class="ge-item ge-half" data-cat="marble">
+          <img src="images/kitchen.jpg" alt="White Calacatta kitchen">
+          <div class="ge-caption">
+            <div class="ge-caption-left">
+              <span class="ge-caption-room" data-en="Kitchen" data-ar="مطبخ">Kitchen</span>
+              <span class="ge-caption-title" data-en="White Calacatta" data-ar="كالاكاتا أبيض">White Calacatta</span>
+            </div>
+            <span class="ge-caption-right" data-en="Marble" data-ar="رخام">Marble</span>
+          </div>
+        </div>
       </div>
     </div>
-    </div><!-- /frame -->
-  </div>
+
+    <!-- Row 2: full-width cinematic feature -->
+    <div class="ge-item ge-wide" data-cat="elite">
+      <img src="images/scene-living2.jpg" alt="Open plan living herringbone">
+      <div class="ge-caption">
+        <div class="ge-caption-left">
+          <span class="ge-caption-room" data-en="Open Plan Living" data-ar="مساحة معيشة مفتوحة">Open Plan Living</span>
+          <span class="ge-caption-title" data-en="Honey-Toned Herringbone Redefined" data-ar="هارينغبون عسلي اللون">Honey-Toned Herringbone Redefined</span>
+        </div>
+        <span class="ge-caption-right" data-en="Elite Oak · Cairo Residence, 2024" data-ar="إيليت أوك · القاهرة 2024">Elite Oak · Cairo Residence, 2024</span>
+      </div>
+    </div>
+
+    <!-- Row 3: 3 equal columns -->
+    <div class="g-row-3col">
+      <div class="ge-item ge-third" data-cat="marble">
+        <img src="images/bath3.jpg" alt="Light Grey Calacatta bathroom">
+        <div class="ge-caption">
+          <div class="ge-caption-left">
+            <span class="ge-caption-room" data-en="Bathroom" data-ar="حمام">Bathroom</span>
+            <span class="ge-caption-title" data-en="Light Grey Calacatta" data-ar="كالاكاتا رمادي فاتح">Light Grey Calacatta</span>
+          </div>
+        </div>
+      </div>
+      <div class="ge-item ge-third" data-cat="wood">
+        <img src="images/hero.jpg" alt="Modern wood vinyl living">
+        <div class="ge-caption">
+          <div class="ge-caption-left">
+            <span class="ge-caption-room" data-en="Master Bedroom" data-ar="غرفة النوم الرئيسية">Master Bedroom</span>
+            <span class="ge-caption-title" data-en="Smoked Oak" data-ar="بلوط مدخن">Smoked Oak</span>
+          </div>
+        </div>
+      </div>
+      <div class="ge-item ge-third" data-cat="elite">
+        <img src="images/about.jpg" alt="Elite oak installation">
+        <div class="ge-caption">
+          <div class="ge-caption-left">
+            <span class="ge-caption-room" data-en="Showroom" data-ar="معرض">Showroom</span>
+            <span class="ge-caption-title" data-en="Elite Oak · Herringbone" data-ar="إيليت أوك · هارينغبون">Elite Oak · Herringbone</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /gallery-editorial -->
+
 </section>
 
-<!-- ── HOME: WHY US TEASER ──────────────────────────────────────────────── -->
-<section class="home-why-teaser">
-  <div class="home-why-inner">
-    <div class="home-why-top">
-      <div>
-        <p class="eyebrow" data-en="Why Charmain" data-ar="لماذا شارمين">Why Charmain</p>
-        <h2 data-en="Built <em>Different</em>" data-ar="مختلفون <em>بالبناء</em>">Built <em>Different</em></h2>
-      </div>
-      <a class="home-why-cta-link" href="about.html" href="about.html" data-en="See All 5 Reasons" data-ar="اطّلع على كل الأسباب الـ5">
-        See All 5 Reasons
-        <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
-      </a>
-    </div>
-    <div class="home-why-preview">
-      <div class="home-why-card">
-        <div class="home-why-card-icon"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg></div>
-        <h4 data-en="100% Waterproof" data-ar="مقاوم للماء 100%">100% Waterproof</h4>
-        <p data-en="Edge-to-edge waterproofing — kitchens, bathrooms, high-humidity spaces." data-ar="مقاوم للماء من حافة إلى حافة — مثالي للمطابخ والحمامات.">Edge-to-edge waterproofing — kitchens, bathrooms, high-humidity spaces.</p>
-      </div>
-      <div class="home-why-card">
-        <div class="home-why-card-icon"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
-        <h4 data-en="Commercial Durability" data-ar="متانة تجارية">Commercial Durability</h4>
-        <p data-en="Heavy-duty wear layer resists scratches, dents, and years of heavy traffic." data-ar="طبقة تآكل شديدة التحمل تقاوم الخدوش والاستخدام المكثف.">Heavy-duty wear layer resists scratches, dents, and years of heavy traffic.</p>
-      </div>
-      <div class="home-why-card">
-        <div class="home-why-card-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 9l10 13L22 9z"/></svg></div>
-        <h4 data-en="Luxury Aesthetics" data-ar="جماليات فاخرة">Luxury Aesthetics</h4>
-        <p data-en="The look of marble, wood and stone — without the maintenance cost." data-ar="مظهر الرخام والخشب والحجر — بدون تكاليف الصيانة.">The look of marble, wood and stone — without the maintenance cost.</p>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:28px;">
-      <a href="about.html" class="btn-ghost" data-en="See Why Clients Choose Charmain" data-ar="اكتشف لماذا يختار عملاؤنا شارمين">See Why Clients Choose Charmain</a>
-    </div>
+<!-- ── GALLERY CTA STRIP ───────────────────────────────────────────────────── -->
+<section class="gallery-cta-strip">
+  <h2 class="gallery-cta-headline" data-en="Your space, our legacy." data-ar="مساحتك، إرثنا.">Your space, our legacy.</h2>
+  <span class="gallery-cta-sub" data-en="&ldquo;A floor is a canvas, and beauty lives in every detail.&rdquo;" data-ar="&ldquo;الأرضية لوحة، والجمال يسكن في كل التفاصيل.&rdquo;">&ldquo;A floor is a canvas, and beauty lives in every detail.&rdquo;</span>
+  <div class="gallery-cta-btns">
+    <button class="gcta-btn gcta-btn-gold" type="button" onclick="window.location='contact.html'" data-en="Request a Consultation" data-ar="اطلب استشارة">Request a Consultation</button>
+    <button class="gcta-btn gcta-btn-outline" type="button" onclick="showPage('collections')" data-en="Browse Collections" data-ar="تصفح المجموعات">Browse Collections</button>
   </div>
 </section>
 
