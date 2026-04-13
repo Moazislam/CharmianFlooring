@@ -55,7 +55,7 @@
 
 <section class="hero">
   <!-- Video background -->
-  <video class="hero-video-bg" autoplay muted loop playsinline preload="auto">
+  <video class="hero-video-bg" autoplay muted playsinline preload="auto" id="heroBgVideo">
     <source src="videos/1.mp4" type="video/mp4">
   </video>
   <div class="hero-video-overlay"></div>
@@ -184,15 +184,38 @@
 
 <script src="script.js?v=3"></script>
 <script>
-/* Hero video background — fade in when ready */
+/* Hero video background — cycle through videos 1 → 2 → 3 → 1 … */
 (function() {
-  var v = document.querySelector('.hero-video-bg');
+  var v = document.getElementById('heroBgVideo');
   if (!v) return;
+
+  var srcs = ['videos/1.mp4', 'videos/2.mp4', 'videos/3.mp4'];
+  var idx  = 0;
+
   function reveal() { v.classList.add('loaded'); }
+
+  /* Fade in on first load */
   if (v.readyState >= 3) { reveal(); }
   else { v.addEventListener('canplay', reveal, { once: true }); }
-  // Fallback: show after 2s regardless
-  setTimeout(reveal, 2000);
+  setTimeout(reveal, 2000); /* fallback */
+
+  /* On each video end, crossfade to next */
+  v.addEventListener('ended', function() {
+    idx = (idx + 1) % srcs.length;
+
+    /* Quick fade out, swap src, fade back in */
+    v.classList.remove('loaded');
+    setTimeout(function() {
+      v.src = srcs[idx];
+      v.load();
+      v.play().catch(function(){});
+      v.addEventListener('canplay', function fadeIn() {
+        v.classList.add('loaded');
+        v.removeEventListener('canplay', fadeIn);
+      });
+      setTimeout(function() { v.classList.add('loaded'); }, 800); /* fallback */
+    }, 400); /* wait for fade-out transition (0.4s) */
+  });
 })();
 </script>
 </body>

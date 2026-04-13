@@ -153,7 +153,7 @@ nav {
   z-index: 0;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 1.2s ease;
+  transition: opacity 0.4s ease;
 }
 .hero-video-bg.loaded { opacity: 1; }
 .hero-video-overlay {
