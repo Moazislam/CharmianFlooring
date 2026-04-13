@@ -54,6 +54,12 @@
 
 
 <section class="hero">
+  <!-- Video background -->
+  <video class="hero-video-bg" autoplay muted loop playsinline preload="auto">
+    <source src="videos/1.mp4" type="video/mp4">
+  </video>
+  <div class="hero-video-overlay"></div>
+
   <div class="hero-grid-bg"></div>
   <div class="hero-vline"></div>
   <div class="hero-content">
@@ -177,5 +183,17 @@
 </div>
 
 <script src="script.js?v=3"></script>
+<script>
+/* Hero video background — fade in when ready */
+(function() {
+  var v = document.querySelector('.hero-video-bg');
+  if (!v) return;
+  function reveal() { v.classList.add('loaded'); }
+  if (v.readyState >= 3) { reveal(); }
+  else { v.addEventListener('canplay', reveal, { once: true }); }
+  // Fallback: show after 2s regardless
+  setTimeout(reveal, 2000);
+})();
+</script>
 </body>
 </html>
