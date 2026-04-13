@@ -66,8 +66,10 @@
       <div class="ab-est">EST. MMXXIII</div>
     </div>
     <div class="ab-hero-visual">
-      <div class="about-visual">
-        <img src="images/hero.jpg" alt="Charmain Flooring showroom">
+      <div class="about-visual about-visual--video">
+        <video class="ab-inline-video" autoplay muted loop playsinline preload="auto">
+          <source src="videos/4.mp4" type="video/mp4">
+        </video>
         <div class="about-badge">
           <span class="badge-n">2+</span>
           <span class="badge-l" data-en="Years of Excellence" data-ar="سنوات من التميز">Years of Excellence</span>
@@ -81,8 +83,10 @@
 <section class="ab-transform section-pad" style="padding-top:0;">
   <div class="container ab-transform-grid">
     <div class="ab-transform-visual">
-      <div class="about-visual">
-        <img src="images/kitchen.jpg" alt="Charmain kitchen installation">
+      <div class="about-visual about-visual--video">
+        <video class="ab-inline-video" autoplay muted loop playsinline preload="auto">
+          <source src="videos/5.mp4" type="video/mp4">
+        </video>
       </div>
     </div>
     <div class="ab-transform-text">
@@ -135,79 +139,17 @@
 </section>
 
 
-<!-- ── OUR WORK IN ACTION — VIDEO GALLERY ─────────────────────────────── -->
-<!-- ── VIDEO CAROUSEL ─────────────────────────────────────────────────── -->
-<section class="ab-videos section-pad">
-  <div class="container">
-    <p class="eyebrow" data-en="Our Work in Action" data-ar="أعمالنا في الواقع">Our Work in Action</p>
-    <h2 data-en="See the <em>Transformation</em>" data-ar="شاهد <em>التحول</em>">See the <em>Transformation</em></h2>
-    <div class="gold-bar"></div>
-    <p class="body-text" style="max-width:600px;margin:0 auto 48px;" data-en="From bare floors to breathtaking spaces — watch how Charmain vinyl flooring transforms real homes and commercial spaces." data-ar="من الأرضيات الخالية إلى المساحات الرائعة — شاهد كيف يحوّل فينيل شارمين المنازل والمساحات التجارية الحقيقية.">From bare floors to breathtaking spaces — watch how Charmain vinyl flooring transforms real homes and commercial spaces.</p>
-
-    <!-- Main player -->
-    <div class="vc-stage">
-      <div class="vc-player-wrap">
-        <button class="vc-arrow vc-arrow--prev" id="vcPrev" aria-label="Previous video">
-          <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-        </button>
-        <video class="vc-player" id="vcMain" controls preload="metadata">
-          <source id="vcMainSrc" src="videos/1.mp4" type="video/mp4">
-        </video>
-        <button class="vc-arrow vc-arrow--next" id="vcNext" aria-label="Next video">
-          <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-        </button>
-        <!-- counter badge -->
-        <div class="vc-counter"><span id="vcCurrent">1</span> / <span id="vcTotal">7</span></div>
-      </div>
-    </div>
-
-    <!-- Dot pagination -->
-    <div class="vc-dots" id="vcDots" role="tablist" aria-label="Video navigation">
-      <button class="vc-dot active" data-idx="0" aria-label="Video 1" aria-selected="true"></button>
-      <button class="vc-dot" data-idx="1" aria-label="Video 2" aria-selected="false"></button>
-      <button class="vc-dot" data-idx="2" aria-label="Video 3" aria-selected="false"></button>
-      <button class="vc-dot" data-idx="3" aria-label="Video 4" aria-selected="false"></button>
-      <button class="vc-dot" data-idx="4" aria-label="Video 5" aria-selected="false"></button>
-      <button class="vc-dot" data-idx="5" aria-label="Video 6" aria-selected="false"></button>
-      <button class="vc-dot" data-idx="6" aria-label="Video 7" aria-selected="false"></button>
-    </div>
-
-    <!-- Thumbnail strip -->
-    <div class="vc-thumbs" id="vcThumbs" role="tablist" aria-label="Video thumbnails">
-      <div class="vc-thumb active" data-idx="0" role="tab" aria-selected="true" tabindex="0">
-        <video class="vc-thumb-video" src="videos/1.mp4" preload="metadata" muted tabindex="-1"></video>
-        <div class="vc-thumb-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        <span class="vc-thumb-num">01</span>
-      </div>
-      <div class="vc-thumb" data-idx="1" role="tab" aria-selected="false" tabindex="0">
-        <video class="vc-thumb-video" src="videos/2.mp4" preload="metadata" muted tabindex="-1"></video>
-        <div class="vc-thumb-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        <span class="vc-thumb-num">02</span>
-      </div>
-      <div class="vc-thumb" data-idx="2" role="tab" aria-selected="false" tabindex="0">
-        <video class="vc-thumb-video" src="videos/3.mp4" preload="metadata" muted tabindex="-1"></video>
-        <div class="vc-thumb-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        <span class="vc-thumb-num">03</span>
-      </div>
-      <div class="vc-thumb" data-idx="3" role="tab" aria-selected="false" tabindex="0">
-        <video class="vc-thumb-video" src="videos/4.mp4" preload="metadata" muted tabindex="-1"></video>
-        <div class="vc-thumb-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        <span class="vc-thumb-num">04</span>
-      </div>
-      <div class="vc-thumb" data-idx="4" role="tab" aria-selected="false" tabindex="0">
-        <video class="vc-thumb-video" src="videos/5.mp4" preload="metadata" muted tabindex="-1"></video>
-        <div class="vc-thumb-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        <span class="vc-thumb-num">05</span>
-      </div>
-      <div class="vc-thumb" data-idx="5" role="tab" aria-selected="false" tabindex="0">
-        <video class="vc-thumb-video" src="videos/6.mp4" preload="metadata" muted tabindex="-1"></video>
-        <div class="vc-thumb-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        <span class="vc-thumb-num">06</span>
-      </div>
-      <div class="vc-thumb" data-idx="6" role="tab" aria-selected="false" tabindex="0">
-        <video class="vc-thumb-video" src="videos/7.mp4" preload="metadata" muted tabindex="-1"></video>
-        <div class="vc-thumb-overlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        <span class="vc-thumb-num">07</span>
+<!-- ── CINEMATIC VIDEO STRIP ────────────────────────────────────────────── -->
+<section class="ab-cinematic">
+  <div class="ab-cinematic-inner">
+    <video class="ab-cinematic-video" autoplay muted loop playsinline preload="auto">
+      <source src="videos/6.mp4" type="video/mp4">
+    </video>
+    <div class="ab-cinematic-overlay">
+      <div class="ab-cinematic-text">
+        <p class="eyebrow" data-en="See It in Real Spaces" data-ar="شاهده في المساحات الحقيقية">See It in Real Spaces</p>
+        <h2 data-en="Every Floor<br>Tells a Story" data-ar="كل أرضية<br>تحكي قصة">Every Floor<br>Tells a Story</h2>
+        <a href="contact.html" class="btn-gold" data-en="Request a Consultation" data-ar="اطلب استشارة">Request a Consultation</a>
       </div>
     </div>
   </div>
@@ -225,7 +167,16 @@
     <p class="eyebrow" data-en="Why Charmain Flooring" data-ar="لماذا شارمين فلورينج">Why Charmain Flooring</p>
     <h2 data-en="Built Different" data-ar="مختلفون بالبناء">Built Different</h2>
     <div class="gold-bar"></div>
-    <div class="why-grid">
+    <div class="why-grid why-grid--with-video">
+      <!-- Video 7 embedded in the why section -->
+      <div class="w-video-panel">
+        <video class="w-video" autoplay muted loop playsinline preload="auto">
+          <source src="videos/7.mp4" type="video/mp4">
+        </video>
+        <div class="w-video-label">
+          <span data-en="Charmain in action" data-ar="شارمين في العمل">Charmain in action</span>
+        </div>
+      </div>
       <div class="w-card">
         <div class="w-card-glow"></div>
         <span class="w-num">01</span>
@@ -319,85 +270,5 @@
 </div>
 
 <script src="script.js?v=3"></script>
-<script>
-/* ── VIDEO CAROUSEL ─────────────────────────────────────────────────────── */
-(function() {
-  var srcs = [
-    'videos/1.mp4','videos/2.mp4','videos/3.mp4','videos/4.mp4',
-    'videos/5.mp4','videos/6.mp4','videos/7.mp4'
-  ];
-  var total   = srcs.length;
-  var current = 0;
-
-  var main    = document.getElementById('vcMain');
-  var mainSrc = document.getElementById('vcMainSrc');
-  var dots    = document.querySelectorAll('.vc-dot');
-  var thumbs  = document.querySelectorAll('.vc-thumb');
-  var prev    = document.getElementById('vcPrev');
-  var next    = document.getElementById('vcNext');
-  var curEl   = document.getElementById('vcCurrent');
-  var totEl   = document.getElementById('vcTotal');
-
-  // Init counter total correctly
-  if (totEl) totEl.textContent = total;
-
-  function goTo(idx) {
-    if (idx < 0) idx = total - 1;
-    if (idx >= total) idx = 0;
-
-    main.pause();
-    current = idx;
-
-    // Swap source
-    mainSrc.setAttribute('src', srcs[current]);
-    main.load();
-
-    // Counter
-    if (curEl) curEl.textContent = current + 1;
-
-    // Dots
-    dots.forEach(function(d, i) {
-      d.classList.toggle('active', i === current);
-      d.setAttribute('aria-selected', i === current ? 'true' : 'false');
-    });
-
-    // Thumbs
-    thumbs.forEach(function(t, i) {
-      t.classList.toggle('active', i === current);
-      t.setAttribute('aria-selected', i === current ? 'true' : 'false');
-    });
-
-    // Scroll active thumb into view
-    var activeThumb = thumbs[current];
-    if (activeThumb) {
-      activeThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-    }
-  }
-
-  prev.addEventListener('click', function() { goTo(current - 1); });
-  next.addEventListener('click', function() { goTo(current + 1); });
-
-  dots.forEach(function(d) {
-    d.addEventListener('click', function() { goTo(parseInt(d.getAttribute('data-idx'), 10)); });
-  });
-
-  thumbs.forEach(function(t) {
-    t.addEventListener('click', function() { goTo(parseInt(t.getAttribute('data-idx'), 10)); });
-    t.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        goTo(parseInt(t.getAttribute('data-idx'), 10));
-      }
-    });
-  });
-
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'ArrowLeft')  goTo(current - 1);
-    if (e.key === 'ArrowRight') goTo(current + 1);
-  });
-
-  main.addEventListener('ended', function() { goTo(current + 1); });
-})();
-</script>
 </body>
 </html>
