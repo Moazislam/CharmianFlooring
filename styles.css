@@ -2066,7 +2066,7 @@ body.rtl .lang-btn {
 /* ── Cinematic full-width strip (video 6) ── */
 .ab-cinematic { position: relative; overflow: hidden; height: clamp(320px, 55vw, 600px); }
 .ab-cinematic-inner { position: relative; width: 100%; height: 100%; }
-.ab-cinematic-video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ab-cinematic-video { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
 .ab-cinematic-overlay {
   position: absolute; inset: 0;
   background: linear-gradient(100deg, rgba(15,18,40,0.82) 0%, rgba(15,18,40,0.50) 55%, rgba(15,18,40,0.12) 100%);
@@ -2090,7 +2090,7 @@ body.rtl .lang-btn {
   min-height: 360px; background: #000;
   box-shadow: 0 8px 40px rgba(0,0,0,0.35);
 }
-.w-video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.w-video { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
 .w-video-label {
   position: absolute; bottom: 0; left: 0; right: 0;
   padding: 20px 18px 16px;
