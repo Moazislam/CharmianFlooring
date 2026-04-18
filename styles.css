@@ -2109,3 +2109,28 @@ body.rtl .lang-btn {
   .ab-cinematic-text { padding: 28px 24px; }
   .ab-cinematic-text h2 { font-size: 22px; }
 }
+
+/* ══ iOS Safari: suppress native video UI on background videos ══════════ */
+video.hero-video-bg::-webkit-media-controls,
+video.ab-inline-video::-webkit-media-controls,
+video.ab-cinematic-video::-webkit-media-controls,
+video.w-video::-webkit-media-controls,
+video.hero-video-bg::-webkit-media-controls-enclosure,
+video.ab-inline-video::-webkit-media-controls-enclosure,
+video.ab-cinematic-video::-webkit-media-controls-enclosure,
+video.w-video::-webkit-media-controls-enclosure,
+video.hero-video-bg::-webkit-media-controls-panel,
+video.ab-inline-video::-webkit-media-controls-panel,
+video.ab-cinematic-video::-webkit-media-controls-panel,
+video.w-video::-webkit-media-controls-panel {
+  display: none !important;
+  -webkit-appearance: none !important;
+  opacity: 0 !important;
+}
+video.hero-video-bg,
+video.ab-inline-video,
+video.ab-cinematic-video,
+video.w-video {
+  -webkit-appearance: none;
+  pointer-events: none;
+}

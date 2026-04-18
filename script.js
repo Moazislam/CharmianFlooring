@@ -597,3 +597,50 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 }); /* end DOMContentLoaded */
+
+/* ── Force autoplay on all background videos (iOS Safari fix) ─────────── */
+(function() {
+  var BG_CLASSES = [
+    'hero-video-bg', 'ab-inline-video',
+    'ab-cinematic-video', 'w-video'
+  ];
+
+  function forcePlay(video) {
+    if (!video) return;
+    video.muted   = true;
+    video.volume  = 0;
+    video.loop    = true;
+    // Remove any controls attribute iOS might re-add
+    video.removeAttribute('controls');
+    var p = video.play();
+    if (p && typeof p.catch === 'function') {
+      p.catch(function() {
+        // If autoplay blocked, retry once on first user interaction
+        var retry = function() {
+          video.play().catch(function(){});
+          document.removeEventListener('touchstart', retry);
+          document.removeEventListener('click', retry);
+        };
+        document.addEventListener('touchstart', retry, { once: true });
+        document.addEventListener('click',      retry, { once: true });
+      });
+    }
+  }
+
+  function initVideos() {
+    BG_CLASSES.forEach(function(cls) {
+      document.querySelectorAll('video.' + cls).forEach(forcePlay);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initVideos);
+  } else {
+    initVideos();
+  }
+
+  // Also retry on visibility change (tab switch / screen wake on iOS)
+  document.addEventListener('visibilitychange', function() {
+    if (!document.hidden) { initVideos(); }
+  });
+})();
