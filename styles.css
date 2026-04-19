@@ -1275,7 +1275,7 @@ footer { background: var(--navy); padding: clamp(48px,6vw,72px) 5% 28px; }
 
   /* ABOUT */
   .about-grid          { grid-template-columns: 1fr; gap: 32px; }
-  .about-visual        { aspect-ratio: 16/9; min-height: 200px; }
+  .about-visual        { aspect-ratio: 4/3; min-height: 260px; }
 
   /* COLLECTIONS */
   .collection-hero     { grid-template-columns: 1fr; gap: 28px; }
