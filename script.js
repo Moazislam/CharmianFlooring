@@ -607,17 +607,44 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function forcePlay(video) {
     if (!video) return;
-    video.muted   = true;
-    video.volume  = 0;
-    video.loop    = true;
-    // Remove any controls attribute iOS might re-add
+
+    // Safari/iOS requirements
+    video.muted       = true;
+    video.defaultMuted = true;
+    video.playsInline  = true;
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
+    video.setAttribute('muted', '');
+    video.setAttribute('autoplay', '');
+    video.setAttribute('disableRemotePlayback', '');
+    
+    // Ensure no controls are shown
+    video.controls = false;
     video.removeAttribute('controls');
-    var p = video.play();
-    if (p && typeof p.catch === 'function') {
-      p.catch(function() {
-        // If autoplay blocked, retry once on first user interaction
+
+    // If already playing or ready, show it immediately
+    if (video.readyState >= 3) {
+      video.classList.add('loaded');
+      video.classList.add('is-playing');
+    }
+
+    // Handle "loaded" state smoothly
+    video.addEventListener('playing', function() {
+      video.classList.add('loaded');
+      video.classList.add('is-playing');
+    }, { once: true });
+
+    // Initial play attempt
+    var promise = video.play();
+    if (promise !== undefined) {
+      promise.catch(function() {
+        // Autoplay was prevented (e.g. Low Power Mode)
+        // We'll retry on first user interaction
         var retry = function() {
-          video.play().catch(function(){});
+          video.play().then(function() {
+            video.classList.add('loaded');
+            video.classList.add('is-playing');
+          }).catch(function(){});
           document.removeEventListener('touchstart', retry);
           document.removeEventListener('click', retry);
         };
@@ -625,11 +652,24 @@ document.addEventListener('DOMContentLoaded', function() {
         document.addEventListener('click',      retry, { once: true });
       });
     }
+
+    // Safari fix: Resume if suspended or stalled
+    video.addEventListener('suspend', function() {
+      if (video.paused && !document.hidden) {
+        video.play().catch(function(){});
+      }
+    });
   }
 
   function initVideos() {
     BG_CLASSES.forEach(function(cls) {
-      document.querySelectorAll('video.' + cls).forEach(forcePlay);
+      document.querySelectorAll('video.' + cls).forEach(function(v) {
+        // Force loop on background videos
+        if (v.getAttribute('loop') !== 'false') {
+          v.loop = true;
+        }
+        forcePlay(v);
+      });
     });
   }
 

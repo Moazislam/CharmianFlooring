@@ -147,7 +147,10 @@ nav {
 }
 
 /* ── Hero video background ── */
-.hero-video-bg {
+.hero-video-bg,
+.ab-inline-video,
+.ab-cinematic-video,
+.w-video {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -157,9 +160,43 @@ nav {
   z-index: 0;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.4s ease;
+  background-color: #0f1228; /* Navy placeholder */
+  background-size: cover;
+  background-position: center;
+  transition: opacity 0.8s ease-in-out;
+  /* Safari optimizations */
+  -webkit-appearance: none;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: opacity;
 }
-.hero-video-bg.loaded { opacity: 1; }
+
+.hero-video-bg {
+  background-image: url('images/hero.jpg');
+}
+.ab-inline-video,
+.ab-cinematic-video,
+.w-video {
+  background-image: url('images/about.jpg');
+}
+
+.hero-video-bg.loaded,
+.ab-inline-video.loaded,
+.ab-cinematic-video.loaded,
+.w-video.loaded,
+.hero-video-bg.is-playing,
+.ab-inline-video.is-playing,
+.ab-cinematic-video.is-playing,
+.w-video.is-playing {
+  opacity: 1;
+}
+
+.hero-video-bg {
+  object-position: center;
+}
+.w-video {
+  object-position: center 20%;
+}
 .hero-video-overlay {
   position: absolute;
   inset: 0;
@@ -2139,7 +2176,11 @@ video.w-video::-webkit-media-controls-enclosure,
 video.hero-video-bg::-webkit-media-controls-panel,
 video.ab-inline-video::-webkit-media-controls-panel,
 video.ab-cinematic-video::-webkit-media-controls-panel,
-video.w-video::-webkit-media-controls-panel {
+video.w-video::-webkit-media-controls-panel,
+video.hero-video-bg::-webkit-media-controls-start-playback-button,
+video.ab-inline-video::-webkit-media-controls-start-playback-button,
+video.ab-cinematic-video::-webkit-media-controls-start-playback-button,
+video.w-video::-webkit-media-controls-start-playback-button {
   display: none !important;
   -webkit-appearance: none !important;
   opacity: 0 !important;
@@ -2150,4 +2191,6 @@ video.ab-cinematic-video,
 video.w-video {
   -webkit-appearance: none;
   pointer-events: none;
+  /* Disable interaction that might trigger UI */
+  touch-action: none;
 }
