@@ -2194,3 +2194,6 @@ video.w-video {
   /* Disable interaction that might trigger UI */
   touch-action: none;
 }
+
+/* Fix gallery filter */
+.is-hidden { display: none !important; }

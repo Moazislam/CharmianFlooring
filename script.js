@@ -1,15 +1,15 @@
 /* ── GLOBAL STATE ─────────────────────────────────────────────────────────── */
-var lang = 'en';
-var _selectedSwatch = null;
-var _savedScrollY = 0;
+let lang = 'en';
+let _selectedSwatch = null;
+let _savedScrollY = 0;
 
 /* ── SWATCH IMAGE MAP ────────────────────────────────────────────────────── */
-var SWATCH_IMAGES = {
-  "CVG-T01": "images/Marble/CVG-T05.jpg",
-  "CVG-T02": "images/Marble/CVG-T04.jpg",
+const SWATCH_IMAGES = {
+  "CVG-T01": "images/Marble/CVG-T01.jpg",
+  "CVG-T02": "images/Marble/CVG-T02.jpg",
   "CVG-T03": "images/Marble/CVG-T03.jpg",
-  "CVG-T04": "images/Marble/CVG-T02.jpg",
-  "CVG-T05": "images/Marble/CVG-T01.jpg",
+  "CVG-T04": "images/Marble/CVG-T04.jpg",
+  "CVG-T05": "images/Marble/CVG-T05.jpg",
   "CVG-C07": "images/Marble/CVG-C07.jpeg",
   "CVG-C08": "images/Marble/CVG-C08.jpeg",
   "CVG-C09": "images/Marble/CVG-C09.jpeg",
@@ -38,7 +38,7 @@ var SWATCH_IMAGES = {
 
 function showPage(id) {
   // Multi-page site: navigate to the correct HTML file
-  var pageMap = {
+  let pageMap = {
     'home':        'index.html',
     'about':       'about.html',
     'collections': 'collections.html',
@@ -56,68 +56,67 @@ function showTab(id) {
     p.style.display = 'none';
   });
   document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
-  var panel = document.getElementById('panel-' + id);
+  let panel = document.getElementById('panel-' + id);
   if (panel) {
     panel.classList.add('active');
     panel.style.display = 'block';
-    var section = document.querySelector('.collections-page');
+    let section = document.querySelector('.collections-page');
     if (section && window.innerWidth < 768) {
       setTimeout(function() { section.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50);
     }
   }
   document.querySelectorAll('.tab-btn').forEach(function(b) {
-    var onclick = b.getAttribute('onclick') || '';
+    let onclick = b.getAttribute('onclick') || '';
     if (onclick.indexOf("'" + id + "'") !== -1) b.classList.add('active');
   });
 }
 
 function closeMob() {
-  var menu = document.getElementById('mobileMenu');
+  let menu = document.getElementById('mobileMenu');
   if (menu) menu.classList.remove('open');
   document.body.classList.remove('menu-open');
   document.body.style.top = '';
   window.scrollTo(0, _savedScrollY || 0);
-  var ham = document.getElementById('ham');
+  let ham = document.getElementById('ham');
   if (ham) ham.setAttribute('aria-expanded', 'false');
 }
 
 function openMob() {
-  var menu = document.getElementById('mobileMenu');
+  let menu = document.getElementById('mobileMenu');
   if (!menu) return;
   _savedScrollY = window.scrollY || window.pageYOffset || 0;
   menu.classList.add('open');
   document.body.classList.add('menu-open');
   document.body.style.top = -_savedScrollY + 'px';
-  var ham = document.getElementById('ham');
+  let ham = document.getElementById('ham');
   if (ham) ham.setAttribute('aria-expanded', 'true');
 }
 
 function galleryFilter(cat, btn) {
-  document.querySelectorAll('.gf-btn').forEach(function(b) { b.classList.remove('active'); });
-  if (btn) btn.classList.add('active');
-  document.querySelectorAll('.ge-item').forEach(function(item) {
-    if (cat === 'all' || item.getAttribute('data-cat') === cat) {
-      item.style.opacity = '1';
-      item.style.pointerEvents = '';
-    } else {
-      item.style.opacity = '0.15';
-      item.style.pointerEvents = 'none';
-    }
+  document.querySelectorAll('.gf-btn').forEach((b) => {
+    const isActive = b === btn;
+    b.classList.toggle('active', isActive);
+    b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+  });
+  document.querySelectorAll('.ge-item').forEach((item) => {
+    const isVisible = cat === 'all' || item.getAttribute('data-cat') === cat;
+    item.classList.toggle('is-hidden', !isVisible);
+    item.hidden = !isVisible;
   });
 }
 
 function applyLang(l) {
-  var isAr = l === 'ar';
+  let isAr = l === 'ar';
   document.body.classList.toggle('rtl', isAr);
   document.body.style.fontFamily = isAr ? "'Cairo', sans-serif" : "'Barlow', sans-serif";
   document.documentElement.setAttribute('lang', l);
   document.documentElement.setAttribute('dir', isAr ? 'rtl' : 'ltr');
-  var langBtn = document.getElementById('langBtn');
+  let langBtn = document.getElementById('langBtn');
   if (langBtn) langBtn.textContent = isAr ? 'English' : 'عربي';
-  var mob = document.getElementById('langBtnMob');
+  let mob = document.getElementById('langBtnMob');
   if (mob) mob.textContent = isAr ? 'English' : 'عربي';
   document.querySelectorAll('[data-en]').forEach(function(el) {
-    var val = el.getAttribute('data-' + l);
+    let val = el.getAttribute('data-' + l);
     if (!val) return;
     if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
       el.placeholder = val;
@@ -126,7 +125,7 @@ function applyLang(l) {
       el.textContent = val;
     } else if (el.tagName === 'SELECT') {
       // Preserve selected value across translation
-      var savedVal = el.value;
+      let savedVal = el.value;
       el.innerHTML = val;
       el.value = savedVal;
     } else if (el.namespaceURI && el.namespaceURI.indexOf('svg') !== -1) {
@@ -142,13 +141,13 @@ function applyLang(l) {
   document.querySelectorAll('input, textarea, select, button').forEach(function(el) {
     el.style.fontFamily = isAr ? "'Cairo', sans-serif" : "'Barlow', sans-serif";
   });
-  var selSwatch = document.querySelector('.form-swatch-item.selected');
+  let selSwatch = document.querySelector('.form-swatch-item.selected');
   if (selSwatch) {
-    var dn = document.getElementById('formDesignName');
+    let dn = document.getElementById('formDesignName');
     if (dn) dn.textContent = selSwatch.getAttribute('data-name-' + l) || selSwatch.getAttribute('data-name-en') || '';
   }
   document.querySelectorAll('.tab-btn').forEach(function(b) {
-    var val = b.getAttribute('data-' + l);
+    let val = b.getAttribute('data-' + l);
     if (val) b.textContent = val;
   });
   try {
@@ -157,12 +156,12 @@ function applyLang(l) {
 }
 
 function openSwatch(bg, code, nameEn, nameAr, thick, descEn, descAr) {
-  var lb = document.getElementById('swatchLightbox');
+  let lb = document.getElementById('swatchLightbox');
   if (!lb) return;
-  var isAr = document.body.classList.contains('rtl');
+  let isAr = document.body.classList.contains('rtl');
   _selectedSwatch = { bg: bg, code: code, nameEn: nameEn, nameAr: nameAr, thick: thick };
-  var swatchEl = document.getElementById('lbSwatch');
-  var imgSrc = SWATCH_IMAGES[code] || null;
+  let swatchEl = document.getElementById('lbSwatch');
+  let imgSrc = SWATCH_IMAGES[code] || null;
   if (imgSrc) {
     swatchEl.innerHTML = '<img src="' + imgSrc + '" style="width:100%;height:100%;object-fit:cover;object-position:center 70%;border-radius:3px;display:block;" draggable="false">';
     swatchEl.style.cssText =
@@ -181,10 +180,10 @@ function openSwatch(bg, code, nameEn, nameAr, thick, descEn, descAr) {
   document.getElementById('lbCode').textContent = code;
   document.getElementById('lbName').textContent = isAr ? nameAr : nameEn;
   document.getElementById('lbThick').textContent = thick + ' ' + (isAr ? 'سماكة' : 'Thickness');
-  var descEl = document.getElementById('lbDesc');
+  let descEl = document.getElementById('lbDesc');
   if (descEl) descEl.textContent = isAr ? (descAr || descEn || '') : (descEn || '');
   lb.querySelectorAll('[data-en]').forEach(function(el) {
-    var val = el.getAttribute('data-' + (isAr ? 'ar' : 'en'));
+    let val = el.getAttribute('data-' + (isAr ? 'ar' : 'en'));
     if (val) el.textContent = val;
   });
   lb.classList.add('open');
@@ -192,7 +191,7 @@ function openSwatch(bg, code, nameEn, nameAr, thick, descEn, descAr) {
 }
 
 function closeLightbox(e) {
-  var lb = document.getElementById('swatchLightbox');
+  let lb = document.getElementById('swatchLightbox');
   if (lb) lb.classList.remove('open');
   document.body.style.overflow = '';
   document.body.style.removeProperty('overflow');
@@ -202,7 +201,7 @@ function closeLightbox(e) {
 }
 
 /* ── GOOGLE SHEETS CONFIG ────────────────────────────────────────────────── */
-var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyoxM5r8hyinpAM5bvrMiRu9T8q2K3tXnEMaJUYO54EZGUy7DTtsLqhNPbNHllAOLKVew/exec';
+const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyoxM5r8hyinpAM5bvrMiRu9T8q2K3tXnEMaJUYO54EZGUy7DTtsLqhNPbNHllAOLKVew/exec';
 
 /* ── GOOGLE SHEETS SUBMISSION ────────────────────────────────────────────── */
 async function submitToGoogleSheets(data) {
@@ -225,7 +224,7 @@ async function submitToGoogleSheets(data) {
 /* ══ DOM-DEPENDENT SETUP — runs after page is fully loaded ══════════════════ */
 document.addEventListener('DOMContentLoaded', function() {
   try {
-    var savedLang = window.localStorage.getItem('siteLang');
+    let savedLang = window.localStorage.getItem('siteLang');
     if (savedLang === 'ar' || savedLang === 'en') {
       lang = savedLang;
     }
@@ -240,19 +239,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
   /* Make clickable swatches keyboard accessible */
   document.querySelectorAll('.swatch-item, .form-swatch-item').forEach(function(item) {
+    const code = item.getAttribute('data-code') || '';
+    const name = item.getAttribute('data-name-en') || item.textContent.trim() || 'flooring design';
     item.setAttribute('tabindex', '0');
     item.setAttribute('role', 'button');
+    item.setAttribute('aria-label', code ? `View ${code} ${name}` : `View ${name}`);
   });
 
   /* Lang toggle buttons */
-  var langBtn = document.getElementById('langBtn');
+  let langBtn = document.getElementById('langBtn');
   if (langBtn) {
     langBtn.addEventListener('click', function() {
       lang = lang === 'en' ? 'ar' : 'en';
       applyLang(lang);
     });
   }
-  var mobLang = document.getElementById('langBtnMob');
+  let mobLang = document.getElementById('langBtnMob');
   if (mobLang) {
     mobLang.addEventListener('click', function() {
       lang = lang === 'en' ? 'ar' : 'en';
@@ -261,12 +263,12 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   /* Hamburger */
-  var ham = document.getElementById('ham');
+  let ham = document.getElementById('ham');
   if (ham) {
     ham.addEventListener('click', function() {
-      var menu = document.getElementById('mobileMenu');
+      let menu = document.getElementById('mobileMenu');
       if (!menu) return;
-      var isOpen = menu.classList.contains('open');
+      let isOpen = menu.classList.contains('open');
       if (isOpen) {
         closeMob();
       } else {
@@ -277,26 +279,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
   /* Navbar shadow on scroll */
   window.addEventListener('scroll', function() {
-    var navbar = document.getElementById('navbar');
+    let navbar = document.getElementById('navbar');
     if (navbar) navbar.style.boxShadow = window.scrollY > 20 ? '0 2px 20px rgba(0,0,0,0.25)' : 'none';
   }, { passive: true });
 
   /* Collection checkboxes + multi-select design picker */
   (function() {
-    var picker          = document.getElementById('formDesignPicker');
-    var customFields    = document.getElementById('formCustomFields');
-    var allSwatchGroups = document.querySelectorAll('.form-swatch-group');
-    var selectedDesignsContainer = document.getElementById('formSelectedDesigns');
-    var selectedDesignsList = document.getElementById('selectedDesignsList');
-    var designInput     = document.getElementById('designCodeInput');
-    var clearAllBtn     = document.getElementById('formClearAllDesigns');
-    var collectionCheckboxes = document.querySelectorAll('#collectionCheckboxes input[type="checkbox"]');
-    var collectionError = document.getElementById('collectionError');
-    var pickableCollections = ['marble', 'wood', 'elite'];
-    var selectedDesigns = [];
+    let picker          = document.getElementById('formDesignPicker');
+    let customFields    = document.getElementById('formCustomFields');
+    let allSwatchGroups = document.querySelectorAll('.form-swatch-group');
+    let selectedDesignsContainer = document.getElementById('formSelectedDesigns');
+    let selectedDesignsList = document.getElementById('selectedDesignsList');
+    let designInput     = document.getElementById('designCodeInput');
+    let clearAllBtn     = document.getElementById('formClearAllDesigns');
+    let collectionCheckboxes = document.querySelectorAll('#collectionCheckboxes input[type="checkbox"]');
+    let collectionError = document.getElementById('collectionError');
+    let pickableCollections = ['marble', 'wood', 'elite'];
+    let selectedDesigns = [];
 
     function updateDesignPicker() {
-      var checkedCollections = [];
+      let checkedCollections = [];
       collectionCheckboxes.forEach(function(cb) {
         if (cb.checked) checkedCollections.push(cb.value);
       });
@@ -305,12 +307,12 @@ document.addEventListener('DOMContentLoaded', function() {
       allSwatchGroups.forEach(function(g) { g.style.display = 'none'; });
 
       // Check if any pickable collection is selected
-      var hasPickable = checkedCollections.some(function(c) {
+      let hasPickable = checkedCollections.some(function(c) {
         return pickableCollections.indexOf(c) !== -1;
       });
 
       // Check if custom is selected
-      var hasCustom = checkedCollections.indexOf('custom') !== -1;
+      let hasCustom = checkedCollections.indexOf('custom') !== -1;
 
       // Show design picker if any pickable collection is selected
       if (hasPickable) {
@@ -318,7 +320,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Show swatch groups for selected collections
         checkedCollections.forEach(function(collVal) {
           if (pickableCollections.indexOf(collVal) !== -1) {
-            var group = document.getElementById('formSwatches-' + collVal);
+            let group = document.getElementById('formSwatches-' + collVal);
             if (group) group.style.display = 'block';
           }
         });
@@ -354,7 +356,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (designInput) designInput.value = selectedDesigns.map(function(d) { return d.code; }).join(', ');
 
       selectedDesigns.forEach(function(design) {
-        var tag = document.createElement('span');
+        let tag = document.createElement('span');
         tag.className = 'selected-design-tag';
         tag.innerHTML = design.code + '<button type="button" data-code="' + design.code + '">&times;</button>';
         selectedDesignsList.appendChild(tag);
@@ -363,7 +365,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Add click handlers to remove buttons
       selectedDesignsList.querySelectorAll('button').forEach(function(btn) {
         btn.addEventListener('click', function() {
-          var code = btn.getAttribute('data-code');
+          let code = btn.getAttribute('data-code');
           removeDesign(code);
         });
       });
@@ -371,7 +373,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function addDesign(code, nameEn, nameAr, bg) {
       // Check if already selected
-      var exists = selectedDesigns.some(function(d) { return d.code === code; });
+      let exists = selectedDesigns.some(function(d) { return d.code === code; });
       if (!exists) {
         selectedDesigns.push({ code: code, nameEn: nameEn, nameAr: nameAr, bg: bg });
       }
@@ -381,7 +383,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function removeDesign(code) {
       selectedDesigns = selectedDesigns.filter(function(d) { return d.code !== code; });
       // Remove selected class from swatch
-      var swatch = document.querySelector('.form-swatch-item[data-code="' + code + '"]');
+      let swatch = document.querySelector('.form-swatch-item[data-code="' + code + '"]');
       if (swatch) swatch.classList.remove('selected');
       updateSelectedDesignsDisplay();
     }
@@ -401,13 +403,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Form swatch item click (toggle selection)
   document.addEventListener('click', function(e) {
-    var item = e.target.closest('.form-swatch-item');
+    let item = e.target.closest('.form-swatch-item');
     if (!item) return;
       
-      var code   = item.getAttribute('data-code') || '';
-      var bg     = item.getAttribute('data-bg') || '';
-      var nameEn = item.getAttribute('data-name-en') || code;
-      var nameAr = item.getAttribute('data-name-ar') || nameEn;
+      let code   = item.getAttribute('data-code') || '';
+      let bg     = item.getAttribute('data-bg') || '';
+      let nameEn = item.getAttribute('data-name-en') || code;
+      let nameAr = item.getAttribute('data-name-ar') || nameEn;
 
       if (item.classList.contains('selected')) {
         // Deselect
@@ -421,7 +423,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     document.addEventListener('keydown', function(e) {
-      var keyTarget = e.target.closest('.form-swatch-item, .swatch-item');
+      let keyTarget = e.target.closest('.form-swatch-item, .swatch-item');
       if (!keyTarget) return;
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
@@ -438,18 +440,25 @@ document.addEventListener('DOMContentLoaded', function() {
   })();
 
   /* Contact form — Web3Forms + Google Sheets (parallel) */
-  var form = document.getElementById('contactForm');
+  let form = document.getElementById('contactForm');
   if (form) {
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
+      const status = document.getElementById('formStatus');
+      const setStatus = (message, type) => {
+        if (!status) return;
+        status.textContent = message;
+        status.classList.remove('is-success', 'is-error');
+        if (type) status.classList.add(type);
+      };
       
       // Validate collection selection
-      var collectionCheckboxes = document.querySelectorAll('#collectionCheckboxes input[type="checkbox"]:checked');
-      var collectionError = document.getElementById('collectionError');
+      let collectionCheckboxes = document.querySelectorAll('#collectionCheckboxes input[type="checkbox"]:checked');
+      let collectionError = document.getElementById('collectionError');
       
       // Spam protection: check honeypot fields
-      var botcheck = form.querySelector('input[name="botcheck"]');
-      var websiteField = form.querySelector('input[name="website"]');
+      let botcheck = form.querySelector('input[name="botcheck"]');
+      let websiteField = form.querySelector('input[name="website"]');
       if ((botcheck && botcheck.value) || (websiteField && websiteField.value)) {
         return; // Silently reject spam submissions
       }
@@ -462,34 +471,34 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
       
-      var btn  = form.querySelector('button[type="submit"]');
+      let btn  = form.querySelector('button[type="submit"]');
       if (!btn) return;
-      var orig = btn.textContent;
+      let orig = btn.textContent;
       btn.textContent = lang === 'ar' ? 'جارٍ الإرسال...' : 'Sending...';
       btn.disabled = true;
 
       /* ── Collect raw values from the form ── */
-      var rawForm = new FormData(form);
+      let rawForm = new FormData(form);
 
-      var customerName   = rawForm.get('name')         || '';
-      var customerEmail  = rawForm.get('email')        || '';
-      var countryCode    = rawForm.get('country_code') || '';
-      var phoneNumber    = rawForm.get('phone')        || '';
-      var fullPhone      = (countryCode + ' ' + phoneNumber).trim();
-      var designCodes    = rawForm.get('design_code')  || 'None selected';
-      var thickness      = rawForm.get('thickness')    || 'N/A';
-      var pattern        = rawForm.get('pattern')      || 'N/A';
-      var userMessage    = rawForm.get('message')      || 'N/A';
+      let customerName   = rawForm.get('name')         || '';
+      let customerEmail  = rawForm.get('email')        || '';
+      let countryCode    = rawForm.get('country_code') || '';
+      let phoneNumber    = rawForm.get('phone')        || '';
+      let fullPhone      = (countryCode + ' ' + phoneNumber).trim();
+      let designCodes    = rawForm.get('design_code')  || 'None selected';
+      let thickness      = rawForm.get('thickness')    || 'N/A';
+      let pattern        = rawForm.get('pattern')      || 'N/A';
+      let userMessage    = rawForm.get('message')      || 'N/A';
 
       // Collect selected collections
-      var selectedCollections = [];
+      let selectedCollections = [];
       collectionCheckboxes.forEach(function(cb) {
         selectedCollections.push(cb.value);
       });
-      var collectionStr = selectedCollections.join(', ');
+      let collectionStr = selectedCollections.join(', ');
 
       // ── Build one clean plain-text message body ──
-      var cleanMessage = [
+      let cleanMessage = [
         'Name:        ' + customerName,
         'Phone:       ' + fullPhone,
         'Email:       ' + customerEmail,
@@ -502,7 +511,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // ── Build a minimal FormData with ONLY the fields Web3Forms needs ──
       // Sending only these prevents Web3Forms from dumping every field as raw text
-      var formData = new FormData();
+      let formData = new FormData();
       formData.set('access_key',  rawForm.get('access_key') || '');
       formData.set('subject',     'New Quote Request — Charmain Flooring');
       formData.set('from_name',   'Charmain Flooring Website');
@@ -510,7 +519,7 @@ document.addEventListener('DOMContentLoaded', function() {
       formData.set('message',     cleanMessage);
 
       // Google Sheets payload (separate, keeps all structured fields)
-      var sheetsPayload = {
+      let sheetsPayload = {
         name:         customerName,
         country_code: countryCode,
         phone:        phoneNumber,
@@ -524,27 +533,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
       try {
         /* Submit to Web3Forms */
-        var response = await fetch('https://api.web3forms.com/submit', { 
+        let response = await fetch('https://api.web3forms.com/submit', { 
           method: 'POST', 
           body: formData 
         });
         if (!response.ok) {
           throw new Error('Web3Forms request failed with status ' + response.status);
         }
-        var data = await response.json();
+        let data = await response.json();
         
         if (data.success) {
           /* Submit to Google Sheets */
           submitToGoogleSheets(sheetsPayload);
 
           btn.textContent = lang === 'ar' ? 'تم الإرسال!' : 'Sent!';
-          alert(lang === 'ar' ? 'تم إرسال رسالتك بنجاح!' : 'Success! Your message has been sent.');
+          setStatus(lang === 'ar' ? '✓ شكراً لك، سنتواصل معك قريباً.' : "✓ Thank you, we'll be in touch soon.", 'is-success');
           form.reset();
           
           /* Hide design picker and custom fields */
-          var picker = document.getElementById('formDesignPicker');
-          var customFields = document.getElementById('formCustomFields');
-          var selectedDesigns = document.getElementById('formSelectedDesigns');
+          let picker = document.getElementById('formDesignPicker');
+          let customFields = document.getElementById('formCustomFields');
+          let selectedDesigns = document.getElementById('formSelectedDesigns');
           if (picker) picker.style.display = 'none';
           if (customFields) customFields.style.display = 'none';
           if (selectedDesigns) selectedDesigns.style.display = 'none';
@@ -557,12 +566,12 @@ document.addEventListener('DOMContentLoaded', function() {
           
           setTimeout(function() { btn.textContent = orig; btn.disabled = false; }, 3000);
         } else {
-          alert('Error: ' + (data.message || 'Form submission failed'));
+          setStatus(data.message || 'Form submission failed. Please try again.', 'is-error');
           btn.textContent = lang === 'ar' ? 'حدث خطأ' : 'Error — try again';
           setTimeout(function() { btn.textContent = orig; btn.disabled = false; }, 3000);
         }
       } catch (err) {
-        alert(lang === 'ar' ? 'حدث خطأ. يرجى المحاولة مرة أخرى.' : 'Something went wrong. Please try again.');
+        setStatus(lang === 'ar' ? 'حدث خطأ. يرجى المحاولة مرة أخرى.' : 'Something went wrong. Please try again.', 'is-error');
         btn.textContent = lang === 'ar' ? 'حدث خطأ' : 'Error — try again';
         setTimeout(function() { btn.textContent = orig; btn.disabled = false; }, 3000);
       }
@@ -571,15 +580,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
   /* Swatch lightbox — delegated click */
   document.addEventListener('click', function(e) {
-    var item = e.target.closest('.swatch-item');
+    let item = e.target.closest('.swatch-item');
     if (!item) return;
-    var bg     = item.getAttribute('data-bg') || '';
-    var code   = item.getAttribute('data-code') || '';
-    var nameEn = item.getAttribute('data-name-en') || code;
-    var nameAr = item.getAttribute('data-name-ar') || nameEn;
-    var thick  = item.getAttribute('data-thick') || '0.5–2.0mm';
-    var descEn = item.getAttribute('data-desc-en') || '';
-    var descAr = item.getAttribute('data-desc-ar') || descEn;
+    let bg     = item.getAttribute('data-bg') || '';
+    let code   = item.getAttribute('data-code') || '';
+    let nameEn = item.getAttribute('data-name-en') || code;
+    let nameAr = item.getAttribute('data-name-ar') || nameEn;
+    let thick  = item.getAttribute('data-thick') || '0.5–2.0mm';
+    let descEn = item.getAttribute('data-desc-en') || '';
+    let descAr = item.getAttribute('data-desc-ar') || descEn;
     if (bg && code) openSwatch(bg, code, nameEn, nameAr, thick, descEn, descAr);
   });
 
@@ -588,19 +597,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if (e.key === 'Escape') closeLightbox();
   });
 
-  /* Prevent image download */
-  document.addEventListener('contextmenu', function(e) {
-    if (e.target.tagName === 'IMG') { e.preventDefault(); return false; }
-  });
-  document.addEventListener('dragstart', function(e) {
-    if (e.target.tagName === 'IMG') { e.preventDefault(); return false; }
-  });
-
 }); /* end DOMContentLoaded */
 
 /* ── Force autoplay on all background videos (iOS Safari fix) ─────────── */
 (function() {
-  var BG_CLASSES = [
+  const BG_CLASSES = [
     'hero-video-bg', 'ab-inline-video',
     'ab-cinematic-video', 'w-video'
   ];
@@ -635,12 +636,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }, { once: true });
 
     // Initial play attempt
-    var promise = video.play();
+    let promise = video.play();
     if (promise !== undefined) {
       promise.catch(function() {
         // Autoplay was prevented (e.g. Low Power Mode)
         // We'll retry on first user interaction
-        var retry = function() {
+        let retry = function() {
           video.play().then(function() {
             video.classList.add('loaded');
             video.classList.add('is-playing');
