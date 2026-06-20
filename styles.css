@@ -2197,3 +2197,7 @@ video.w-video {
 
 /* Fix gallery filter */
 .is-hidden { display: none !important; }
+
+/* Hide empty gallery columns */
+.ge-col:not(:has(.ge-item:not(.is-hidden))) { display: none; }
+.ge-col-split:not(:has(.ge-item:not(.is-hidden))) { display: none; }
