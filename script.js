@@ -200,26 +200,7 @@ function closeLightbox(e) {
   }
 }
 
-/* ── GOOGLE SHEETS CONFIG ────────────────────────────────────────────────── */
-const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyoxM5r8hyinpAM5bvrMiRu9T8q2K3tXnEMaJUYO54EZGUy7DTtsLqhNPbNHllAOLKVew/exec';
-
-/* ── GOOGLE SHEETS SUBMISSION ────────────────────────────────────────────── */
-async function submitToGoogleSheets(data) {
-  try {
-    await fetch(SHEETS_URL, {
-      method: 'POST',
-      mode: 'no-cors', // Keeps the browser from blocking the cross-origin request
-      headers: {
-        // MUST be text/plain to bypass the CORS preflight OPTIONS request
-        'Content-Type': 'text/plain;charset=utf-8', 
-      },
-      // Pass the data as a JSON string
-      body: JSON.stringify(data) 
-    });
-  } catch(err) {
-    // Keep the main submission flow successful even if the secondary sync fails.
-  }
-}
+/* ── CONTACT FORM — PHP SUBMISSION ───────────────────────────────────── */
 
 /* ══ DOM-DEPENDENT SETUP — runs after page is fully loaded ══════════════════ */
 document.addEventListener('DOMContentLoaded', function() {
@@ -439,142 +420,48 @@ document.addEventListener('DOMContentLoaded', function() {
     window.clearAllFormDesigns = clearAllDesigns;
   })();
 
-  /* Contact form — Web3Forms + Google Sheets (parallel) */
-  let form = document.getElementById('contactForm');
-  if (form) {
-    form.addEventListener('submit', async function(e) {
+  /* Contact form — PHP submission */
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
-      const status = document.getElementById('formStatus');
-      const setStatus = (message, type) => {
-        if (!status) return;
-        status.textContent = message;
-        status.classList.remove('is-success', 'is-error');
-        if (type) status.classList.add(type);
-      };
-      
-      // Validate collection selection
-      let collectionCheckboxes = document.querySelectorAll('#collectionCheckboxes input[type="checkbox"]:checked');
-      let collectionError = document.getElementById('collectionError');
-      
-      // Spam protection: check honeypot fields
-      let botcheck = form.querySelector('input[name="botcheck"]');
-      let websiteField = form.querySelector('input[name="website"]');
-      if ((botcheck && botcheck.value) || (websiteField && websiteField.value)) {
-        return; // Silently reject spam submissions
-      }
-      
-      if (collectionCheckboxes.length === 0) {
-        if (collectionError) {
-          collectionError.style.display = 'block';
-          collectionError.textContent = lang === 'ar' ? 'يرجى اختيار مجموعة واحدة على الأقل' : 'Please select at least one collection';
-        }
-        return;
-      }
-      
-      let btn  = form.querySelector('button[type="submit"]');
-      if (!btn) return;
-      let orig = btn.textContent;
-      btn.textContent = lang === 'ar' ? 'جارٍ الإرسال...' : 'Sending...';
-      btn.disabled = true;
+      const formData = new FormData(contactForm);
+      fetch('contact.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.status === 'success') {
+          contactForm.reset();
+          document.getElementById('formSuccess').style.display = 'block';
+          setTimeout(() => {
+            document.getElementById('formSuccess').style.display = 'none';
+          }, 5000);
 
-      /* ── Collect raw values from the form ── */
-      let rawForm = new FormData(form);
-
-      let customerName   = rawForm.get('name')         || '';
-      let customerEmail  = rawForm.get('email')        || '';
-      let countryCode    = rawForm.get('country_code') || '';
-      let phoneNumber    = rawForm.get('phone')        || '';
-      let fullPhone      = (countryCode + ' ' + phoneNumber).trim();
-      let designCodes    = rawForm.get('design_code')  || 'None selected';
-      let thickness      = rawForm.get('thickness')    || 'N/A';
-      let pattern        = rawForm.get('pattern')      || 'N/A';
-      let userMessage    = rawForm.get('message')      || 'N/A';
-
-      // Collect selected collections
-      let selectedCollections = [];
-      collectionCheckboxes.forEach(function(cb) {
-        selectedCollections.push(cb.value);
-      });
-      let collectionStr = selectedCollections.join(', ');
-
-      // ── Build one clean plain-text message body ──
-      let cleanMessage = [
-        'Name:        ' + customerName,
-        'Phone:       ' + fullPhone,
-        'Email:       ' + customerEmail,
-        'Collection:  ' + collectionStr,
-        'Designs:     ' + designCodes,
-        'Thickness:   ' + thickness,
-        'Pattern:     ' + pattern,
-        'Message:     ' + userMessage,
-      ].join('\n');
-
-      // ── Build a minimal FormData with ONLY the fields Web3Forms needs ──
-      // Sending only these prevents Web3Forms from dumping every field as raw text
-      let formData = new FormData();
-      formData.set('access_key',  rawForm.get('access_key') || '');
-      formData.set('subject',     'New Quote Request — Charmain Flooring');
-      formData.set('from_name',   'Charmain Flooring Website');
-      formData.set('replyto',     customerEmail);
-      formData.set('message',     cleanMessage);
-
-      // Google Sheets payload (separate, keeps all structured fields)
-      let sheetsPayload = {
-        name:         customerName,
-        country_code: countryCode,
-        phone:        phoneNumber,
-        email:        customerEmail,
-        collection:   collectionStr,
-        design_code:  designCodes,
-        thickness:    thickness,
-        pattern:      pattern,
-        message:      userMessage,
-      };
-
-      try {
-        /* Submit to Web3Forms */
-        let response = await fetch('https://api.web3forms.com/submit', { 
-          method: 'POST', 
-          body: formData 
-        });
-        if (!response.ok) {
-          throw new Error('Web3Forms request failed with status ' + response.status);
-        }
-        let data = await response.json();
-        
-        if (data.success) {
-          /* Submit to Google Sheets */
-          submitToGoogleSheets(sheetsPayload);
-
-          btn.textContent = lang === 'ar' ? 'تم الإرسال!' : 'Sent!';
-          setStatus(lang === 'ar' ? '✓ شكراً لك، سنتواصل معك قريباً.' : "✓ Thank you, we'll be in touch soon.", 'is-success');
-          form.reset();
-          
           /* Hide design picker and custom fields */
           let picker = document.getElementById('formDesignPicker');
           let customFields = document.getElementById('formCustomFields');
           let selectedDesigns = document.getElementById('formSelectedDesigns');
+          let collectionError = document.getElementById('collectionError');
           if (picker) picker.style.display = 'none';
           if (customFields) customFields.style.display = 'none';
           if (selectedDesigns) selectedDesigns.style.display = 'none';
           if (collectionError) collectionError.style.display = 'none';
-          
+
           /* Clear selected designs */
           if (typeof window.clearAllFormDesigns === 'function') {
             window.clearAllFormDesigns();
           }
-          
-          setTimeout(function() { btn.textContent = orig; btn.disabled = false; }, 3000);
         } else {
-          setStatus(data.message || 'Form submission failed. Please try again.', 'is-error');
-          btn.textContent = lang === 'ar' ? 'حدث خطأ' : 'Error — try again';
-          setTimeout(function() { btn.textContent = orig; btn.disabled = false; }, 3000);
+          document.getElementById('formError').textContent = data.message;
+          document.getElementById('formError').style.display = 'block';
         }
-      } catch (err) {
-        setStatus(lang === 'ar' ? 'حدث خطأ. يرجى المحاولة مرة أخرى.' : 'Something went wrong. Please try again.', 'is-error');
-        btn.textContent = lang === 'ar' ? 'حدث خطأ' : 'Error — try again';
-        setTimeout(function() { btn.textContent = orig; btn.disabled = false; }, 3000);
-      }
+      })
+      .catch(() => {
+        document.getElementById('formError').textContent = 'Something went wrong. Please call us directly on 035833895.';
+        document.getElementById('formError').style.display = 'block';
+      });
     });
   }
 

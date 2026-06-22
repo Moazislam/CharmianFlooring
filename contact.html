@@ -104,12 +104,7 @@
         <div><span class="c-label" data-en="Hours" data-ar="ساعات العمل">Hours</span><span class="c-val" data-en="Sat – Thu: 8am – 5pm" data-ar="السبت – الخميس: 8ص – 5م">Sat – Thu: 8am – 5pm</span></div>
       </div>
     </div>
-    <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-      <input type="hidden" name="access_key" value="ae30b6c1-3921-480d-8f8b-45df913abbb5">
-      <input type="hidden" name="subject" value="New Quote Request — Charmain Flooring">
-      <input type="hidden" name="from_name" value="Charmain Flooring Website">
-      <!-- Email formatting template -->
-      <input type="hidden" name="template" value="box">
+    <form class="contact-form" id="contactForm" action="contact.php" method="POST">
       <input type="hidden" name="design_code" id="designCodeInput" value="">
       <!-- Honeypot spam protection - must be empty -->
       <input type="text" name="botcheck" style="display:none !important; position:absolute; left:-9999px;">
@@ -281,6 +276,10 @@
       <button type="submit" class="btn-gold" data-en="Send Request" data-ar="إرسال الطلب">Send Request</button>
       <p class="f-note" id="formStatus" data-en="We'll respond within 24 hours" data-ar="سنرد خلال 24 ساعة">We'll respond within 24 hours</p>
     </form>
+<div id="formSuccess" style="display:none; color: green; margin-top: 1rem; font-weight: 600;">
+  ✅ Thank you! Your message has been sent. We'll be in touch shortly.
+</div>
+<div id="formError" style="display:none; color: red; margin-top: 1rem; font-weight: 600;"></div>
   </div>
 </section>
 
