@@ -30,7 +30,18 @@ const SWATCH_IMAGES = {
   "CVM-E02": "images/Elite/CVM-E02.jpg",
   "CVM-E03": "images/Elite/CVM-E03.jpg",
   "CVM-E04": "images/Elite/CVM-E04.jpg",
-  "CVM-E05": "images/Elite/CVM-E05.jpg"
+  "CVM-E05": "images/Elite/CVM-E05.jpg",
+  "CVG-T07": "images/Marble/CVG-T07.jpg",
+  "CVG-T08": "images/Marble/CVG-T08.jpg",
+  "CVG-T09": "images/Marble/CVG-T09.jpg",
+  "CVG-G06": "images/Marble/CVG-G06.jpg",
+  "CVG-G07": "images/Marble/CVG-G07.jpg",
+  "CVG-G08": "images/Marble/CVG-G08.jpg",
+  "CVG-G010": "images/Marble/CVG-G010.jpg",
+  "CVM-E06": "images/Elite/CVM-E06.jpg",
+  "CVM-E07": "images/Elite/CVM-E07.jpg",
+  "CVM-E010": "images/Elite/CVM-E010.jpg",
+  "CVM-E011": "images/Elite/CVM-E011.jpg"
 };
 
 /* ══ GLOBALLY ACCESSIBLE FUNCTIONS (called from inline onclick) ══════════════
