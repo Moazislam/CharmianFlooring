@@ -824,7 +824,7 @@ nav {
 .ge-item::before {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.08) 45%, transparent 70%);
+  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.08) 45%, rgba(0,0,0,0.5) 100%);
   z-index: 2; pointer-events: none;
   transition: opacity 0.35s;
 }
@@ -844,14 +844,20 @@ nav {
 /* Caption */
 .ge-caption {
   position: absolute;
-  bottom: 0; left: 0; right: 0;
+  top: 0; bottom: 0; left: 0; right: 0;
   z-index: 4;
   padding: 20px 22px 18px;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+  gap: 8px;
 }
-.ge-caption-left {}
+.ge-caption-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
 .ge-caption-room {
   display: block;
   font-size: 9px;
@@ -860,6 +866,7 @@ nav {
   color: var(--gold);
   font-weight: 600;
   margin-bottom: 4px;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
 }
 .ge-caption-title {
   display: block;
@@ -872,10 +879,22 @@ nav {
   font-size: 9px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.85);
   font-weight: 500;
   text-align: right;
-  white-space: nowrap;
+}
+
+@media (max-width: 399px) {
+  .ge-caption {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .ge-caption-left {
+    width: 100%;
+  }
+  .ge-caption-right {
+    text-align: left;
+  }
 }
 
 /* Wide feature caption */
